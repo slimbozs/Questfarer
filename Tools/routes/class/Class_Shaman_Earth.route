@@ -1,0 +1,17 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Earth totems (Dwarf)
+file Class_Shaman_Earth
+faction Alliance
+races Dwarf
+levels 4 61
+map 1426
+side SHAMAN
+ability Earth totems
+
+accept 94373
+complete 94373
+turnin 94373
+accept 94374
+turnin 94374
+accept 94375
+turnin 94375

@@ -1,0 +1,8 @@
+# Leave the island: the zeppelin to Dalaran, then the Skyborne portal to Stormwind
+train ZephrasSouth
+go @65.8,83.4 | Take the zeppelin at the Valanaar dock to Dalaran.
+accept 94947 || Denaaris Stargale waits where the zeppelin docks in Dalaran.
+note Take the Skyborne portal next to Denaaris Stargale to Stormwind.
+turnin 94947 || Highlord Bolvar Fordragon is in Stormwind Keep.
+train Stormwind
+getfp Stormwind @71.3,72.2,1453 {npc=Dungar Longdrink}

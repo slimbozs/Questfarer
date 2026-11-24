@@ -1,0 +1,14 @@
+# Alliance 10-15: Westfall
+# Order from plan_zone.py (routes/drafts/Alliance_Westfall.route), time-optimised against grinding and against
+# the next best zone. Quests whose targets are well above your level (the coast murlocs, Old Murk-Eye) wait
+# for later; the People's Militia follow-ups, Testing the Wells and a few others are skipped as too slow.
+# Edited by hand: the Stormwind trip (A Swift Message chain: the flight path and class training).
+guide Alliance 10-15 Westfall
+file Alliance_Westfall
+faction Alliance
+races Human
+levels 10 16
+map 1436
+
+# Sentinel Hill
+accept 6181

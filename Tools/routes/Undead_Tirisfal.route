@@ -1,0 +1,131 @@
+# Undead 6-13: Tirisfal Glades
+# Order from plan_zone.py (routes/drafts/Undead_Tirisfal.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Brill hearthstone, the
+# Undercity flight path and training.
+guide Undead 6-13 Tirisfal Glades
+file Undead_Tirisfal
+faction Horde
+races Scourge
+levels 5 14
+map 1420
+next Undead 13-20 The Barrens
+
+turnin   383
+accept   99134
+complete 99134 @60.3,52.0
+turnin 99134
+train Brill
+accept   367
+accept   86784
+accept   404
+complete 86784 @55.9,52.6
+accept   96607
+complete 96607 @57.2,55.5
+turnin   96607
+accept   96658
+turnin   86784
+complete 404 @53.4,56.2
+turnin   404
+accept   426
+accept   427
+accept   358
+turnin 8
+sethearth Brill @61.7,52.1 {npc=Innkeeper Renee} || Talk to the innkeeper and choose "Make this inn your home".
+accept   375
+complete 96658 @61.8,51.4
+turnin   96658
+complete 375 @66.5,54.5
+turnin   375
+accept   9265
+complete 9265 @60.1,61.2
+turnin 9265 || The Undercity is under the ruins of Lordaeron, south of Brill.
+getfp Undercity @63.3,48.6,1458 {npc=Michael Garrett}
+train Undercity
+accept   361 @48.8,43.4
+complete 426 @48.8,43.4
+complete 358 @55.9,42.4
+turnin   426
+turnin   358
+accept   359
+accept   405
+accept   362
+turnin   361
+turnin   359
+accept   356
+accept   360
+turnin   405
+accept   357
+accept   97891
+turnin   97891
+complete 357 @68.0,42.1
+complete 367 @70.2,31.4
+turnin   367
+accept   368
+turnin   357
+accept   366
+turnin   366
+accept   409
+complete 368 @60.4,28.0
+complete 362 @47.2,40.0
+accept   365
+complete 365 @35.9,50.6
+accept   99144
+complete 427 @31.7,47.9
+complete 99144 @39.0,48.8
+turnin   365
+accept   407
+turnin   368
+accept   369
+turnin   99144
+turnin   427
+accept   370
+accept   398
+accept   374
+turnin   362
+accept   354
+accept   96895
+accept   97558
+turnin   96895
+accept   96897
+accept   96898
+complete 96898 @68.8,63.9
+complete 356 @76.2,60.5
+turnin   96898
+complete 96897 @69.0,63.9
+turnin   96897
+turnin   356
+complete 409 @66.7,45.0
+turnin   409
+accept   411
+complete 97558 @63.3,29.1
+complete 398 @58.7,30.8
+complete 354 @45.8,29.4
+complete 374 @31.7,47.9
+complete 370 @51.5,67.4
+turnin   370
+accept   371
+turnin   398
+turnin   374
+turnin   354
+accept   355
+turnin   360
+turnin   355
+accept   408
+turnin   407
+turnin   97558
+turnin   411
+complete 371 @79.0,56.1
+complete 369 @87.3,51.6
+turnin   371
+turnin   369
+accept   492
+complete 408 @52.3,28.3 || The Agamand crypt is tight: pull one ancestor at a time and clear the way back out.
+turnin   408
+turnin   492
+
+# Train before moving on
+train Brill
+
+# On to The Barrens (the best zone from here)
+note Take the zeppelin from Undercity to Orgrimmar (the zeppelin tower north of the Undercity ruins).
+note Run to the Barrens.

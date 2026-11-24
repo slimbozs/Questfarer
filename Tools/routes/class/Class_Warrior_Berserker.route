@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Berserker Stance
+file Class_Warrior_Berserker
+faction Alliance
+races Human, Dwarf, NightElf, Gnome, Skyborne
+levels 30 61
+map 1455
+side WARRIOR
+ability Berserker Stance
+
+accept 1718 || The Barrens: the boat from Menethil Harbor to Theramore, then west to the Barrens.
+turnin 1718
+accept 1719
+complete 1719 | Step on the grate on Fray Island to start the fight, then defeat Big Will.
+turnin 1719

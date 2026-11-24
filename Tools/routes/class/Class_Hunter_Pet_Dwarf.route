@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Dwarf)
+file Class_Hunter_Pet_Dwarf
+faction Alliance
+races Dwarf
+levels 10 61
+map 1426
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 6064
+complete 6064 | Use the Taming Rod to tame a Large Crag Boar.
+turnin 6064
+accept 6084
+complete 6084 | Use the Taming Rod to tame a Snow Leopard.
+turnin 6084
+accept 6085
+complete 6085 | Use the Taming Rod to tame an Ice Claw Bear.
+turnin 6085
+accept 6086
+turnin 6086

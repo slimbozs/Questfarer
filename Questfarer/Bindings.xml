@@ -1,0 +1,4 @@
+<Bindings>
+    <Binding name="CLICK QuestfarerItemButton:LeftButton" header="QUESTFARER" category="ADDONS"/>
+    <Binding name="CLICK QuestfarerTargetButton:LeftButton" category="ADDONS"/>
+</Bindings>

@@ -1,0 +1,51 @@
+# Dwarf & Gnome 1-6: Coldridge Valley
+# Order from plan_zone.py (routes/drafts/Dwarf_Coldridge.route, time-optimised: A Refugee's Quandary and
+# Grund and Gozwin were dropped as slower than grinding), then edited by hand: class letters (Forever adds a
+# Gnome priest and a Dwarf shaman letter), training, Scalding Mornbrew Delivery taken just before the
+# trip to Anvilmar, and the hand-off quests to Kharanos.
+guide Dwarf & Gnome 1-6 Coldridge Valley
+file Dwarf_Coldridge
+faction Alliance
+races Dwarf,Gnome
+levels 1 6
+map 1426
+next Dwarf & Gnome 6-12 Dun Morogh
+
+accept 179
+complete 179 @28.9,74.4
+turnin 179
+
+# Class letters (quick XP + leads you to the trainer). Class and race filters are added automatically.
+accept 3106, 3107, 3108, 3109, 3110, 98581, 3112, 3113, 3114, 3115, 98574
+turnin 3106, 3107, 3108, 3109, 3110, 98581, 3112, 3113, 3114, 3115, 98574 || The trainers are in Anvilmar, north of the camp.
+train Coldridge
+
+accept 233
+accept 170
+complete 170 @30.6,75.9
+turnin 170
+accept 182
+accept 183
+turnin 233
+accept 234
+complete 183 @21.7,71.1
+turnin 183
+turnin 234
+complete 182 @28.4,80.2
+turnin 182
+accept 218
+complete 218 @30.5,80.2
+turnin 218
+accept 282
+accept 3364
+turnin 3364
+accept 3365
+turnin 3365
+turnin 282
+
+# Train, then on to Kharanos through the tunnel
+train Coldridge
+accept 5626
+accept 420
+accept 96628
+accept 2160

@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Tauren)
+file Class_Hunter_Pet_Tauren
+faction Horde
+races Tauren
+levels 10 61
+map 1412
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 6061
+complete 6061 | Use the Taming Rod to tame an Adult Plainstrider.
+turnin 6061
+accept 6087
+complete 6087 | Use the Taming Rod to tame a Prairie Stalker.
+turnin 6087
+accept 6088
+complete 6088 | Use the Taming Rod to tame a Swoop.
+turnin 6088
+accept 6089
+turnin 6089

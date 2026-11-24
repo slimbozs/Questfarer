@@ -1,0 +1,13 @@
+Tools/reports/
+Tools/research_notes/
+Tools/contributions/
+Tools/reference/
+Tools/questie/
+Tools/old_tools_*/
+Tools/routes/old/
+Tools/routes/drafts/
+__pycache__/
+*.pyc
+backup_*/
+*.zip
+!Tools/questiedb-forever-release/*.zip

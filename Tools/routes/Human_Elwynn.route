@@ -1,0 +1,108 @@
+# Alliance 6-11: Elwynn Forest
+# Order from plan_zone.py (routes/drafts/Human_Elwynn.route), time-optimised against grinding and, from
+# level 10, against questing in Westfall (~20k XP/h): slower quests are skipped and you leave at ~10.8.
+# Edited by hand: hearthstone, priest quests, training and the Westfall hand-off (109 + flight path).
+guide Human 6-11 Elwynn Forest
+file Human_Elwynn
+faction Alliance
+races Human
+levels 5 11
+map 1429
+next Alliance 10-11 Westfall
+
+# The road to Goldshire
+complete 91772 @46.9,52.3 | Follow the kobold tracks along the road south to Goldshire.
+
+# Goldshire
+accept 95998
+turnin 96627
+complete 95998 @44.9,63.2
+turnin 95998
+accept 96626
+accept 60
+turnin 2158 || Inside the Lion's Pride Inn.
+sethearth Goldshire @43.8,65.8 {npc=Innkeeper Farley} || Talk to Farley and choose "Make this inn your home".
+complete 96626 @44.4,66.0
+turnin 96626
+accept 62
+turnin 54
+turnin 91772
+accept 91775
+accept 47
+turnin 5623
+accept 5624
+train Goldshire
+complete 5624 | Cast Lesser Heal + Power Word: Fortitude on Guard Roberts.
+turnin 5624
+
+# Fargodeep Mine and the farms to the south
+complete 47, 60, 91775, 62 @40.2,80.1 | Fargodeep Mine and the kobolds around it.
+accept 106
+accept 88
+accept 85
+turnin 106
+accept 111
+accept 123
+turnin 111
+accept 107
+turnin 85
+accept 86
+complete 86 @39.5,88.7 | Kill Stonetusk Boars for Chunks of Boar Meat.
+turnin 86
+accept 84
+turnin 84
+accept 87
+complete 87 @41.7,78.0 | Kill Goldtooth deeper inside Fargodeep Mine.
+
+# Back to Goldshire
+accept 40
+turnin 47
+turnin 40
+turnin 62
+turnin 123
+turnin 91775
+turnin 60
+turnin 107
+accept 112
+accept 35
+accept 76
+accept 147
+train Goldshire
+
+# East: Crystal Lake, Jasperlode, Eastvale
+complete 112 @55.0,66.1 | Kill murlocs at Crystal Lake for Crystal Kelp Fronds.
+complete 76 @61.9,53.2 | Enter Jasperlode Mine (exploring the entrance is enough).
+accept 91746 @74.9,39.0
+accept 5545
+accept 83
+accept 52
+turnin 35 || At the bridge to the east.
+accept 37
+complete 88, 147 @69.7,79.2 || Brackwell Pumpkin Patch. Kill the guards around Princess one at a time.
+accept 91740 @77.0,84.6
+complete 52 @80.0,80.6 | Kill Prowlers and Young Forest Bears.
+turnin 91740
+turnin 52
+turnin 37 || The body lies by the river to the north.
+accept 45
+complete 83 @74.0,52.0
+turnin 45 || In the murloc village - clear around you first.
+accept 71
+complete 5545 @81.3,61.3 | Loot Bundles of Wood by the logs north of Eastvale.
+turnin 5545
+turnin 83
+turnin 71
+
+# Back west, then on to Westfall
+turnin 91746
+turnin 112
+turnin 76
+turnin 147
+accept 109
+train Goldshire
+accept 114
+turnin 87
+turnin 88
+turnin 114
+turnin 109 || Follow the road west to Sentinel Hill in Westfall.
+getfp Sentinel Hill @56.5,52.6,1436 {npc=Thor}

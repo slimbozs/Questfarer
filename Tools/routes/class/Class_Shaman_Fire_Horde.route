@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Fire totems (Orc & Tauren & Troll)
+file Class_Shaman_Fire_Horde
+faction Horde
+races Orc, Tauren, Troll
+levels 10 61
+map 1413
+side SHAMAN
+ability Fire totems
+
+accept 1524
+turnin 1524
+accept 1525
+complete 1525
+turnin 1525
+accept 1526
+complete 1526 | Defeat the Minor Manifestation of Fire and put the Glowing Ember in the brazier on top of the shrine.
+turnin 1526
+accept 1527
+turnin 1527

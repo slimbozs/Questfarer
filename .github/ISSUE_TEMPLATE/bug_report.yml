@@ -1,0 +1,44 @@
+name: Wrong step or bug
+description: A guide step is wrong, the addon does something odd, or you got a Lua error.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Questfarer version
+      description: Shown in the settings window (About page) and in the AddOns list.
+      placeholder: 0.6.0-beta
+    validations:
+      required: true
+  - type: input
+    id: character
+    attributes:
+      label: Faction, race, class and level
+      placeholder: Alliance, Night Elf, Priest, 23
+    validations:
+      required: true
+  - type: textarea
+    id: step
+    attributes:
+      label: Guide and step
+      description: The guide name at the top of the guide window and the step text.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where you were
+      description: Type `/qf where` in game and paste the result.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Lua error (if any)
+      description: Turn errors on with `/console scriptErrors 1`, then copy the error text.
+      render: text

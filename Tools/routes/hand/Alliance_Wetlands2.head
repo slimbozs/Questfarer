@@ -1,0 +1,11 @@
+# Alliance 23-24: Wetlands (part 2)
+# Order from plan_zone.py (routes/drafts/Alliance_Wetlands2.route), time-optimised against grinding and the next
+# best zone (Duskwood, ~26.5k XP/h at level 23). Uncovering the Past, Razormaw Needling and Crimson Crate
+# Delivery are skipped as too slow; From the Ashes,
+# Nek'rosh's Gambit and Spark of Freedom have no objective locations in the data and are left out.
+guide Alliance 23-24 Wetlands (part 2)
+file Alliance_Wetlands2
+faction Alliance
+races Human
+levels 22 25
+map 1437

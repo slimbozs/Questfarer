@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Human & Gnome)
+file Class_Hunter_Pet_HumanGnome
+faction Alliance
+races Human, Gnome
+levels 10 61
+map 1429
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 94792
+complete 94792 | Use the Taming Rod to tame a Rockhide Boar.
+turnin 94792
+accept 94863
+complete 94863 | Use the Taming Rod to tame a Gray Forest Wolf.
+turnin 94863
+accept 94864
+complete 94864 | Use the Taming Rod to tame a Young Forest Bear.
+turnin 94864
+accept 94793
+turnin 94793

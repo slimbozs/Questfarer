@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Aquatic Form (Tauren)
+file Class_Druid_Aquatic_Tauren
+faction Horde
+races Tauren
+levels 16 61
+map 1456
+side DRUID
+ability Aquatic Form
+
+accept 27 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 27
+accept 28
+complete 28 | Find a Shrine Bauble in Lake Elune'ara, use it at the Shrine of Remulos, then talk to Tajarri.
+turnin 28
+accept 30
+complete 30 @56.7,8.3,1413 | Open the Strange Lockbox in the northern Barrens (here) and the one in Silverpine Forest (29.6, 29.2), then join the two halves at the Shrine of Remulos.
+turnin 30
+accept 31
+turnin 31

@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Bear Form (Skyborne)
+file Class_Druid_Bear_Skyborne
+faction Alliance
+races Skyborne
+levels 10 61
+map 2521
+side DRUID
+ability Bear Form
+
+accept 94006
+turnin 94006
+accept 94638
+complete 94638
+turnin 94638

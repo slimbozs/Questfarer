@@ -1,0 +1,11 @@
+# Alliance 22-23: Redridge Mountains (part 2)
+# Order from plan_zone.py (routes/drafts/Alliance_Redridge2.route), time-optimised against grinding and the next
+# best zone (~22k XP/h at level 22): the Blackrock orcs now that your level allows them. The elite bosses
+# (Gath'Ilzogg, Tharil'zun, Incinerator Gar'im, Shadow Magic) are group content and are left out.
+# Fangore, Blackrock Blockade and Alther's Mill are skipped as too slow.
+guide Alliance 22-23 Redridge Mountains (part 2)
+file Alliance_Redridge2
+faction Alliance
+races Human
+levels 21 24
+map 1433

@@ -1,0 +1,3 @@
+# Guide build order (also the order quests are validated in)
+# Written by auto_chain.py --track: the hand-written start routes, then the chained zones.
+SkyborneH_ZephrasIsle.route

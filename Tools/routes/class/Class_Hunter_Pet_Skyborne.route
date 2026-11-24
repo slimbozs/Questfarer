@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Skyborne)
+file Class_Hunter_Pet_Skyborne
+faction Alliance
+races Skyborne
+levels 10 61
+map 2521
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 94978
+complete 94978 | Use the Taming Rod to tame a Windsong Crawler found near bodies of water..
+turnin 94978
+accept 94979
+complete 94979 | Use the Taming Rod to tame an Ornery Galestrider in the Gustberry Lowlands..
+turnin 94979
+accept 94013
+complete 94013 | Use the Taming Rod to tame a Vuldren Alpha in the Gustberry Lowlands.
+turnin 94013
+accept 94050
+turnin 94050

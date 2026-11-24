@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Dwarf & Gnome)
+file Class_Warrior_Defensive_DwarfGnome
+faction Alliance
+races Dwarf, Gnome
+levels 10 61
+map 1426
+side WARRIOR
+ability Defensive Stance
+
+accept 1679
+turnin 1679
+accept 1678
+complete 1678
+turnin 1678

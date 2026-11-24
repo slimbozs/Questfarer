@@ -1,0 +1,16 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warlock: Summon Voidwalker (Orc)
+file Class_Warlock_Voidwalker_Orc
+faction Horde
+races Orc
+levels 10 61
+map 1454
+side WARLOCK
+ability Summon Voidwalker
+
+accept 1501
+complete 1501
+turnin 1501
+accept 1504
+complete 1504 @49.4,50.0,1454 | Go to the summoning circle in the Cleft of Shadow, use the Glyphs of Summoning and defeat the voidwalker.
+turnin 1504

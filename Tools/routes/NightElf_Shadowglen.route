@@ -1,0 +1,43 @@
+# Night Elf 1-6: Shadowglen
+# Order from plan_zone.py (routes/drafts/NightElf_Shadowglen.route, time-optimised: Nature's Call, the
+# Webwood Egg / Tenaron's Summons chain and Iverron's Antidote were dropped as slower than grinding), then
+# edited by hand: class sigils, training, and the Dolanaar Delivery hand-off to Dolanaar.
+guide Night Elf 1-6 Shadowglen
+file NightElf_Shadowglen
+faction Alliance
+races NightElf
+levels 1 6
+map 1438
+next Night Elf 6-11 Teldrassil
+
+accept 456
+accept 458
+complete 456 @61.5,43.6
+accept 4495
+turnin 456
+
+# Class sigils (quick XP + leads you to the trainer). Class filters are added automatically.
+accept 3116, 3117, 3118, 3119, 3120
+turnin 3116, 3117, 3118, 3119, 3120 || The trainers are up in Aldrassil, the great tree.
+train Shadowglen
+
+accept 457
+turnin 458
+accept 459
+complete 459 @55.3,44.8
+turnin 459
+accept 916
+complete 457 @60.9,35.9
+turnin 457
+turnin 4495
+accept 3519
+accept 97236 @56.6,26.3
+complete 916 @56.6,27.7
+turnin 916
+turnin 97236
+turnin 3519
+
+# Train, then on to Dolanaar
+train Shadowglen
+accept 5622
+accept 2159

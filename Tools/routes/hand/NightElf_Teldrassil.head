@@ -1,0 +1,10 @@
+# Night Elf 6-11: Teldrassil
+# Order from plan_zone.py (routes/drafts/NightElf_Teldrassil.route, time-optimised against grinding and,
+# from level 10, against Darkshore at ~13000 XP/h), then edited by hand: the priest letter, training in
+# Dolanaar and Darnassus, and the Rut'theran Village flight path before the boat.
+guide Night Elf 6-11 Teldrassil
+file NightElf_Teldrassil
+faction Alliance
+races NightElf
+levels 5 12
+map 1438

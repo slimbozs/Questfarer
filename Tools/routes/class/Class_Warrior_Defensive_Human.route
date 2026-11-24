@@ -1,0 +1,19 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Human)
+file Class_Warrior_Defensive_Human
+faction Alliance
+races Human
+levels 10 61
+map 1453
+side WARRIOR
+ability Defensive Stance
+
+accept 1638 || Stormwind: Deeprun Tram from Ironforge, or the boat from Rut'theran Village (Darnassus).
+turnin 1638
+accept 1639
+turnin 1639
+accept 1640
+complete 1640 | Beat Bartleby in a fight, then talk to him.
+turnin 1640
+accept 1665
+turnin 1665

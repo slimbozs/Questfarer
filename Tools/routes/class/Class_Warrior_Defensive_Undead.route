@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Undead)
+file Class_Warrior_Defensive_Undead
+faction Horde
+races Scourge
+levels 10 61
+map 1458
+side WARRIOR
+ability Defensive Stance
+
+accept 1818
+turnin 1818
+accept 1819
+complete 1819
+turnin 1819

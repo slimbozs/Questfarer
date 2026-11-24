@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Aquatic Form (Night Elf)
+file Class_Druid_Aquatic
+faction Alliance
+races NightElf
+levels 16 61
+map 1457
+side DRUID
+ability Aquatic Form
+
+accept 26 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 26
+accept 29
+complete 29 | Find a Shrine Bauble in Lake Elune'ara, use it at the Shrine of Remulos, then talk to Tajarri.
+turnin 29
+accept 272
+complete 272 @48.9,11.3,1439 | Open the Strange Lockbox off the north coast of Darkshore (here) and the one off the coast of Westfall (17.9, 33.2), then join the two halves at the Shrine of Remulos.
+turnin 272
+accept 5061
+turnin 5061

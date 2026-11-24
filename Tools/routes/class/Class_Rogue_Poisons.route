@@ -1,0 +1,23 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Rogue: Poisons
+file Class_Rogue_Poisons
+faction Alliance
+races Human, Dwarf, NightElf, Gnome, Skyborne
+levels 20 61
+map 1453
+side ROGUE
+ability Poisons
+
+accept 2360 || Stormwind: Deeprun Tram from Ironforge, or the boat from Rut'theran Village (Darnassus).
+turnin 2360
+accept 2359
+complete 2359 | Steal the Defias Tower Key, open the Defias Tower and take what is in the Duskwood Chest.
+turnin 2359
+accept 2607
+turnin 2607
+accept 2608
+complete 2608 | Type /lay so Doc Mixilpixil can examine you.
+turnin 2608
+accept 2609
+complete 2609
+turnin 2609

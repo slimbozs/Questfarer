@@ -1,0 +1,5 @@
+
+# On to Hillsbrad Foothills (its quests open at level 28 on Forever)
+note Follow the road north-east out of the Wetlands over the Thandol Span into the Arathi Highlands.
+getfp Refuge Pointe @45.7,46.1,1417 {npc=Cedrik Prose}
+note Follow the road west through the Arathi Highlands into Hillsbrad Foothills, to Southshore.

@@ -1,0 +1,97 @@
+# Orc & Troll 6-12: Durotar
+# Order from plan_zone.py (routes/drafts/OrcTroll_Durotar.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Razor Hill hearthstone, the
+# Orgrimmar flight path and training.
+guide Orc & Troll 6-12 Durotar
+file OrcTroll_Durotar
+faction Horde
+races Orc,Troll
+levels 5 12
+map 1411
+next Horde 11-14 Tirisfal Glades
+
+turnin   805
+accept   808
+accept   823
+accept   97225
+accept   96821
+accept   786
+accept   2161
+complete 96821 @52.7,61.6
+accept   96876 @51.9,55.9
+accept   96604
+complete 96604 @52.1,47.4
+turnin   96604
+accept   96655
+accept   784
+turnin   96821
+turnin 823
+sethearth Razor Hill @51.5,41.6 {npc=Innkeeper Grosk} || Talk to the innkeeper and choose "Make this inn your home".
+train RazorHill
+complete 96655 @51.1,42.5
+turnin   96655
+turnin   2161
+accept   791
+accept   96877 @43.4,23.8
+accept   832 @52.6,8.8
+turnin 96877
+getfp Orgrimmar @45.1,63.9,1454 {npc=Doras}
+train Orgrimmar
+turnin   832
+accept   830 @59.3,57.6
+complete 791, 784 @58.8,57.8
+accept   817
+accept   818
+turnin   96876
+accept   99123
+complete 786 @46.9,78.1
+complete 99123 @51.4,79.3
+complete 818 @53.5,83.4
+accept   97223
+turnin   818
+turnin   99123
+turnin   786
+complete 97225 @66.9,83.8
+complete 808 @67.4,87.8
+complete 817 @63.5,95.7
+turnin   808
+turnin   97225
+turnin   817
+accept   826
+complete 97223 @68.8,71.8
+complete 826 @67.4,85.2
+turnin   826
+turnin   97223
+turnin   784
+turnin   830
+accept   831
+turnin 791
+train RazorHill
+accept   816
+accept   834
+complete 834 @49.7,23.3
+accept   97281 @52.1,21.7
+turnin   834
+turnin   97281
+accept   835
+accept   97282
+accept   812
+complete 97282 @41.3,24.5
+turnin   97282
+complete 835 @52.3,22.1
+turnin   835
+accept   9263
+complete 812 @47.2,53.6,1454
+turnin   831
+complete 9263 @44.9,16.8
+turnin   812
+complete 816 @35.8,24.1
+turnin   816
+turnin   9263
+
+# Train before moving on
+train Orgrimmar
+
+# On to Tirisfal Glades (the best zone from here)
+note Run to Durotar.
+note Take the zeppelin from Orgrimmar to Undercity (the zeppelin tower outside Orgrimmar's front gate).

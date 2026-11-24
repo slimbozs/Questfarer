@@ -1,0 +1,8 @@
+# Alliance 29: Duskwood (part 2) - the last Worgen in the Woods steps, on the way to Stranglethorn
+# Order from plan_zone.py (routes/drafts/Alliance_Duskwood2.route).
+guide Alliance 29 Duskwood (part 2)
+file Alliance_Duskwood2
+faction Alliance
+races Human
+levels 28 30
+map 1431

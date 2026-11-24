@@ -1,0 +1,27 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warlock: Summon Succubus (Horde)
+file Class_Warlock_Succubus_Horde
+faction Horde
+races Orc, Scourge, Tauren, Troll, Skyborne
+levels 20 61
+map 1454
+side WARLOCK
+ability Summon Succubus
+
+accept 1507 || Orgrimmar: the zeppelin from Tirisfal Glades, next to the Undercity, lands in Durotar just outside the city.
+turnin 1507
+accept 1508
+turnin 1508
+accept 1509
+turnin 1509
+accept 1510
+turnin 1510
+accept 1511
+turnin 1511
+accept 1515
+turnin 1515
+accept 1512
+turnin 1512
+accept 1513
+complete 1513 @49.4,50.0,1454 | Go to the summoning circle in the Cleft of Shadow, use Dogran's Pendant and defeat the succubus.
+turnin 1513

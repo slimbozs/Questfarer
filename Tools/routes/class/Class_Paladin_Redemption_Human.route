@@ -1,0 +1,31 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Paladin: Redemption (Human)
+file Class_Paladin_Redemption_Human
+faction Alliance
+races Human
+levels 12 61
+map 1453
+side PALADIN
+ability Redemption
+
+accept 1641 || Stormwind: Deeprun Tram from Ironforge, or the boat from Rut'theran Village (Darnassus).
+turnin 1641
+accept 1642
+turnin 1642
+accept 1643
+turnin 1643
+accept 1644
+complete 1644 @63.8,72.2,1453 | Collect 10 Linen Cloth (humanoids drop it).
+turnin 1644
+accept 1780
+turnin 1780
+accept 1781
+turnin 1781
+accept 1786
+complete 1786 | Use the Symbol of Life on Henze Faulk to resurrect him.
+turnin 1786
+accept 1787
+complete 1787
+turnin 1787
+accept 1788
+turnin 1788

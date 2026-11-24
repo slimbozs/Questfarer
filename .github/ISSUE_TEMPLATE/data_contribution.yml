@@ -1,0 +1,49 @@
+name: Data contribution
+description: Share the play data Questfarer counted for you, so the route and its time estimates get better.
+title: "Data contribution"
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping! In game: open the Questfarer settings (`/qf options`), go to the **Data** page and
+        click **Make export text** (or type `/qf export`). Copy the text and paste it below.
+
+        The text holds counts (fights, downtime, kills, XP and deaths per level), your level and guide times, and
+        where quest NPCs and objectives really were. It holds no character, realm or player names.
+        **Issues are public:** anyone can read what you paste here.
+  - type: textarea
+    id: export
+    attributes:
+      label: Export text
+      description: >-
+        Paste the text that starts with FGDATA1. If the export window shows several parts, paste part 1 here and
+        the other parts as comments on this issue.
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: playstyle
+    attributes:
+      label: How did you play?
+      description: Group play makes fights shorter, so this helps us read the numbers.
+      options:
+        - Mostly solo, following the guide
+        - Solo, but often doing my own thing
+        - In a group much of the time
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Optional. For example steps that were wrong or zones that felt slow.
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Permission
+      options:
+        - label: I agree that this data is public in this issue and may be used to improve Questfarer.
+          required: true

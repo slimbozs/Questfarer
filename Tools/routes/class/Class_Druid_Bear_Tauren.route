@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Bear Form (Tauren)
+file Class_Druid_Bear_Tauren
+faction Horde
+races Tauren
+levels 10 61
+map 1456
+side DRUID
+ability Bear Form
+
+accept 5922 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 5922
+accept 5930
+complete 5930 | Talk to the Great Bear Spirit in northwestern Moonglade.
+turnin 5930
+accept 5932
+turnin 5932
+accept 6002
+complete 6002 @42.0,60.9,1413 | Use the Cenarion Lunardust on the Moonkin Stone in the Barrens, then defeat Lunaclaw.
+turnin 6002

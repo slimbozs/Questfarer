@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Fire totems (Dwarf)
+file Class_Shaman_Fire
+faction Alliance
+races Dwarf
+levels 10 61
+map 1426
+side SHAMAN
+ability Fire totems
+
+accept 94465
+turnin 94465
+accept 94466
+complete 94466
+turnin 94466
+accept 94467
+complete 94467 | Defeat the Minor Manifestation of Fire and put the Glowing Ember in the brazier on top of the shrine.
+turnin 94467
+accept 94468
+turnin 94468

@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Cat Form (Tauren)
+file Class_Druid_Cat_Tauren
+faction Horde
+races Tauren
+levels 20 61
+map 1456
+side DRUID
+ability Cat Form
+
+accept 98340 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 98340
+accept 98405
+turnin 98405
+accept 98342
+complete 98342
+turnin 98342
+accept 98739
+turnin 98739
+accept 98362
+turnin 98362

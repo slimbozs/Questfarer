@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warlock: Summon Felhunter (Horde)
+file Class_Warlock_Felhunter_Horde
+faction Horde
+races Orc, Scourge, Tauren, Troll, Skyborne
+levels 30 61
+map 1413
+side WARLOCK
+ability Summon Felhunter
+
+accept 1801 || Strahad is in Ratchet on the Barrens coast. Jorah Annison is in the Undercity: take the zeppelin from Durotar, just outside Orgrimmar, to Tirisfal Glades.
+turnin 1801
+accept 1803
+complete 1803
+turnin 1803
+accept 1805
+complete 1805
+turnin 1805
+accept 1795
+complete 1795 | At the summoning circle next to Strahad, use the Tome of the Cabal and defeat the felhunter.
+turnin 1795

@@ -1,0 +1,17 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Earth totems (Horde Skyborne)
+file Class_Shaman_Earth_Skyborne
+faction Horde
+races Skyborne
+levels 3 61
+map 2521
+side SHAMAN
+ability Earth totems
+
+accept 92466
+complete 92466
+turnin 92466
+accept 92467
+turnin 92467
+accept 92468
+turnin 92468

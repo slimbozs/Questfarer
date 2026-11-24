@@ -1,0 +1,4 @@
+# On to the boat
+level 11 @50.9,62.0 | Kill Gnarlpine Warrior and Gnarlpine Defender here until level 11 (the first Darkshore quests need it).
+train Dolanaar
+getfp Rut'theran Village @58.4,94.0 {npc=Vesprystus} || Take the portal in Darnassus (or the path down) to Rut'theran Village.

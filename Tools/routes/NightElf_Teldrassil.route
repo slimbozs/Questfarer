@@ -1,0 +1,99 @@
+# Night Elf 6-11: Teldrassil
+# Order from plan_zone.py (routes/drafts/NightElf_Teldrassil.route, time-optimised against grinding and,
+# from level 10, against Darkshore at ~13000 XP/h), then edited by hand: the priest letter, training in
+# Dolanaar and Darnassus, and the Rut'theran Village flight path before the boat.
+guide Night Elf 6-11 Teldrassil
+file NightElf_Teldrassil
+faction Alliance
+races NightElf
+levels 5 12
+map 1438
+next Night Elf 11-14 Darkshore
+
+accept   488
+accept   96606
+complete 96606 @57.7,56.7
+turnin   96606
+accept   96634
+accept   997
+accept   475
+accept   99046
+turnin 2159 || Innkeeper Keldamyr is in the Dolanaar inn.
+turnin 5622
+sethearth Dolanaar @55.6,59.8 {npc=Innkeeper Keldamyr} || Talk to the innkeeper and choose "Make this inn your home".
+train Dolanaar
+complete 96634 @57.1,61.3
+turnin   96634
+accept   919
+turnin   997
+complete 919 @61.4,68.8
+turnin   919
+accept   918
+complete 918 @57.6,65.7
+turnin   918
+accept   922
+complete 488 @62.5,61.3
+turnin   488
+accept   489
+accept   87288
+accept   932
+accept   487
+complete 489, 87288 @51.0,58.3
+turnin   87288
+turnin   489
+turnin   475
+accept   476
+complete 932 @51.8,50.4
+complete 487 @46.5,53.3
+accept   99053
+accept   2541
+complete 2541 @44.5,59.3 || Ban'ethil Barrow Den gets crowded: pull one at a time and clear the way back out.
+turnin   2541
+accept   2561
+accept   490
+complete 99053 @43.1,51.6 || Ban'ethil Barrow Den gets crowded: clear the way out before you start the escort.
+complete 490 @44.5,59.2
+turnin   490
+accept   99047
+turnin   99046
+accept   931
+accept   927 @43.3,28.3
+turnin   487
+turnin   99047
+accept   99050
+turnin   932
+turnin   476
+turnin   99053
+complete 99050 @55.4,68.6
+turnin   927
+turnin   931
+accept   2399
+turnin   2399
+turnin   99050
+accept   99073
+complete 2561 @45.5,58.6 || Ban'ethil Barrow Den gets crowded: pull one at a time and clear the way back out.
+turnin   2561
+accept   930
+accept   9262
+complete 9262 @37.4,55.7
+turnin   9262
+turnin 922 || Darnassus is west along the road.
+train Darnassus
+accept   923
+complete 923 @42.8,40.5
+accept   937
+complete 937 @35.2,36.6
+turnin   99073
+turnin   937
+turnin   923
+accept   2498
+turnin   930
+turnin   2498
+
+# On to the boat
+level 11 @50.9,62.0 | Kill Gnarlpine Warrior and Gnarlpine Defender here until level 11 (the first Darkshore quests need it).
+train Dolanaar
+getfp Rut'theran Village @58.4,94.0 {npc=Vesprystus} || Take the portal in Darnassus (or the path down) to Rut'theran Village.
+
+# On to Darkshore (the best zone from here)
+note Take the boat from Rut'theran Village to Auberdine.

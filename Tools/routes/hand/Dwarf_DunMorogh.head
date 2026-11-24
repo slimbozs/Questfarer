@@ -1,0 +1,10 @@
+# Dwarf & Gnome 6-12: Dun Morogh
+# Order from plan_zone.py (routes/drafts/Dwarf_DunMorogh.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~14700 XP/h), then edited by hand: the priest letter, the Kharanos
+# hearthstone and training.
+guide Dwarf & Gnome 6-12 Dun Morogh
+file Dwarf_DunMorogh
+faction Alliance
+races Dwarf,Gnome
+levels 5 12
+map 1426

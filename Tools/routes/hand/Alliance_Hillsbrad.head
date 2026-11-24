@@ -1,0 +1,17 @@
+# Alliance 28-30: Hillsbrad Foothills (with the Alterac Mountains quests next door)
+# Order from plan_zone.py (routes/drafts/Alliance_Hillsbrad.route, planned with --also-maps 1416 --level 28),
+# time-optimised against grinding and the next best zone (~23k XP/h at level 28). On Forever these quests need
+# level 28, and from 27 no other zone beats grinding once the trip is counted - so grind to 28 here first.
+# Strahnbrad Mystery and Hillsbrad's Hoard have no objective locations in the data and are left out.
+# Edited by hand: flight path, hearthstone and the grind to 28.
+guide Alliance 28-30 Hillsbrad Foothills
+file Alliance_Hillsbrad
+faction Alliance
+races Human
+levels 27 31
+map 1424
+
+# Southshore
+getfp Southshore @49.3,52.3 {npc=Darla Harris}
+sethearth Southshore @51.2,58.9 {npc=Innkeeper Anderson} || Talk to the innkeeper and choose "Make this inn your home".
+level 28 @43.5,68.3 | Kill Torn Fin murlocs along the coast south-west of Southshore until level 28 (about an hour and a half).

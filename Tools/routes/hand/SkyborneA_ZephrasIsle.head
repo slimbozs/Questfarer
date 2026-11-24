@@ -1,0 +1,12 @@
+# Skyborne (Alliance) 1-12: Zephras Isle
+# Alliance Skyborne leave by zeppelin to Dalaran, then take the Skyborne portal to Stormwind.
+# Order from plan_zone.py (routes/drafts/SkyborneA_ZephrasIsle.route, time-optimised; --keep for the first quests, which
+# open the class quests and the island's chains), then edited by hand: class quests, training, the Shen'dar
+# Village hearthstone and the way off the island. Zephras Isle's map size is an estimate (two airship docks),
+# so the plan's timings are rougher than elsewhere.
+guide Skyborne (Alliance) 1-12 Zephras Isle
+file SkyborneA_ZephrasIsle
+faction Alliance
+races Skyborne
+levels 1 13
+map 2521

@@ -1,0 +1,44 @@
+# Orc & Troll 1-6: Valley of Trials
+# Order from plan_zone.py (routes/drafts/OrcTroll_ValleyOfTrials.route, time-optimised: Wayward Weapons,
+# Thazz'ril's Pick, Galgar's Cactus Apple Surprise and the second Sarkoth were dropped as slower than
+# grinding), then edited by hand: Vile Familiars and Burning Blade Medallion forced in (Vile Familiars is for
+# every class but warlocks), class letters, training, and Report to Sen'jin Village as the hand-off.
+# Trolls start here too on Forever: Darkspear Islands (map 2524) has no quest givers in the DB.
+guide Orc & Troll 1-6 Valley of Trials
+file OrcTroll_ValleyOfTrials
+faction Horde
+races Orc,Troll
+levels 1 6
+map 1411
+next Orc & Troll 6-12 Durotar
+
+accept 4641
+accept 788
+turnin 4641
+complete 788 @44.3,63.3
+turnin 788
+
+# Class letters (quick XP + leads you to the trainer). Class and race filters are added automatically.
+accept 3065, 3082, 3083, 3084, 3085, 3086, 98575, 2383, 3087, 3088, 3089, 3090, 98576
+turnin 3065, 3082, 3083, 3084, 3085, 3086, 98575, 2383, 3087, 3088, 3089, 3090, 98576 || The trainers are in and around the den behind Gornek.
+train ValleyOfTrials
+
+accept 789
+complete 789 @40.6,63.8
+turnin 789
+accept 792
+accept 5441
+complete 5441 @42.8,72.9
+turnin 5441
+accept 790
+complete 790 @40.5,66.8
+turnin 790
+complete 792 @44.6,55.9
+turnin 792
+accept 794
+complete 794 @42.7,53.0
+turnin 794
+
+# Train, then on to Sen'jin Village
+train ValleyOfTrials
+accept 805

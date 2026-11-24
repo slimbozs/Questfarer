@@ -1,0 +1,23 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warlock: Summon Felhunter
+file Class_Warlock_Felhunter
+faction Alliance
+races Human, Dwarf, NightElf, Gnome, Skyborne
+levels 30 61
+map 1455
+side WARLOCK
+ability Summon Felhunter
+
+accept 1798 || The Barrens: the boat from Menethil Harbor to Theramore, then west to the Barrens.
+turnin 1798
+accept 1758
+turnin 1758
+accept 1802
+complete 1802
+turnin 1802
+accept 1804
+complete 1804
+turnin 1804
+accept 1795
+complete 1795 | At the summoning circle next to Strahad, use the Tome of the Cabal and defeat the felhunter.
+turnin 1795

@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Berserker Stance (Horde)
+file Class_Warrior_Berserker_Horde
+faction Horde
+races Orc, Scourge, Tauren, Troll, Skyborne
+levels 30 61
+map 1456
+side WARRIOR
+ability Berserker Stance
+
+accept 1718 || Klannoc Macleod is on Fray Island, off the Barrens coast southeast of Ratchet.
+turnin 1718
+accept 1719
+complete 1719 | Step on the grate on Fray Island to start the fight, then defeat Big Will.
+turnin 1719

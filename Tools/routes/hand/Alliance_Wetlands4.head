@@ -1,0 +1,8 @@
+# Alliance 29: Wetlands (part 4) - the Thandol Span quests, on the way south
+# Order from plan_zone.py (routes/drafts/Alliance_Wetlands4.route).
+guide Alliance 29 Wetlands (part 4)
+file Alliance_Wetlands4
+faction Alliance
+races Human
+levels 28 30
+map 1437

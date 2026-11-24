@@ -1,0 +1,10 @@
+# Tauren 6-12: Mulgore
+# Order from plan_zone.py (routes/drafts/Tauren_Mulgore.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Bloodhoof hearthstone, the
+# Thunder Bluff flight path and training.
+guide Tauren 6-12 Mulgore
+file Tauren_Mulgore
+faction Horde
+races Tauren
+levels 5 13
+map 1412

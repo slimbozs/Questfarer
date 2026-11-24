@@ -1,0 +1,17 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Earth totems (Orc & Troll)
+file Class_Shaman_Earth_OrcTroll
+faction Horde
+races Orc, Troll
+levels 4 61
+map 1411
+side SHAMAN
+ability Earth totems
+
+accept 1516
+complete 1516
+turnin 1516
+accept 1517
+turnin 1517
+accept 1518
+turnin 1518

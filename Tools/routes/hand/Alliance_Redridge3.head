@@ -1,0 +1,10 @@
+# Alliance 26-27: Redridge Mountains (part 3)
+# Order from plan_zone.py (routes/drafts/Alliance_Redridge3.route): the Wanted posters and Blackrock bosses that
+# were too hard earlier. Gath'Ilzogg and Tharil'zun are elites at about your level - skip them if your class
+# can't solo them.
+guide Alliance 26-27 Redridge Mountains (part 3)
+file Alliance_Redridge3
+faction Alliance
+races Human
+levels 24 28
+map 1433

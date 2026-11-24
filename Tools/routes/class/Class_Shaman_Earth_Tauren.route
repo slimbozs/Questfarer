@@ -1,0 +1,17 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Earth totems (Tauren)
+file Class_Shaman_Earth_Tauren
+faction Horde
+races Tauren
+levels 4 61
+map 1412
+side SHAMAN
+ability Earth totems
+
+accept 1519
+complete 1519
+turnin 1519
+accept 1520
+turnin 1520
+accept 1521
+turnin 1521

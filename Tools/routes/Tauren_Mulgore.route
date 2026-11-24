@@ -1,0 +1,105 @@
+# Tauren 6-12: Mulgore
+# Order from plan_zone.py (routes/drafts/Tauren_Mulgore.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Bloodhoof hearthstone, the
+# Thunder Bluff flight path and training.
+guide Tauren 6-12 Mulgore
+file Tauren_Mulgore
+faction Horde
+races Tauren
+levels 5 13
+map 1412
+next Tauren 12-20 The Barrens
+
+turnin 763
+train Bloodhoof
+accept   746
+accept   767
+accept   99079
+accept   748
+accept   761
+accept   99108
+complete 99108 @48.7,63.7
+turnin   99108
+turnin   767
+accept   96130
+accept   99411
+complete 99411 @46.3,62.3
+turnin 1656
+sethearth Bloodhoof Village @45.9,64.2 {npc=Innkeeper Kauth} || Talk to the innkeeper and choose "Make this inn your home".
+accept   96605
+complete 96605 @46.2,67.3
+turnin   96605
+accept   96659
+turnin   96659
+accept   743
+accept   745
+accept   766
+turnin   99411
+complete 761 @42.1,55.7
+complete 748, 766 @38.9,56.8
+complete 746 @33.1,54.8
+complete 743 @34.4,48.3
+accept   770 @34.7,34.2
+accept   98430
+complete 745 @33.9,64.3
+complete 98430 @37.2,64.6
+complete 96130 @39.5,66.2
+turnin   770
+turnin   745
+turnin   746
+turnin   748
+turnin   761
+accept   754
+turnin   743
+turnin   766
+turnin   96130
+accept   749
+turnin   99079
+accept   99081
+complete 754 @51.8,68.4
+turnin   754
+accept   756
+turnin   99081
+accept   99101
+turnin   99101
+turnin   749
+accept   751
+complete 756 @50.4,49.1
+accept   99080
+accept   861
+turnin   756
+accept   758
+turnin   751
+accept   764
+complete 99080 @61.7,60.9
+complete 764 @59.8,46.8
+accept   833
+complete 833 @58.1,30.8
+turnin   833
+complete 861 @52.3,31.5
+turnin 98430 || Thunder Bluff is north of Bloodhoof Village; take the lift up.
+getfp Thunder Bluff @47.0,49.8,1456 {npc=Tal}
+train ThunderBluff
+accept   744
+accept   9264
+complete 9264 @39.4,44.1
+turnin   861
+turnin   9264
+complete 744 @32.6,32.9
+turnin   744
+complete 758 @44.2,51.1
+turnin   99080
+turnin   758
+accept   759
+accept   765
+turnin   764
+complete 759 @60.6,62.6
+complete 765 @61.2,49.3
+turnin   765
+turnin   759
+
+# Train before moving on
+train Bloodhoof
+
+# On to The Barrens (the best zone from here)
+note Run to the Barrens.

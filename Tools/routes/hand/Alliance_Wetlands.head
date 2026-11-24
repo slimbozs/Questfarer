@@ -1,0 +1,14 @@
+# Alliance 20-22: Wetlands
+# Order from plan_zone.py (routes/drafts/Alliance_Wetlands.route), time-optimised against grinding and the next
+# best zone (~22k XP/h at level 20). Quests with targets too far above your level wait for a later visit; the
+# Dark Iron, Dragonmaw and Highland elites are group content. Edited by hand: flight path and hearthstone.
+guide Alliance 20-22 Wetlands
+file Alliance_Wetlands
+faction Alliance
+races Human
+levels 19 23
+map 1437
+
+# Menethil Harbor
+getfp Menethil Harbor @9.5,59.7 {npc=Shellei Brondir}
+sethearth Menethil Harbor @10.7,61.0 {npc=Innkeeper Helbrek} || Talk to the innkeeper and choose "Make this inn your home".

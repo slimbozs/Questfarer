@@ -1,0 +1,14 @@
+# Alliance 16-20: Darkshore
+# Order from plan_zone.py (routes/drafts/Alliance_Darkshore.route), time-optimised against grinding and the next
+# best zone (~19.5k XP/h at level 16): The Red Crystal chain, Tools of the Highborne, Bashal'Aran and a few
+# others are skipped as too slow. Edited by hand: flight path and hearthstone.
+guide Alliance 16-20 Darkshore
+file Alliance_Darkshore
+faction Alliance
+races Human
+levels 15 21
+map 1439
+
+# Auberdine
+getfp Auberdine @36.3,45.6 {npc=Caylais Moonfeather}
+sethearth Auberdine @37.0,44.1 {npc=Innkeeper Shaussiy} || Talk to the innkeeper and choose "Make this inn your home".

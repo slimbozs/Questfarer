@@ -1,0 +1,15 @@
+
+# Quick trip to Stormwind: XP, the Stormwind flight path and class training
+turnin 6181
+accept 6281
+fly Stormwind @56.5,52.6 {npc=Thor} || If Stormwind isn't offered yet, run east through Elwynn Forest to Stormwind instead.
+turnin 6281 || Osric Strang is in the Limited Immunity shop in Old Town.
+accept 6261
+turnin 6261
+getfp Stormwind @71.3,72.2,1453 {npc=Dungar Longdrink}
+accept 6285
+train Stormwind
+fly Sentinel Hill @71.3,72.2,1453 {npc=Dungar Longdrink}
+turnin 6285
+
+# The farms

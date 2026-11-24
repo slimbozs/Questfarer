@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Orc & Tauren & Troll)
+file Class_Warrior_Defensive_OrcTaurenTroll
+faction Horde
+races Orc, Tauren, Troll
+levels 10 61
+map 1456
+side WARRIOR
+ability Defensive Stance
+
+accept 1505
+turnin 1505
+accept 1498
+complete 1498
+turnin 1498

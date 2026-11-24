@@ -1,0 +1,5 @@
+
+# On to Redridge Mountains (the best zone from here)
+fly Stormwind @56.5,52.6 {npc=Thor}
+train Stormwind
+note Leave Stormwind and follow the road east through Elwynn Forest to Lakeshire in Redridge.

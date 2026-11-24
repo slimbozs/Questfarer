@@ -1,0 +1,141 @@
+# Skyborne (Alliance) 1-12: Zephras Isle
+# Alliance Skyborne leave by zeppelin to Dalaran, then take the Skyborne portal to Stormwind.
+# Order from plan_zone.py (routes/drafts/SkyborneA_ZephrasIsle.route, time-optimised; --keep for the first quests, which
+# open the class quests and the island's chains), then edited by hand: class quests, training, the Shen'dar
+# Village hearthstone and the way off the island. Zephras Isle's map size is an estimate (two airship docks),
+# so the plan's timings are rougher than elsewhere.
+guide Skyborne (Alliance) 1-12 Zephras Isle
+file SkyborneA_ZephrasIsle
+faction Alliance
+races Skyborne
+levels 1 13
+map 2521
+next Alliance 11-14 Darkshore
+
+accept   92460
+turnin   92460
+accept   92461
+accept   92462
+complete 92461, 92462 @45.1,25.8
+accept   92465
+complete 92465 @47.2,20.0
+turnin   92465
+turnin   92462
+turnin 92461
+
+# Class quests (they lead you to your trainer in Thendal Grove). Class filters are added automatically.
+accept 92481, 92482, 92483, 92485, 92532
+turnin 92481, 92482, 92483, 92485, 92532
+train ZephrasNorth
+
+accept   92544
+complete 92544 @37.2,32.7
+turnin   92544
+accept   92471
+turnin   92471
+accept   92470
+accept   92473
+complete 92473 @40.5,27.6
+turnin   92473
+complete 92470 @38.0,26.4
+turnin   92470
+accept   92472
+accept   96638
+accept   93461
+turnin   92472
+complete 93461 @45.0,46.4
+turnin 93461
+sethearth Shen'dar Village @43.0,43.2 {npc=Coriella Calmbreeze} || Talk to the innkeeper and choose "Make this inn your home".
+train ZephrasCenter
+accept   92517
+accept   92515
+accept   92516
+accept   93319
+turnin   96638
+complete 92515 @42.4,50.1
+turnin   92515
+complete 92517, 93319 @48.6,37.6
+turnin   92517
+accept   93036
+turnin   93036
+accept   92529
+turnin   92529
+accept   92528
+complete 92528 @48.8,53.9
+turnin   92528
+accept   92550
+complete 92550 @49.0,53.9
+turnin   92550
+accept   93159
+complete 93159 @54.0,38.9
+turnin   93159
+accept   93172
+accept   94493
+turnin   94493
+accept   94486
+accept   94485
+complete 94485 @60.7,38.5
+accept   98512
+complete 98512 @56.2,60.7
+turnin   98512
+accept   93317
+accept   92679
+complete 93317 @64.5,61.0
+turnin   93317
+complete 92679 @46.7,82.0
+turnin   92679
+accept   92682
+accept   92683
+accept   92684
+complete 92682 @48.2,81.9
+complete 92683, 92684 @50.3,79.8
+accept   92698
+turnin   92683
+turnin   92682
+turnin   92684
+turnin   92698
+accept   92685
+complete 92685 @50.3,76.3
+turnin   92685
+accept   92693
+complete 92693 @48.1,77.3
+turnin   92693
+accept   92703
+accept   94897
+accept   94896
+turnin   92703
+turnin   94485
+accept   94487
+complete 94487 @63.7,37.2
+turnin   94487
+complete 94486 @57.8,39.7
+turnin   94486
+accept   94488
+accept   94489
+accept   94490 @65.5,36.3
+complete 94488, 94489 @65.5,36.3
+turnin   94488
+turnin   94489
+turnin   94490
+complete 94896 @58.2,32.7
+complete 94897 @57.0,29.4
+complete 93172 @58.3,32.3
+turnin   93172
+complete 92516 @36.5,53.7
+turnin   92516
+turnin   93319
+turnin   94896
+turnin   94897
+
+# Leave the island: the zeppelin to Dalaran, then the Skyborne portal to Stormwind
+train ZephrasSouth
+go @65.8,83.4 | Take the zeppelin at the Valanaar dock to Dalaran.
+accept 94947 || Denaaris Stargale waits where the zeppelin docks in Dalaran.
+note Take the Skyborne portal next to Denaaris Stargale to Stormwind.
+turnin 94947 || Highlord Bolvar Fordragon is in Stormwind Keep.
+train Stormwind
+getfp Stormwind @71.3,72.2,1453 {npc=Dungar Longdrink}
+
+# On to the shared Alliance route: Alliance 11-14 Darkshore
+train Stormwind
+note Take the boat from Stormwind Harbor to Auberdine.

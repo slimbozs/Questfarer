@@ -1,0 +1,12 @@
+# Alliance 15-16: Redridge Mountains (first visit)
+# Order from plan_zone.py (routes/drafts/Alliance_Redridge.route), time-optimised against grinding and the next
+# best zone. Only the quests your level can handle now; the Blackrock orcs and the Wanted posters wait.
+# Edited by hand: flight path.
+guide Alliance 15-16 Redridge Mountains
+file Alliance_Redridge
+faction Alliance
+races Human
+levels 14 17
+map 1433
+
+getfp Lakeshire @25.5,59.4 {npc=Ariena Stormfeather}

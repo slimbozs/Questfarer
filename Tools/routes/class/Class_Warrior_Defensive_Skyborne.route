@@ -1,0 +1,13 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Skyborne)
+file Class_Warrior_Defensive_Skyborne
+faction Alliance
+races Skyborne
+levels 10 61
+map 2521
+side WARRIOR
+ability Defensive Stance
+
+accept 94003
+complete 94003
+turnin 94003

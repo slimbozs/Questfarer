@@ -1,0 +1,15 @@
+# Alliance 24-26: Duskwood
+# Order from plan_zone.py (routes/drafts/Alliance_Duskwood.route), time-optimised against grinding and the next
+# best zone (~20.5k XP/h at level 24). Morbent Fel, Mor'Ladim, the Embalmer and Crime and Punishment are
+# elite (group) quests; the Season of Discovery "Duskwood Mission" quests in the data are left out.
+# Edited by hand: flight path and hearthstone.
+guide Alliance 24-26 Duskwood
+file Alliance_Duskwood
+faction Alliance
+races Human
+levels 22 27
+map 1431
+
+# Darkshire
+getfp Darkshire @77.5,44.3 {npc=Felicia Maline}
+sethearth Darkshire @73.9,44.4 {npc=Innkeeper Trelayne} || Talk to the innkeeper and choose "Make this inn your home".

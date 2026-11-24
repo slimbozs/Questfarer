@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Fire totems (Horde Skyborne)
+file Class_Shaman_Fire_Skyborne
+faction Horde
+races Skyborne
+levels 10 61
+map 2521
+side SHAMAN
+ability Fire totems
+
+accept 97243 || Back to Zephras Isle: the skycutter docks in Mulgore at Skywatcher Plateau, northwest of Thunder Bluff.
+turnin 97243
+accept 97244
+complete 97244
+turnin 97244
+accept 97245
+complete 97245
+turnin 97245
+accept 97257
+complete 97257
+turnin 97257

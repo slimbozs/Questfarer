@@ -1,0 +1,155 @@
+# Skyborne (Horde) 1-13: Zephras Isle
+# Horde Skyborne leave by airship to Skywatcher Plateau in Mulgore, then go on to Orgrimmar.
+# Order from plan_zone.py (routes/drafts/SkyborneH_ZephrasIsle.route, time-optimised; --keep for the first quests, which
+# open the class quests and the island's chains), then edited by hand: class quests, training, the Shen'dar
+# Village hearthstone and the way off the island. Zephras Isle's map size is an estimate (two airship docks),
+# so the plan's timings are rougher than elsewhere.
+guide Skyborne (Horde) 1-13 Zephras Isle
+file SkyborneH_ZephrasIsle
+faction Horde
+races Skyborne
+levels 1 14
+map 2521
+next Horde 11-14 Tirisfal Glades
+
+accept   92460
+turnin   92460
+accept   92461
+accept   92462
+complete 92461, 92462 @45.1,25.8
+accept   92465
+complete 92465 @47.2,20.0
+turnin   92465
+accept   92598
+turnin 92461
+
+# Class quests (they lead you to your trainer in Thendal Grove). Class filters are added automatically.
+accept 92482, 92483, 92484, 92485, 92532
+turnin 92482, 92483, 92484, 92485, 92532
+train ZephrasNorth
+accept   92544
+complete 92544 @37.2,32.7
+turnin   92544
+accept   92471
+turnin   92471
+accept   92470
+accept   92473
+complete 92473 @40.5,27.6
+complete 92470 @38.0,26.4
+turnin   92470
+accept   92472
+accept   96638
+complete 92598 @48.3,20.6
+turnin   92598
+turnin   92473
+
+turnin   92462
+accept   92514
+turnin   92472
+complete 92514 @43.3,44.0
+turnin   96638
+turnin 92514
+sethearth Shen'dar Village @43.0,43.2 {npc=Coriella Calmbreeze} || Talk to the innkeeper and choose "Make this inn your home".
+train ZephrasCenter
+accept   92517
+accept   92515
+accept   92516
+accept   93319
+complete 92515 @45.1,39.3
+complete 92517, 93319 @48.6,37.6
+turnin   92517
+accept   93036
+turnin   93036
+turnin   92515
+turnin   93319
+accept   92529
+turnin   92529
+accept   92528
+complete 92528 @48.8,53.9
+turnin   92528
+accept   92550
+accept   93926
+accept   92551
+complete 92550 @49.0,53.9
+accept   93159
+complete 93159 @54.0,38.9
+turnin   93159
+accept   93172
+accept   93160
+complete 93160 @58.6,39.0
+accept   94493
+turnin   94493
+accept   94486
+accept   94485
+complete 94485 @60.7,38.5
+accept   98512
+complete 98512 @56.2,60.7
+turnin   98512
+accept   93317
+accept   92679
+accept   94896
+accept   94897
+complete 92551 @66.0,67.4
+complete 93317 @64.5,61.0
+turnin   93317
+complete 92679 @46.7,82.0
+turnin   92679
+accept   92682
+accept   92683
+accept   92684
+complete 92682 @48.2,81.9
+complete 92683, 92684 @50.3,79.8
+accept   92698
+turnin   92683
+turnin   92682
+turnin   92684
+turnin   92698
+accept   92685
+complete 92685 @50.3,76.3
+turnin   92685
+accept   92693
+complete 92693 @48.1,77.3
+turnin   92693
+accept   92703
+complete 93926 @42.3,62.0
+turnin   93926
+complete 92516 @36.5,53.7
+turnin   92516
+turnin   92551
+turnin   92550
+turnin   94485
+accept   94487
+complete 94487 @63.7,37.2
+turnin   94487
+complete 94486 @57.8,39.7
+complete 94896, 93172 @58.2,32.7
+accept   93165
+complete 93165 @63.8,37.2
+turnin   94486
+accept   94488
+accept   94489
+accept   94490 @65.5,36.3
+complete 94488, 94489 @65.5,36.3
+turnin   93165
+turnin   94488
+turnin   94489
+turnin   94490
+turnin   93172
+turnin   93160
+turnin   92703
+complete 94897 @57.0,29.4
+turnin   94897
+turnin   94896
+
+# Leave the island: the airship to Skywatcher Plateau (Mulgore), then on to Orgrimmar
+train ZephrasSouth
+go @57.9,80.8 | Take the airship at the Valanaar dock to Skywatcher Plateau in Mulgore.
+accept 95350 || Alaana Stormwalker waits where the airship lands.
+note Run to Orgrimmar, through the Barrens and Durotar.
+getfp Orgrimmar @45.1,63.9,1454 {npc=Doras}
+turnin 95350 || Thrall is in Grommash Hold, in the Valley of Wisdom.
+train Orgrimmar
+
+# On to the shared Horde route: Horde 11-14 Tirisfal Glades
+note Run to Durotar.
+note Take the zeppelin from Orgrimmar to Undercity (the zeppelin tower outside Orgrimmar's front gate).

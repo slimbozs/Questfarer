@@ -1,0 +1,10 @@
+# Orc & Troll 6-12: Durotar
+# Order from plan_zone.py (routes/drafts/OrcTroll_Durotar.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Razor Hill hearthstone, the
+# Orgrimmar flight path and training.
+guide Orc & Troll 6-12 Durotar
+file OrcTroll_Durotar
+faction Horde
+races Orc,Troll
+levels 5 12
+map 1411

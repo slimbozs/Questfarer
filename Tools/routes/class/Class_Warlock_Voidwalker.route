@@ -1,0 +1,16 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warlock: Summon Voidwalker
+file Class_Warlock_Voidwalker
+faction Alliance
+races Human, Dwarf, NightElf, Gnome, Skyborne
+levels 10 61
+map 1453
+side WARLOCK
+ability Summon Voidwalker
+
+accept 1688 || Stormwind: Deeprun Tram from Ironforge, or the boat from Rut'theran Village (Darnassus).
+complete 1688
+turnin 1688
+accept 1689
+complete 1689 @39.1,84.4,1453 | Go down to the summoning circle in the cellar of the Slaughtered Lamb, use the Bloodstone Choker and defeat the voidwalker.
+turnin 1689

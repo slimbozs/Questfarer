@@ -1,0 +1,15 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Warrior: Defensive Stance (Night Elf)
+file Class_Warrior_Defensive_NightElf
+faction Alliance
+races NightElf
+levels 10 61
+map 1438
+side WARRIOR
+ability Defensive Stance
+
+accept 1684
+turnin 1684
+accept 1683
+complete 1683
+turnin 1683

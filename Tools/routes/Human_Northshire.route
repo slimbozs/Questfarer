@@ -1,0 +1,68 @@
+# Alliance 1-6: Northshire Valley
+# Order from plan_zone.py (routes/drafts/Human_Northshire.route, time-optimised: Milly's chain was dropped
+# as slower than grinding), then edited by hand: class letters/quests, training, the hand-off quests to
+# Goldshire, and Follow That Kobold! (the planner undervalues it: its follow-up is turned in in Goldshire).
+guide Human 1-6 Northshire
+file Human_Northshire
+faction Alliance
+races Human
+levels 1 6
+map 1429
+next Human 6-11 Elwynn Forest
+
+accept 783
+turnin 783 || Marshal McBride is inside the abbey.
+accept 7
+accept 5261
+turnin 5261 || Eagan is behind the abbey.
+accept 33
+
+complete 33 @46.8,39.1 | Kill wolves around the valley for Tough Wolf Meat.
+complete 7 @49.2,36.3 | Kill Kobold Vermin north of the abbey.
+accept 91741
+turnin 91741
+turnin 33
+turnin 7
+accept 18
+
+# Class letters (quick XP + leads you to the trainer). Class filters are added automatically.
+accept 3100, 3101, 3102, 3103, 3104, 3105, 92479
+turnin 3100, 3101, 3102, 3103, 3104, 3105, 92479
+accept 1598
+train Northshire
+
+accept 15
+accept 92124
+turnin 92124
+accept 91743
+
+complete 91743, 15 @49.2,35.6 | Echo Ridge, north of the abbey: kill Kobold Workers and the rodents.
+turnin 91743
+turnin 15
+accept 21
+accept 91745
+turnin 91745
+accept 91752
+complete 21, 91752 @48.8,28.6 | Inside Echo Ridge Mine: kill Kobold Laborers and Shinyfinder Narf (level 3 elite - soloable) for the sack.
+turnin 21
+turnin 91752
+accept 91758
+turnin 91758
+accept 91772 || Keep it - you follow the kobold tracks on the way to Goldshire.
+train Northshire
+
+# The vineyard, east of the abbey
+complete 18 @53.8,48.1 | Kill Defias Thugs in the vineyard for Red Burlap Bandanas.
+complete 1598 | Loot the Stolen Books in the vineyard.
+turnin 18
+accept 6
+complete 6 @57.5,48.2 | Kill Garrick Padfoot at the cabin in the vineyard.
+turnin 6
+turnin 1598
+
+# Leaving Northshire
+accept 54
+accept 96627
+accept 5623
+train Northshire
+accept 2158 || He stands by the road south of Northshire.

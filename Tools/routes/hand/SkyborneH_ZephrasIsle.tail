@@ -1,0 +1,8 @@
+# Leave the island: the airship to Skywatcher Plateau (Mulgore), then on to Orgrimmar
+train ZephrasSouth
+go @57.9,80.8 | Take the airship at the Valanaar dock to Skywatcher Plateau in Mulgore.
+accept 95350 || Alaana Stormwalker waits where the airship lands.
+note Run to Orgrimmar, through the Barrens and Durotar.
+getfp Orgrimmar @45.1,63.9,1454 {npc=Doras}
+turnin 95350 || Thrall is in Grommash Hold, in the Valley of Wisdom.
+train Orgrimmar

@@ -1,0 +1,12 @@
+# Skyborne (Horde) 1-13: Zephras Isle
+# Horde Skyborne leave by airship to Skywatcher Plateau in Mulgore, then go on to Orgrimmar.
+# Order from plan_zone.py (routes/drafts/SkyborneH_ZephrasIsle.route, time-optimised; --keep for the first quests, which
+# open the class quests and the island's chains), then edited by hand: class quests, training, the Shen'dar
+# Village hearthstone and the way off the island. Zephras Isle's map size is an estimate (two airship docks),
+# so the plan's timings are rougher than elsewhere.
+guide Skyborne (Horde) 1-13 Zephras Isle
+file SkyborneH_ZephrasIsle
+faction Horde
+races Skyborne
+levels 1 14
+map 2521

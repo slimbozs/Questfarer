@@ -1,0 +1,9 @@
+# Alliance 27: Wetlands (part 3)
+# Order from plan_zone.py (routes/drafts/Alliance_Wetlands3.route): the last Wetlands quests your level allows.
+# Uncovering the Past and Spoils of War are skipped as too slow.
+guide Alliance 27 Wetlands (part 3)
+file Alliance_Wetlands3
+faction Alliance
+races Human
+levels 25 28
+map 1437

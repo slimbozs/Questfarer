@@ -1,0 +1,44 @@
+# Tauren 1-6: Camp Narache
+# Order from plan_zone.py (routes/drafts/Tauren_CampNarache.route, time-optimised), then edited by hand: class
+# letters, training, and Rites of the Earthmother / A Task Unfinished as the hand-off to Bloodhoof Village.
+guide Tauren 1-6 Camp Narache
+file Tauren_CampNarache
+faction Horde
+races Tauren
+levels 1 6
+map 1412
+next Tauren 6-12 Mulgore
+
+accept 747
+accept 752
+accept 753
+turnin 752
+complete 753, 747 @49.0,81.2
+turnin 747
+
+# Class letters (quick XP + leads you to the trainer). Class filters are added automatically.
+accept 3091, 3092, 3093, 3094
+turnin 3091, 3092, 3093, 3094 || The trainers are around the tents of Camp Narache.
+train CampNarache
+
+accept 750
+turnin 753
+accept 755
+complete 750 @41.8,85.0
+turnin 755
+accept 757
+accept 95805
+turnin 750
+accept 780
+complete 780 @52.0,77.0
+complete 757 @57.7,78.9
+accept 781 @59.8,82.2
+turnin 95805
+turnin 780
+turnin 757
+turnin 781
+
+# Train, then on to Bloodhoof Village
+train CampNarache
+accept 763
+accept 1656 || Antur Fallow is at the small camp just west of Camp Narache.

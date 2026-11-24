@@ -1,0 +1,41 @@
+# Alliance zones per level band for auto_chain.py --bands (the shared chain, from level 19 on).
+# A commonly used Alliance leveling path: only which zones to visit at which level is taken from it, as the user
+# listed it in-game (2026-11-17). The quests, their order and the routes are still planned by plan_zone.py.
+# Format: <from level> <to level> <zone> [<zone> ...]   (zone names as in auto_chain.SHORT)
+19 20 Redridge
+20 21 Darkshore Ashenvale
+21 23 Stonetalon Ashenvale
+23 24 Wetlands
+24 27 Duskwood Redridge
+27 29 Wetlands Hillsbrad
+29 30 Ashenvale
+30 32 Duskwood
+32 33 Hillsbrad Arathi
+33 34 ThousandNeedles
+34 35 STV
+35 37 Desolace
+36 38 STV
+38 39 Swamp
+39 40 Riverglades
+40 41 Alterac Arathi
+41 41 Dustwallow Desolace Badlands
+41 42 Badlands
+42 44 STV Swamp
+44 45 Riverglades
+45 46 Tanaris
+46 47 Feralas Azshara
+48 49 Tanaris Hinterlands
+49 50 Tanaris UnGoro
+50 50 STV
+50 51 SearingGorge
+51 51 BlastedLands
+51 52 WesternPlaguelands
+52 52 Felwood
+52 53 Feralas
+53 53 Azshara
+53 54 UnGoro
+54 55 Felwood Winterspring
+55 56 Winterspring
+56 57 BurningSteppes
+57 59 WesternPlaguelands EasternPlaguelands
+59 60 Winterspring Silithus

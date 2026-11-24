@@ -1,0 +1,23 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Rogue: Poisons (Horde)
+file Class_Rogue_Poisons_Horde
+faction Horde
+races Orc, Scourge, Tauren, Troll, Skyborne
+levels 20 61
+map 1454
+side ROGUE
+ability Poisons
+
+accept 2460 || Orgrimmar: the zeppelin from Tirisfal Glades, next to the Undercity, lands in Durotar just outside the city.
+complete 2460 | Type /salute at Shenthul.
+turnin 2460
+accept 2458
+turnin 2458 | When you see the tower, fire two flares with the Flare Gun, then /salute Taskmaster Fizzule.
+accept 2478
+complete 2478 | Steal Silixiz's Tower Key, kill 2 Drones, 2 Patrollers and 2 Lookouts, then kill Grand Foreman Gallywix and pick the lock on his lockbox.
+turnin 2478
+accept 2479
+turnin 2479
+accept 2480
+complete 2480 | Wait for Serge Hinott to finish the cure.
+turnin 2480

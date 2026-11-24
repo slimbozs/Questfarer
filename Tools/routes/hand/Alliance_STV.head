@@ -1,0 +1,15 @@
+# Alliance 30-32: Stranglethorn Vale
+# Order from plan_zone.py (routes/drafts/Alliance_STV.route, --include 328), time-optimised against grinding and
+# the next best zone (~24k XP/h at level 30). Quests wait until their targets are at most 3 levels above you.
+# Skipped: the Green Hills of Stranglethorn pages (drop luck), group elites (Panther Mastery 4, Colonel Kurzen,
+# Excelsior), Zimmix's Great Escape (no objective location in the data) and quests turned in on other maps.
+# Edited by hand: the trip in, the Booty Bay flight path and the level gates.
+guide Alliance 30-32 Stranglethorn Vale
+file Alliance_STV
+faction Alliance
+races Human
+levels 28 33
+map 1434
+
+# Getting there
+note Run west along the Duskwood road, then south past Raven Hill into Stranglethorn Vale and on to the Rebel Camp just inside the border.

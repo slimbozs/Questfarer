@@ -1,0 +1,10 @@
+# Undead 6-13: Tirisfal Glades
+# Order from plan_zone.py (routes/drafts/Undead_Tirisfal.route, time-optimised against grinding and, from
+# level 10, against the next best zone at ~13000 XP/h), then edited by hand: the Brill hearthstone, the
+# Undercity flight path and training.
+guide Undead 6-13 Tirisfal Glades
+file Undead_Tirisfal
+faction Horde
+races Scourge
+levels 5 14
+map 1420

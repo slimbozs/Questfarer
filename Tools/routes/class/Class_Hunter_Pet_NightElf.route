@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Night Elf)
+file Class_Hunter_Pet_NightElf
+faction Alliance
+races NightElf
+levels 10 61
+map 1438
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 6063
+complete 6063 | Use the Taming Rod to tame a Webwood Lurker.
+turnin 6063
+accept 6101
+complete 6101 | Use the Taming Rod to tame a Nightsaber Stalker.
+turnin 6101
+accept 6102
+complete 6102 | Use the Taming Rod to tame a Strigid Screecher.
+turnin 6102
+accept 6103
+turnin 6103

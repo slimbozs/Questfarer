@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Hunter: Tame Beast and your first pet (Orc & Troll)
+file Class_Hunter_Pet_OrcTroll
+faction Horde
+races Orc, Troll
+levels 10 61
+map 1411
+side HUNTER
+ability Tame Beast and your first pet
+
+accept 6062
+complete 6062 | Use the Taming Rod to tame a Dire Mottled Boar.
+turnin 6062
+accept 6083
+complete 6083 | Use the Taming Rod to tame a Surf Crawler.
+turnin 6083
+accept 6082
+complete 6082 | Use the Taming Rod to tame an Armored Scorpid.
+turnin 6082
+accept 6081
+turnin 6081

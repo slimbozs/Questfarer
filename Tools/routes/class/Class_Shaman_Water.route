@@ -1,0 +1,32 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Water totems (Dwarf)
+file Class_Shaman_Water
+faction Alliance
+races Dwarf
+levels 20 61
+map 1455
+side SHAMAN
+ability Water totems
+
+accept 94494 || Ironforge: Deeprun Tram from Stormwind, or the boat to Menethil Harbor and north through Dun Morogh.
+turnin 94494
+accept 94495
+turnin 94495
+accept 94497
+complete 94497 @65.8,76.5,1437 | Fill the Unfilled Brown Waterskin at the bottom of the waterfalls below Hervdana's cave.
+turnin 94497
+accept 94499
+complete 94499 @75.7,58.5,1433 | Fill the Unfilled Red Waterskin at Stonewatch Falls, near the Nightcrawler murlocs.
+turnin 94499
+accept 94500
+complete 94500 @37.0,49.2,1440 | Fill the Unfilled Blue Waterskin in the waters of Astranaar.
+turnin 94500
+accept 94501
+turnin 94501
+accept 94502
+complete 94502 @45.6,59.9,1436 | Drink the Water Sapta and cleanse the corruption at Stendel's Pond.
+turnin 94502
+accept 94503
+turnin 94503 @45.6,59.9,1436
+accept 94505 @45.6,59.9,1436
+turnin 94505

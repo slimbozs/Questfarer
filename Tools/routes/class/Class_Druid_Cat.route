@@ -1,0 +1,21 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Cat Form (Night Elf)
+file Class_Druid_Cat
+faction Alliance
+races NightElf
+levels 20 61
+map 1457
+side DRUID
+ability Cat Form
+
+accept 98393 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 98393
+accept 98394
+turnin 98394
+accept 98396
+complete 98396
+turnin 98396
+accept 98731
+turnin 98731
+accept 98397
+turnin 98397

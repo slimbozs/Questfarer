@@ -1,0 +1,5 @@
+
+# On to Darkshore (the best zone from here)
+fly Stormwind @25.5,59.4 {npc=Ariena Stormfeather}
+train Stormwind
+note Take the boat from Stormwind Harbor to Auberdine in Darkshore.

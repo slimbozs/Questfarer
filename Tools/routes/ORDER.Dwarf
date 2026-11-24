@@ -1,0 +1,7 @@
+# Guide build order (also the order quests are validated in)
+# Written by auto_chain.py --track: the hand-written start routes, then the chained zones.
+Dwarf_Coldridge.route
+Dwarf_DunMorogh.route
+Dwarf_Darkshore.route
+Dwarf_LochModan.route
+Dwarf_Darkshore2.route

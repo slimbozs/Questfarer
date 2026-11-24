@@ -1,0 +1,23 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Cure Poison (Tauren)
+file Class_Druid_CurePoison_Tauren
+faction Horde
+races Tauren
+levels 14 61
+map 1456
+side DRUID
+ability Cure Poison
+
+accept 6126 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 6126
+accept 6127
+complete 6127 | Use the Empty Dreadmist Peak Sampler at the pool on top of Dreadmist Peak.
+turnin 6127
+accept 6128
+complete 6128
+turnin 6128
+accept 6129
+complete 6129 | Use the Curative Animal Salve on 10 Sickly Gazelles.
+turnin 6129
+accept 6130
+turnin 6130

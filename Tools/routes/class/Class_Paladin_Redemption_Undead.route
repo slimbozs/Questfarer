@@ -1,0 +1,26 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Paladin: Redemption (Undead)
+file Class_Paladin_Redemption_Undead
+faction Horde
+races Scourge
+levels 12 61
+map 1420
+side PALADIN
+ability Redemption
+
+accept 94427
+turnin 94427
+accept 94434
+complete 94434 @65.5,37.5,1458 | Collect 10 Linen Cloth (humanoids drop it).
+turnin 94434
+accept 94435
+turnin 94435
+accept 94436
+turnin 94436
+accept 94438
+turnin 94438 | Use the Symbol of Life on Deathguard Falgan to resurrect him.
+accept 94440
+complete 94440
+turnin 94440
+accept 94441
+turnin 94441

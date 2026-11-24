@@ -1,0 +1,31 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Paladin: Redemption (Dwarf)
+file Class_Paladin_Redemption_Dwarf
+faction Alliance
+races Dwarf
+levels 12 61
+map 1455
+side PALADIN
+ability Redemption
+
+accept 1645 || Ironforge: Deeprun Tram from Stormwind, or the boat to Menethil Harbor and north through Dun Morogh.
+turnin 1645
+accept 1646
+turnin 1646
+accept 1647
+turnin 1647
+accept 1648
+complete 1648 @23.3,61.9,1455 | Collect 10 Linen Cloth (humanoids drop it).
+turnin 1648
+accept 1778
+turnin 1778
+accept 1779
+turnin 1779
+accept 1783
+complete 1783 | Use the Symbol of Life on Narm Faulk to resurrect him.
+turnin 1783
+accept 1784
+complete 1784
+turnin 1784
+accept 1785
+turnin 1785

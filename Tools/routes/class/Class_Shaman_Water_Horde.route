@@ -1,0 +1,30 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Shaman: Water totems (Horde)
+file Class_Shaman_Water_Horde
+faction Horde
+races Orc, Scourge, Tauren, Troll, Skyborne
+levels 20 61
+map 1413
+side SHAMAN
+ability Water totems
+
+accept 1530 || The chain also sends you to Tarren Mill and Silverpine Forest: take the zeppelin from Durotar, just outside Orgrimmar, to Tirisfal Glades.
+turnin 1530
+accept 1535
+complete 1535 | Fill the Empty Brown Waterskin at the watering hole below Brine's hut.
+turnin 1535
+accept 1536
+complete 1536 | Fill the Empty Red Waterskin at the well in Tarren Mill.
+turnin 1536
+accept 1534
+complete 1534 | Fill the Empty Blue Waterskin at the fountain in the Ruins of Stardust.
+turnin 1534
+accept 220
+turnin 220
+accept 63
+complete 63
+turnin 63
+accept 100
+turnin 100
+accept 96
+turnin 96

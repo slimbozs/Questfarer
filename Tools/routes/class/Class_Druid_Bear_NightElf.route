@@ -1,0 +1,20 @@
+# Class quest side guide, written by class_guides.py - edit the chain there, not this file.
+guide Druid: Bear Form (Night Elf)
+file Class_Druid_Bear_NightElf
+faction Alliance
+races NightElf
+levels 10 61
+map 1457
+side DRUID
+ability Bear Form
+
+accept 5921 || Your druid trainer teaches Teleport: Moonglade at level 10: use it to reach Dendrite Starblaze.
+turnin 5921
+accept 5929
+complete 5929 | Talk to the Great Bear Spirit in northwestern Moonglade.
+turnin 5929
+accept 5931
+turnin 5931
+accept 6001
+complete 6001 @43.5,46.0,1439 | Use the Cenarion Moondust on the Moonkin Stone in Auberdine, then defeat Lunaclaw.
+turnin 6001
