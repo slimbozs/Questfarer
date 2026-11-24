@@ -7,7 +7,7 @@ local C = {}
 QF.Contribute = C
 
 -- set these when publishing, nil links are left out
-C.DISCORD = nil
+C.DISCORD = "https://discord.gg/nqBc8HEcpW"
 C.URL = nil     -- GitHub issue form, template=data_contribution.yml
 
 -- { label, link }, Discord first

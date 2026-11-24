@@ -26,7 +26,8 @@ Everything about using the addon is in [Questfarer/README.md](Questfarer/README.
 
 ## Problems and ideas
 
-Use **Issues > New issue**. "Wrong step or bug" is for a step that is wrong or an error in game,
+Join the [Questfarer Discord](https://discord.gg/nqBc8HEcpW) (`#help`, `#bug-reports`, `#suggestions`), or use
+**Issues > New issue** here. "Wrong step or bug" is for a step that is wrong or an error in game,
 "Data contribution" is for the export text from the addon's Data page.
 
 ## License and credits

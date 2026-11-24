@@ -17,7 +17,7 @@ It is **off** until you turn on "Collect data to share" (settings window, Data p
   path data (where things really were). The recorder's route log is left out.
 - **What it never holds**: character, realm or player names. Characters are told apart by a random ID.
 - **Nothing is sent by itself.** An addon can't send data anywhere. Click "Make export text" (or `/qf export`),
-  copy the text and post it in the Questfarer Discord (`#data-contributions`) or the "Data contribution" form on
+  copy the text and post it in the [Questfarer Discord](https://discord.gg/nqBc8HEcpW) (`#data-contributions`) or the "Data contribution" form on
   GitHub. Both are public. Got the addon from a friend? Then just send the text to them, for example as a Discord
   message (Discord turns long text into a file by itself).
 - "Delete collected data" on the Data page forgets the counts.
@@ -290,6 +290,6 @@ You may share and change it, but copies and changed versions must stay GPLv3 and
 ## Reporting a problem
 
 Type `/console scriptErrors 1` so Lua errors are shown in game. When a step is wrong, note the guide name, the
-step text and where you were, and open a "Wrong step or bug" issue on the GitHub page (copy the error text too if
-there was one). Typing `/qf debug` prints the quest ID, title, NPC and position every time you open a quest,
+step text and where you were, and post it in `#bug-reports` on the [Questfarer Discord](https://discord.gg/nqBc8HEcpW)
+or open a "Wrong step or bug" issue on the GitHub page (copy the error text too if there was one). Typing `/qf debug` prints the quest ID, title, NPC and position every time you open a quest,
 which helps a lot in a report.
