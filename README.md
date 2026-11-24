@@ -8,7 +8,7 @@ through yet. Reports of wrong steps help a lot.
 
 ## Download
 
-Get the newest zip under **Releases** on the right, or from CurseForge or Wago.
+Get the newest zip from [Releases](https://github.com/slimbozs/Questfarer/releases/latest), or from CurseForge or Wago.
 
 1. Close the game.
 2. Unzip it and put the `Questfarer` folder in `World of Warcraft\_forever_\Interface\AddOns\`

@@ -8,7 +8,7 @@ QF.Contribute = C
 
 -- set these when publishing, nil links are left out
 C.DISCORD = "https://discord.gg/nqBc8HEcpW"
-C.URL = nil     -- GitHub issue form, template=data_contribution.yml
+C.URL = "https://github.com/slimbozs/Questfarer/issues/new?template=data_contribution.yml"
 
 -- { label, link }, Discord first
 function C:Links()
