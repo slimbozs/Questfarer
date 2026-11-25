@@ -41,6 +41,11 @@ Join the [Questfarer Discord](https://discord.gg/nqBc8HEcpW) (`#help`, `#bug-rep
 **Issues > New issue** here. "Wrong step or bug" is for a step that is wrong or an error in game,
 "Data contribution" is for the export text from the addon's Data page.
 
+## Support
+
+Questfarer is free and always will be. If it saves you time and you want to say thanks, you can leave a tip on
+[Ko-fi](https://ko-fi.com/orfstudio).
+
 ## License and credits
 
 GPLv3, see [LICENSE.md](LICENSE.md). Quest, NPC, object and item data comes from
