@@ -6,6 +6,17 @@ It shows one step at a time, accepts and turns in quests for you, and moves on b
 **Beta (0.9.0-beta).** The routes are checked against the quest data and simulated, but not fully played
 through yet. Reports of wrong steps help a lot.
 
+<p>
+  <img src="docs/guide-window.png" alt="The guide window" width="340">
+  <img src="docs/guide-arrow.png" alt="The guide arrow" width="105">
+</p>
+
+<p>
+  <img src="docs/settings-guide.png" alt="Guide settings" width="400">
+  <img src="docs/settings-automation.png" alt="Automation settings" width="400">
+  <img src="docs/settings-character.png" alt="Character page" width="400">
+</p>
+
 ## Download
 
 Get the newest zip from [Releases](https://github.com/slimbozs/Questfarer/releases/latest), or from CurseForge or Wago.
