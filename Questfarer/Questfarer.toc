@@ -4,6 +4,7 @@
 ## Author: ORF Studio
 ## Version: 0.9.0-beta
 ## X-License: GPL-3.0
+## X-Curse-Project-ID: 1829000
 ## X-Credits: Quest data from QuestieDB (GPLv3), spell lists from What's Training? (MIT)
 ## SavedVariables: QuestfarerDB, QuestfarerRecorderDB
 ## SavedVariablesPerCharacter: QuestfarerCharDB

@@ -3,6 +3,10 @@
 A free step-by-step 1-60 leveling guide addon for **WoW Forever** (interface 16001), for Alliance and Horde.
 It shows one step at a time, accepts and turns in quests for you, and moves on by itself when a step is done.
 
+It is not a speedleveling guide. Questfarer is made for relaxed, no-brain leveling: it skips escort quests that are
+too hard solo and quests deep inside caves, marks elite quests as optional, and keeps the route easy to follow
+instead of squeezing out every minute.
+
 **Beta (0.9.0-beta).** The routes are checked against the quest data and simulated, but not fully played
 through yet. Reports of wrong steps help a lot.
 
@@ -19,7 +23,8 @@ through yet. Reports of wrong steps help a lot.
 
 ## Download
 
-Get the newest zip from [Releases](https://github.com/slimbozs/Questfarer/releases/latest), or from CurseForge or Wago.
+Install it with the CurseForge app from [CurseForge](https://www.curseforge.com/wow/addons/questfarer), or get the
+newest zip from [Releases](https://github.com/slimbozs/Questfarer/releases).
 
 1. Close the game.
 2. Unzip it and put the `Questfarer` folder in `World of Warcraft\_forever_\Interface\AddOns\`
