@@ -158,9 +158,10 @@ local function targetMacro(names)
     for _, name in ipairs(names) do
         table.insert(lines, "/targetexact [noexists][dead] " .. name)
     end
-    -- a star over it makes it easy to spot, but never on players or something already marked
-    table.insert(lines, "/run if UnitExists('target') and not UnitIsPlayer('target') and not UnitIsDead('target')"
-        .. " and not GetRaidTargetIndex('target') then SetRaidTarget('target', 1) end")
+    -- a star over it makes it easy to spot. Marking is protected, so it must be the slash command, not /run.
+    -- /tm toggles, so clear first; skipped in a group, where the marks belong to the group
+    table.insert(lines, "/tm [@target,exists,nodead,nogroup] 0")
+    table.insert(lines, "/tm [@target,exists,nodead,nogroup] 1")
     return table.concat(lines, "\n")
 end
 
