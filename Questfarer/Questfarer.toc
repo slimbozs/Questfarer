@@ -2,7 +2,7 @@
 ## Title: Questfarer |cffff9933(Beta)|r
 ## Notes: Step-by-step 1-60 leveling guide with auto-accept, auto-turn-in, flight paths and trainer reminders. Beta.
 ## Author: ORF Studio
-## Version: 0.9.0-beta
+## Version: 0.9.1-beta
 ## X-License: GPL-3.0
 ## X-Curse-Project-ID: 1829000
 ## X-Credits: Quest data from QuestieDB (GPLv3), spell lists from What's Training? (MIT)

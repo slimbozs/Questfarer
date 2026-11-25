@@ -3,7 +3,7 @@
 A step-by-step leveling guide addon for **WoW Forever** (client 1.60.1, interface 16001).
 It shows one step at a time and automatically moves on when the step is done.
 
-**This is a beta (0.9.0-beta).** Both routes have been checked against the quest data and simulated, but not
+**This is a beta (0.9.1-beta).** Both routes have been checked against the quest data and simulated, but not
 fully played through yet, and the Horde guides are the newest. Reports of wrong steps help a lot.
 
 ## Sharing your data (optional)
