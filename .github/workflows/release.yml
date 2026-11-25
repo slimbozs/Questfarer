@@ -1,0 +1,56 @@
+name: Release
+
+# Publishing a GitHub release builds the zip, attaches it to the release and uploads it to CurseForge.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    env:
+      CF_PROJECT_ID: "1829000"
+      CF_GAME_VERSION: "1.60.1"
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.event.release.tag_name }}
+      PRERELEASE: ${{ github.event.release.prerelease }}
+      NOTES: ${{ github.event.release.body }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the version
+        run: |
+          version=$(sed -n 's/^## Version: *//p' Questfarer/Questfarer.toc | tr -d '\r')
+          if [ "v$version" != "$TAG" ]; then
+            echo "The tag $TAG does not match the TOC version $version"
+            exit 1
+          fi
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+
+      - name: Build the zip
+        run: zip -r -X "Questfarer-$VERSION.zip" Questfarer
+
+      - name: Attach the zip to the release
+        run: gh release upload "$TAG" "Questfarer-$VERSION.zip" --clobber
+
+      - name: Upload to CurseForge
+        run: |
+          ids=$(curl -sS --fail-with-body -H "X-Api-Token: $CF_API_KEY" https://wow.curseforge.com/api/game/versions |
+            jq -c --arg v "$CF_GAME_VERSION" '[.[] | select(.name == $v) | .id]')
+          if [ "$(echo "$ids" | jq length)" != 1 ]; then
+            echo "Expected one CurseForge game version called $CF_GAME_VERSION, found $ids"
+            exit 1
+          fi
+          type=release
+          if [ "$PRERELEASE" = true ]; then type=beta; fi
+          jq -n --arg name "Questfarer $VERSION" --arg log "$NOTES" --arg type "$type" --argjson ids "$ids" \
+            '{displayName: $name, changelog: $log, changelogType: "markdown", releaseType: $type, gameVersions: $ids}' \
+            > metadata.json
+          curl -sS --fail-with-body -H "X-Api-Token: $CF_API_KEY" \
+            -F "metadata=<metadata.json" -F "file=@Questfarer-$VERSION.zip" \
+            "https://wow.curseforge.com/api/projects/$CF_PROJECT_ID/upload-file"

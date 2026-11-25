@@ -158,6 +158,9 @@ local function targetMacro(names)
     for _, name in ipairs(names) do
         table.insert(lines, "/targetexact [noexists][dead] " .. name)
     end
+    -- a star over it makes it easy to spot, but never on players or something already marked
+    table.insert(lines, "/run if UnitExists('target') and not UnitIsPlayer('target') and not UnitIsDead('target')"
+        .. " and not GetRaidTargetIndex('target') then SetRaidTarget('target', 1) end")
     return table.concat(lines, "\n")
 end
 

@@ -112,6 +112,19 @@ local function worn(slot)
     return score(link)
 end
 
+-- all worn gear, so the percent means something even when the old item has no stats
+local function wornTotal()
+    local total = 0
+    for s = 1, 18 do
+        if s ~= 4 then -- shirt
+            local v = worn(s)
+            if v == nil then return nil end
+            total = total + v
+        end
+    end
+    return total
+end
+
 local OFF_HAND = { INVTYPE_SHIELD = true, INVTYPE_WEAPONOFFHAND = true, INVTYPE_HOLDABLE = true }
 
 local function wieldsTwoHander()
@@ -140,7 +153,9 @@ function G:Upgrade(link)
     end
     local gain = new - old
     if gain < MIN_SCORE or new < old * (1 + MIN_GAIN) then return nil end
-    return gain, old > 0 and gain / old or nil, slot
+    local total = wornTotal()
+    if total == nil then return nil end
+    return gain, total > 0 and gain / total or nil, slot
 end
 
 local function gainText(share)

@@ -67,7 +67,7 @@ settings don't carry over, but the guide finds your place again from your quests
   guide goes back to the step where you take it again.
 - **Hearthstone**: a hearth step shows how many minutes are left on the cooldown.
 - **Quest item and target buttons**: two buttons follow the current step. One uses the step's quest item, the other
-  targets its NPC or mob. Drag the strip above them to move them, and set keys under Options > Keybindings > AddOns.
+  targets its NPC or mob and puts a star over it, so it is easy to spot. Drag the strip above them to move them, and set keys under Options > Keybindings > AddOns.
   The game doesn't let addons change these buttons in combat, so they update when the fight is over.
 - **Objective areas**: orange dots on the world map and minimap show where the current step's mobs, items and
   objects are.

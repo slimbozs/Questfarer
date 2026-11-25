@@ -1,5 +1,11 @@
 # Changelog
 
+## Next version
+
+- The target button puts a star over the NPC or mob it targets.
+- Gear upgrades show how much better your gear gets as a whole, so a cloak with a little stamina no longer reads
+  as +2000%.
+
 ## 0.9.0-beta
 
 - Elite quests are optional. Their steps say so, and if you click Next past one, the rest of that quest and the

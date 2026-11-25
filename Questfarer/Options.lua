@@ -309,7 +309,7 @@ end
 local function buildHelpersPage(page)
     page:Section("Buttons")
     page:Toggle("itemButton", "Quest item button", "A button that uses the current step's quest item.")
-    page:Toggle("targetButton", "Target button", "A button that targets the current step's NPC or mob.")
+    page:Toggle("targetButton", "Target button", "A button that targets the current step's NPC or mob and puts a star over it.")
     local keys = page:Row("Key bindings", "")
     keys:AddButton(W.Button(keys, "Key bindings...", 110, 24, openKeyBindings))
     function keys:Update()
