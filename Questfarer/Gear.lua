@@ -112,7 +112,7 @@ local function worn(slot)
     return score(link)
 end
 
--- all worn gear, so the percent means something even when the old item has no stats
+-- percent of everything worn, an empty old item would give silly numbers
 local function wornTotal()
     local total = 0
     for s = 1, 18 do

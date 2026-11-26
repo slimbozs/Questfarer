@@ -152,7 +152,7 @@ function QF:StepText(step)
     elseif t == "hearth" then
         return label .. " to " .. Q(step.hearth)
     elseif t == "level" then
-        return label .. ": reach level " .. step.level .. (step.text and (" — " .. step.text) or "")
+        return label .. ": reach level " .. step.level .. (step.text and (" - " .. step.text) or "")
     elseif t == "go" then
         return label .. " " .. (step.text or "to the marker")
     elseif t == "note" then

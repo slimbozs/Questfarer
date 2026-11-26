@@ -1,6 +1,6 @@
 -- Class trainers per area, keyed by the name in a route's `train <area>` step.
 -- Northshire trainers only teach up to ~level 6, after that use Goldshire.
--- Stormwind, Ironforge, Darnassus and Theramore positions come from the QuestieDB Forever data (converted to Forever's modern Stormwind map).
+-- City positions are from the QuestieDB Forever data, Stormwind on Forever's newer map.
 
 local _, ns = ...
 local QF = ns.QF
@@ -98,7 +98,7 @@ QF.trainers = {
         ThunderBluff   = { npc = "Miles Welsh", map = TB, x = 25.3, y = 15.3 },
         Undercity      = { npc = "Father Lankester", map = UC, x = 49.1, y = 14.6 },
     },
-    -- Human hunters are new on Forever (positions from QuestieDB Forever data).
+    -- Human hunters are new on Forever
     HUNTER = {
         Shadowglen = { npc = "Ayanna Everstride", map = TD, x = 58.7, y = 40.5 },
         Dolanaar   = { npc = "Dazalar", map = TD, x = 56.7, y = 59.5 },
@@ -172,7 +172,7 @@ QF.trainers = {
         ZephrasCenter  = { npc = "Naeluna Swiftmend", map = ZI, x = 45.2, y = 44.2 },
         ZephrasSouth   = { npc = "Lotheluum Starbreeze", map = ZI, x = 64.0, y = 75.1 },
     },
-    -- Dwarf shamans are new on Forever (trainers from QuestieDB Forever data).
+    -- Dwarf shamans are new on Forever
     SHAMAN = {
         Coldridge  = { npc = "Teo Hammerstorm", map = DM, x = 28.8, y = 66.2 },
         Kharanos   = { npc = "Ingrid Dunwald", map = DM, x = 47.6, y = 52.0 },
