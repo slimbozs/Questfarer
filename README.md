@@ -7,7 +7,7 @@ It is not a speedleveling guide. Questfarer is made for relaxed, no-brain leveli
 too hard solo and quests deep inside caves, marks elite quests as optional, and keeps the route easy to follow
 instead of squeezing out every minute.
 
-**Beta (0.9.1-beta).** The routes are checked against the quest data and simulated, but not fully played
+**Beta (0.9.2-beta).** The routes are checked against the quest data and simulated, but not fully played
 through yet. Reports of wrong steps help a lot.
 
 <p>

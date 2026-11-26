@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.9.2-beta
 
 - New look for the guide window: a rounded header with a gem, pill buttons, drawn close, collapse and settings
   icons, a progress bar under the guide name, a medallion and a coloured label on the step card, and coloured shapes

@@ -6,7 +6,7 @@ local QF = {}
 ns.QF = QF
 _G.Questfarer = QF
 
-QF.version = "0.9.1-beta"
+QF.version = "0.9.2-beta"
 QF.guides = {}
 QF.guideOrder = {}
 QF.steps = {}         -- current guide's steps, filtered for this character
