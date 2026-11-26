@@ -621,25 +621,25 @@ end
 -- The window
 
 local PAGES = {
-    { id = "guide", label = "Guide", icon = "INV_Misc_Map_01", build = buildGuidePage,
+    { id = "guide", label = "Guide", build = buildGuidePage,
         sub = "Your place in the route, and every guide this character can use." },
-    { id = "automation", label = "Automation", icon = "INV_Misc_Gear_01", build = buildAutomationPage,
+    { id = "automation", label = "Automation", build = buildAutomationPage,
         sub = "What the addon does for you at NPCs, flight masters and vendors." },
-    { id = "navigation", label = "Navigation", icon = "Ability_Hunter_SniperShot", build = buildNavigationPage,
+    { id = "navigation", label = "Navigation", build = buildNavigationPage,
         sub = "The arrow, checkpoints, map pin and objective areas." },
-    { id = "helpers", label = "Helpers", icon = "INV_Misc_Bag_08", build = buildHelpersPage,
+    { id = "helpers", label = "Helpers", build = buildHelpersPage,
         sub = "Buttons, warnings and suggestions while you play." },
-    { id = "appearance", label = "Appearance", icon = "INV_Misc_Rune_01", build = buildAppearancePage,
+    { id = "appearance", label = "Appearance", build = buildAppearancePage,
         sub = "How the guide window looks and where things are." },
-    { id = "character", label = "Character", icon = "INV_Chest_Chain", build = buildCharacterPage,
+    { id = "character", label = "Character", build = buildCharacterPage,
         sub = "Level times, class quests, talents and spells for this character." },
-    { id = "journal", label = "Journal", icon = "INV_Misc_Book_11", build = buildJournalPage,
+    { id = "journal", label = "Journal", build = buildJournalPage,
         sub = "The important days of this character's road, newest first." },
-    { id = "travels", label = "Travels", icon = "Ability_Mount_RidingHorse", build = buildTravelsPage,
+    { id = "travels", label = "Travels", build = buildTravelsPage,
         sub = "Days, miles, flights and quests, and the seals earned on the way." },
-    { id = "data", label = "Data", icon = "INV_Misc_Note_01", build = buildDataPage,
+    { id = "data", label = "Data", build = buildDataPage,
         sub = "Recording, positions and map bounds, and resetting the settings." },
-    { id = "about", label = "About", icon = "INV_Misc_Book_09", build = buildAboutPage,
+    { id = "about", label = "About", build = buildAboutPage,
         sub = "What Questfarer is, its commands, credits and licence." },
 }
 
@@ -659,13 +659,16 @@ local function createRailButton(rail, def, index)
     b.mark = W.Marker(b, 6)
     b.mark:SetPoint("CENTER", b, "LEFT", 6, 0)
     b.mark:Style(C.accent)
+    -- white pictograms from Media, tinted to match the label
     local icon = b:CreateTexture(nil, "ARTWORK")
-    icon:SetSize(20, 20)
-    icon:SetPoint("LEFT", 14, 0)
-    icon:SetTexture("Interface\\Icons\\" .. def.icon)
-    icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+    icon:SetSize(18, 18)
+    icon:SetPoint("LEFT", 15, 0)
+    icon:SetTexture(W.MEDIA .. "menu_" .. def.id .. ".tga")
+    local function tint(c)
+        icon:SetVertexColor(c[1], c[2], c[3])
+    end
     b.label = W.Text(b, "GameFontHighlight", C.muted)
-    b.label:SetPoint("LEFT", icon, "RIGHT", 10, 0)
+    b.label:SetPoint("LEFT", icon, "RIGHT", 11, 0)
     b.label:SetWordWrap(false)
     b.label:SetText(def.label)
     function b:SetSelected(on)
@@ -674,13 +677,20 @@ local function createRailButton(rail, def, index)
         W.Color(self.bg, C.selected, on and 1 or 0)
         local c = on and C.text or C.muted
         self.label:SetTextColor(c[1], c[2], c[3])
+        tint(on and C.accent or C.muted)
     end
     b:SetScript("OnClick", function() Options:ShowPage(def.id) end)
     b:SetScript("OnEnter", function(self)
-        if not self.selected then W.Color(self.bg, C.surfaceHover, 1) end
+        if not self.selected then
+            W.Color(self.bg, C.surfaceHover, 1)
+            tint(C.text)
+        end
     end)
     b:SetScript("OnLeave", function(self)
-        if not self.selected then W.Color(self.bg, C.selected, 0) end
+        if not self.selected then
+            W.Color(self.bg, C.selected, 0)
+            tint(C.muted)
+        end
     end)
     b:SetSelected(false)
     return b

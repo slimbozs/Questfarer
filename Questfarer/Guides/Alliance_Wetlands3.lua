@@ -14,9 +14,9 @@ QF:RegisterGuide({
     map = 1437,
     next = "Alliance 31-32 Hillsbrad Foothills (part 2)",
     steps = {
-        { accept = 296, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 29, pre = { 295 } }, -- Alliance_Wetlands3.route:12
+        { accept = 296, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 29, pre = { 295 }, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands3.route:12
         { complete = 296, title = "Ormer's Revenge", text = "Collect Sarltooth's Talon (Sarltooth).", x = 33.3, y = 51.5, targets = { "Sarltooth" } }, -- Alliance_Wetlands3.route:13
-        { turnin = 296, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9 }, -- Alliance_Wetlands3.route:14
+        { turnin = 296, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands3.route:14
         { accept = 98245, title = "Razormaw Needling", npc = "Howin Kindfeather", x = 49.4, y = 42.1, qlevel = 29 }, -- Alliance_Wetlands3.route:15
         { accept = 631, title = "The Thandol Span", npc = "Rhag Garmason", x = 49.9, y = 18.2, qlevel = 31 }, -- Alliance_Wetlands3.route:16
         { accept = 87318, title = "Hearts of the Lost", npc = "Comar Villard", x = 49.9, y = 12.6, qlevel = 33 }, -- Alliance_Wetlands3.route:17

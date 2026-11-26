@@ -85,11 +85,20 @@ function B:Create()
 
     self.target = makeButton("QuestfarerTargetButton", h)
     self.target:SetAttribute("type", "macro")
-    self.target.icon:SetTexture("Interface\\Icons\\Ability_Hunter_SniperShot")
+    local sight = self.target.icon
+    sight:SetTexture(W.MEDIA .. "icon_target.tga")
+    sight:SetTexCoord(0, 1, 0, 1)
+    sight:SetVertexColor(0.95, 0.77, 0.35)
+    sight:ClearAllPoints()
+    sight:SetPoint("TOPLEFT", 7, -7)
+    sight:SetPoint("BOTTOMRIGHT", -7, 7)
+    self.target:RegisterForDrag("LeftButton")
+    self.target:SetScript("OnDragStart", function() B:PickupMacro() end)
     self.target:SetScript("OnEnter", function(frame)
         GameTooltip:SetOwner(frame, "ANCHOR_TOP")
         GameTooltip:AddLine("Target", 1, 1, 1)
         for _, name in ipairs(B.names or {}) do GameTooltip:AddLine(name, 1, 0.82, 0) end
+        GameTooltip:AddLine("Drag it to an action bar to keep it there.", 0.6, 0.8, 1, true)
         GameTooltip:Show()
     end)
     h:Hide()
@@ -152,16 +161,50 @@ local function stepNames(step)
     return nil
 end
 
-local function targetMacro(names)
+-- limit cuts names that don't fit, real macros hold 255 characters
+local function targetMacro(names, limit)
     -- in combat only target when you have none, never pull you off your mob
-    local lines = { "/cleartarget [nocombat]" }
-    for _, name in ipairs(names) do
-        table.insert(lines, "/targetexact [noexists][dead] " .. name)
-    end
+    local head = "/cleartarget [nocombat]"
     -- star it (SetRaidTarget is protected, so /tm). It toggles, hence the 0 first
-    table.insert(lines, "/tm [@target,exists,nodead,nogroup] 0")
-    table.insert(lines, "/tm [@target,exists,nodead,nogroup] 1")
+    local tail = "/tm [@target,exists,nodead,nogroup] 0\n/tm [@target,exists,nodead,nogroup] 1"
+    local lines = { head }
+    local size = #head + #tail + 1
+    for _, name in ipairs(names) do
+        local line = "/targetexact [noexists][dead] " .. name
+        size = size + #line + 1
+        if limit and size > limit then break end
+        table.insert(lines, line)
+    end
+    table.insert(lines, tail)
     return table.concat(lines, "\n")
+end
+
+-- the target button as an account macro, so it can sit on an action bar
+local MACRO = "Questfarer"
+local MACRO_ICON = "INV_Misc_Spyglass_03"
+local MACRO_SIZE = 255
+
+local function macroExists()
+    return GetMacroIndexByName and GetMacroIndexByName(MACRO) > 0
+end
+
+function B:SyncMacro()
+    if InCombatLockdown() or not macroExists() then return end
+    EditMacro(MACRO, MACRO, nil, self.barMacro or "")
+end
+
+function B:PickupMacro()
+    if InCombatLockdown() or not CreateMacro then return end
+    if macroExists() then
+        self:SyncMacro()
+    else
+        if GetNumMacros() >= (MAX_ACCOUNT_MACROS or 120) then
+            QF:Print("Your account macros are full. Delete one to put the target button on an action bar.")
+            return
+        end
+        CreateMacro(MACRO, MACRO_ICON, self.barMacro or "")
+    end
+    PickupMacro(MACRO)
 end
 
 local function keyLabel(button, binding)
@@ -200,6 +243,8 @@ function B:Update()
     if macro ~= self.macro then
         self.macro, self.names = macro, names
         self.target:SetAttribute("macrotext", macro)
+        self.barMacro = names and targetMacro(names, MACRO_SIZE) or nil
+        self:SyncMacro()
     end
 
     self.item:ClearAllPoints()

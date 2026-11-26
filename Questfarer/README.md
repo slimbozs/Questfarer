@@ -67,7 +67,7 @@ settings don't carry over, but the guide finds your place again from your quests
   guide goes back to the step where you take it again.
 - **Hearthstone**: a hearth step shows how many minutes are left on the cooldown.
 - **Quest item and target buttons**: two buttons follow the current step. One uses the step's quest item, the other
-  targets its NPC or mob and puts a star over it when you play alone, so it is easy to spot. Drag the strip above them to move them, and set keys under Options > Keybindings > AddOns.
+  targets its NPC or mob and puts a star over it when you play alone, so it is easy to spot. Drag the target button to an action bar and it becomes a "Questfarer" macro that follows the guide too. Drag the strip above them to move them, and set keys under Options > Keybindings > AddOns.
   The game doesn't let addons change these buttons in combat, so they update when the fight is over.
 - **Objective areas**: orange dots on the world map and minimap show where the current step's mobs, items and
   objects are.
@@ -84,7 +84,7 @@ settings don't carry over, but the guide finds your place again from your quests
   ("Lundgren, Wayfarer") and how many days you have been on the road. New lands, dungeons, titles and seals get a
   line in the journal, and a small note above the guide window that you can click to read the page. The Travels page
   counts miles, flights, quests and more, and shows the 16 seals. `/qf journal` opens it.
-- **Guide arrow**: an on-screen arrow points to the current step and shows the distance (drag it to move it,
+- **Guide arrow**: an on-screen compass points to the current step and shows the distance, and the needle turns green when you are close (drag it to move it,
   right-click it for the settings). Blizzard's map pin is set for every step too.
 - **Checkpoints**: when the step is in another zone, the arrow (blue) first points to where you cross into
   the next zone - a road, a pass, a tunnel, a bridge - instead of straight through the mountains. Steps can

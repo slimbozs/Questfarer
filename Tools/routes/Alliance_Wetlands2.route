@@ -14,12 +14,15 @@ accept   471
 complete 471 @17.6,59.9
 turnin   471
 accept   98072
-accept   294
+accept   294 {cp=34.4,41.4/37.2,43.0}
 complete 294 @24.8,48.5
-turnin   294
-accept   295
-complete 295 @33.9,48.5
-turnin   295
+turnin   294 {cp=34.4,41.4/37.2,43.0}
+accept   295 {cp=34.4,41.4/37.2,43.0}
+# Uncovering the Past is here, not in part 1: the dig site mobs are 25-26
+accept   299 {cp=34.4,41.4/37.2,43.0}
+complete 295, 299 @34.0,48.5
+turnin   295 {cp=34.4,41.4/37.2,43.0}
+turnin   299 {cp=34.4,41.4/37.2,43.0}
 accept   275
 complete 98072 @62.0,33.1
 turnin   472

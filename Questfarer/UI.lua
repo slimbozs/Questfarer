@@ -10,16 +10,18 @@ QF.UI = UI
 
 local PAD = 8
 local HEADER = 28
-local CHAPTER = 20     -- guide name and page under the header
+local CHAPTER = 30     -- guide name, page and progress under the header
+local PROGRESS = 5
 local BAR = 22
 local BAR_GAP = 3
-local CARD_PAD = 8
-local RIBBON = 3       -- step colour down the left edge of the card
-local ICON = 20
+local CARD_PAD = 9
+local ICON = 22
+local MEDALLION = ICON + 8 -- the round frame around the icon
+local BADGE = 14       -- step type above the text
 local LOCATION = 14
 local BOX = 11         -- objective check box
 local ROW = 17         -- "then ..." line
-local ROW_ICON = 12
+local ROW_ICON = 8
 local GAP = 6          -- between the card and the "then ..." lines
 local FOOTER = 42      -- buttons
 local BUTTON = 24
@@ -27,8 +29,8 @@ local LINE = 24        -- collapsed mode
 local MAX_UPCOMING = 5
 
 local TOP = HEADER + 3
-local ICON_X = RIBBON + CARD_PAD
-local TEXT_X = ICON_X + ICON + 8
+local ICON_X = CARD_PAD
+local TEXT_X = ICON_X + MEDALLION + 8
 
 -- journal wording: the step's own text with a verb in front
 local VERB = {
@@ -71,7 +73,7 @@ function UI:CreateHeader(f)
     self.header = h
     self.closeBtn = W.IconButton(h, 20, nil, "x", "Hide the guide (/qf shows it again)", function() UI:Toggle() end)
     self.closeBtn:SetPoint("RIGHT", -3, 0)
-    self.optBtn = W.IconButton(h, 20, "Interface\\Icons\\INV_Misc_Gear_01", nil, "Settings", function()
+    self.optBtn = W.IconButton(h, 20, nil, "gear", "Settings", function()
         if QF.Options then QF.Options:Toggle() end
     end)
     self.optBtn:SetPoint("RIGHT", self.closeBtn, "LEFT", -2, 0)
@@ -82,11 +84,13 @@ function UI:CreateHeader(f)
     self.collapseBtn:SetPoint("RIGHT", self.optBtn, "LEFT", -2, 0)
     -- "Day 23", hover for the road so far, click for the journal
     local day = CreateFrame("Button", nil, h)
-    day:SetSize(54, HEADER - 4)
-    day:SetPoint("RIGHT", self.collapseBtn, "LEFT", -4, 0)
-    self.day = W.Text(day, "GameFontHighlightSmall", C.leatherMuted, 12)
-    self.day:SetPoint("RIGHT", -2, 0)
-    self.day:SetJustifyH("RIGHT")
+    day:SetSize(52, 16)
+    day:SetPoint("RIGHT", self.collapseBtn, "LEFT", -5, 0)
+    W.Color(W.Pill(day, "circle"), C.headerFrom)
+    W.Color(W.Pill(day, "ring", "BORDER"), C.frame, 0.9)
+    self.day = W.Text(day, "GameFontHighlightSmall", { 0.93, 0.76, 0.42 }, 11)
+    self.day:SetPoint("CENTER", 0, 0)
+    self.day:SetJustifyH("CENTER")
     self.day:SetWordWrap(false)
     day:SetScript("OnClick", function() QF.Options:OpenPage("journal") end)
     day:SetScript("OnEnter", function(b)
@@ -111,22 +115,47 @@ function UI:CreateChapter(body)
     self.page:SetJustifyH("RIGHT")
     self.page:SetWordWrap(false)
     self.chapter:SetPoint("RIGHT", self.page, "LEFT", -6, 0)
+    self.progress = W.Progress(body, PROGRESS)
+    self.progress:SetPoint("TOPLEFT", PAD + 1, -(TOP + 21))
+    self.progress:SetPoint("TOPRIGHT", -PAD - 1, -(TOP + 21))
 end
 
 function UI:CreateCard(body)
     local card = CreateFrame("Frame", nil, body)
     self.card = card
-    W.Color(W.Box(card, 6, true), C.surface)
+    W.Color(W.Box(card, 8, true), C.surface)
     W.BorderColor(card, C.border)
-    card.ribbon = card:CreateTexture(nil, "ARTWORK")
-    card.ribbon:SetPoint("TOPLEFT", 1, -3)
-    card.ribbon:SetPoint("BOTTOMLEFT", 1, 3)
-    card.ribbon:SetWidth(RIBBON)
-    local frame = W.IconFrame(card, ICON + 2)
-    frame:SetPoint("TOPLEFT", ICON_X - 1, -CARD_PAD + 1)
-    card.icon = frame.tex
+
+    -- the step icon sits in a round medallion ringed in the step colour
+    local medal = CreateFrame("Frame", nil, card)
+    medal:SetSize(MEDALLION, MEDALLION)
+    medal:SetPoint("TOPLEFT", ICON_X, -CARD_PAD)
+    local disc = medal:CreateTexture(nil, "BACKGROUND")
+    disc:SetAllPoints()
+    disc:SetTexture(W.MEDIA .. "shape_circle.tga")
+    disc:SetVertexColor(C.leather[1], C.leather[2], C.leather[3])
+    card.medalRing = medal:CreateTexture(nil, "OVERLAY")
+    card.medalRing:SetAllPoints()
+    card.medalRing:SetTexture(W.MEDIA .. "shape_ring.tga")
+    card.icon = medal:CreateTexture(nil, "ARTWORK")
+    card.icon:SetSize(ICON, ICON)
+    card.icon:SetPoint("CENTER")
+    if card.icon.SetMask and pcall(card.icon.SetMask, card.icon, "Interface\\CHARACTERFRAME\\TempPortraitAlphaMask") then
+        card.icon.masked = true
+    end
+
+    local badge = CreateFrame("Frame", nil, card)
+    badge:SetSize(60, BADGE)
+    badge:SetPoint("TOPLEFT", TEXT_X, -CARD_PAD)
+    card.badge = badge
+    card.badgeBg = W.Pill(badge, "circle")
+    card.badgeText = W.Text(badge, "GameFontHighlightSmall", C.text, 9)
+    card.badgeText:SetPoint("CENTER", 0, 0)
+    card.badgeText:SetJustifyH("CENTER")
+    card.badgeText:SetWordWrap(false)
+
     card.text = W.Text(card, "GameFontNormal", C.text, 14)
-    card.text:SetPoint("TOPLEFT", TEXT_X, -CARD_PAD - 2)
+    card.text:SetPoint("TOPLEFT", TEXT_X, -CARD_PAD - BADGE - 4)
     card.text:SetSpacing(2)
     card.dist = W.Text(card, "GameFontHighlightSmall", C.accent)
     card.dist:SetJustifyH("RIGHT")
@@ -152,7 +181,7 @@ function UI:CreateUpcoming(body)
         icon:SetSize(ROW_ICON, ROW_ICON)
         local t = W.Text(body, "GameFontHighlightSmall", C.muted)
         t:SetWordWrap(false)
-        t:SetPoint("LEFT", icon, "RIGHT", 6, 0)
+        t:SetPoint("LEFT", icon, "RIGHT", 8, 0)
         t.icon = icon
         self.rows[i] = t
     end
@@ -165,6 +194,7 @@ function UI:CreateFooter(body)
     self.backBtn:SetPoint("RIGHT", self.nextBtn, "LEFT", -6, 0)
     self.trainBtn = W.Button(body, "Train all", 76, BUTTON, function() QF:TrainAll() end, "train")
     self.trainBtn:SetPoint("RIGHT", self.backBtn, "LEFT", -6, 0)
+    self.trainBtn:Hide()
     self.xpText = W.Text(body, "GameFontHighlightSmall", C.muted)
     self.xpText:SetPoint("BOTTOMLEFT", PAD, 15)
     self.xpText:SetWordWrap(false)
@@ -336,8 +366,10 @@ function UI:RefreshHeader(steps, idx)
     self.header.title:SetText(QF.Journal:Name())
     self.day:SetText("Day " .. QF.Journal:Day())
     self.chapter:SetText(QF.guide and QF.guide.name or "")
-    self.page:SetText(#steps > 0 and ("page %d of %d"):format(math.min(idx, #steps), #steps) or "")
-    self.collapseBtn.label:SetText(QF.db.collapsed and "+" or "-")
+    local page = math.min(idx, #steps)
+    self.page:SetText(#steps > 0 and ("%d / %d"):format(page, #steps) or "")
+    self.progress:SetValue(#steps > 0 and (page - 1) / #steps or 0)
+    self.collapseBtn:SetGlyph(QF.db.collapsed and "+" or "-")
 end
 
 function UI:RefreshXP()
@@ -392,11 +424,20 @@ function UI:LayoutCard(step, y)
     local right = cardW - CARD_PAD
 
     local style = W.StepStyle(step and step.type)
-    W.Color(card.ribbon, style.color)
+    local c = style.color
+    W.BorderColor(card, c, 0.55)
+    card.medalRing:SetVertexColor(c[1], c[2], c[3])
     W.SetStepIcon(card.icon, step and step.type)
+    card.badge:SetShown(step ~= nil)
+    card.badgeText:SetText(style.label:upper())
+    card.badgeText:SetTextColor(c[1], c[2], c[3])
+    card.badge:SetWidth(card.badgeText:GetStringWidth() + 14)
+    W.Color(card.badgeBg, c, 0.22)
+    local textTop = step and (BADGE + 4) or 0
+    card.text:SetPoint("TOPLEFT", TEXT_X, -CARD_PAD - textTop)
     card.text:SetWidth(right - TEXT_X)
     card.text:SetText(step and entryText(step) or noStepText())
-    local cy = -CARD_PAD - math.max(ICON, W.TextHeight(card.text) + 2) - 5
+    local cy = -CARD_PAD - math.max(MEDALLION, textTop + W.TextHeight(card.text) + 2) - 5
 
     -- fixed height, so the distance can tick without moving anything
     local hasLocation = step and (step.npc or (step.x and step.y)) and true or false
@@ -469,10 +510,10 @@ function UI:LayoutUpcoming(step, idx, y)
         t:SetShown(s ~= nil)
         t.icon:SetShown(s ~= nil)
         if s then
-            W.SetStepIcon(t.icon, s.type)
+            W.SetShape(t.icon, s.type)
             t.icon:ClearAllPoints()
-            t.icon:SetPoint("TOPLEFT", PAD + RIBBON + 2, y - 1)
-            t:SetWidth(width() - 2 * PAD - RIBBON - ROW_ICON - 8)
+            t.icon:SetPoint("TOPLEFT", PAD + 6, y - 3)
+            t:SetWidth(width() - 2 * PAD - ROW_ICON - 16)
             t:SetText("then " .. lowerFirst(plain(entryText(s))))
             local a = i == 1 and 1 or 0.7
             t:SetAlpha(a)

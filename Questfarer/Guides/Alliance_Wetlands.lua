@@ -36,31 +36,28 @@ QF:RegisterGuide({
         { turnin = 286, title = "Return the Statuette", npc = "Karl Boran", x = 8.3, y = 58.6 }, -- Alliance_Wetlands.route:32
         { accept = 98189, title = "Return the Statuette", npc = "Karl Boran", x = 8.3, y = 58.6, qlevel = 25, pre = { 286 } }, -- Alliance_Wetlands.route:33
         { turnin = 98189, title = "Return the Statuette", npc = "Captain Stoutfist", x = 9.9, y = 57.5 }, -- Alliance_Wetlands.route:34
-        { accept = 299, title = "Uncovering the Past", npc = "Prospector Whelgar", x = 38.8, y = 52.4, race = { "Human", "Dwarf", "Gnome", "Skyborne" }, qlevel = 27 }, -- Alliance_Wetlands.route:35
-        { turnin = 305, title = "In Search of The Excavation Team", npc = "Merrin Rockweaver", x = 38.9, y = 52.3 }, -- Alliance_Wetlands.route:36
-        { accept = 306, title = "In Search of The Excavation Team", npc = "Merrin Rockweaver", x = 38.9, y = 52.3, qlevel = 24, pre = { 305 } }, -- Alliance_Wetlands.route:37
-        { complete = 299, title = "Uncovering the Past", text = "Collect Ados Fragment (Ancient Relic). Collect Modr Fragment (Ancient Relic). Collect Golm Fragment (Ancient Relic). Collect Neru Fragment (Loose Soil).", x = 34.1, y = 48.6, race = { "Human", "Dwarf", "Gnome", "Skyborne" }, area = { 33.8, 48.6, 35, 47.9, 33.4, 47.4, 32.3, 48.6, 34.8, 50.3, 36.1, 50, 35.4, 46.3, 32.2, 50.8, 34.7, 52.5, 34.4, 44.5 } }, -- Alliance_Wetlands.route:38
-        { turnin = 299, title = "Uncovering the Past", npc = "Prospector Whelgar", x = 38.8, y = 52.4, race = { "Human", "Dwarf", "Gnome", "Skyborne" } }, -- Alliance_Wetlands.route:39
-        { accept = 469, title = "Daily Delivery", npc = "Einar Stonegrip", x = 49.9, y = 39.4, qlevel = 21 }, -- Alliance_Wetlands.route:40
-        { accept = 276, title = "Tramping Paws", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 21 }, -- Alliance_Wetlands.route:41
-        { turnin = 463, title = "The Greenwarden", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:42
-        { complete = { 276, 98282 }, titles = { "Tramping Paws", "Alchemical Hazards" }, text = "Kill Mosshide Gnoll. Kill Mosshide Mongrel. Collect Unruptured Stalker Gland (Leech Stalker, Cave Stalker).", x = 59.2, y = 66.8, targets = { "Mosshide Gnoll", "Mosshide Mongrel", "Leech Stalker" }, area = { 57.3, 66.5, 61.3, 67.9, 61.6, 66.8, 60.7, 64.3, 56.1, 67.9, 62.8, 68.4, 54.8, 66.6, 57, 62.8, 60.3, 71.4, 54.7, 64.7 } }, -- Alliance_Wetlands.route:43
-        { turnin = 276, title = "Tramping Paws", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:44
-        { accept = 277, title = "Fire Taboo", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 23, pre = { 276 } }, -- Alliance_Wetlands.route:45
-        { complete = 277, title = "Fire Taboo", text = "Collect Crude Flint (Mosshide Mistweaver, Mosshide Fenrunner).", x = 62.4, y = 57.8, targets = { "Mosshide Fenrunner", "Mosshide Trapper", "Mosshide Brute" }, area = { 62.7, 57, 63.5, 58.4, 61.2, 58.3, 59.6, 58.2, 59.6, 55.6, 65.1, 55.1, 60.7, 54.3, 62.7, 69.3 } }, -- Alliance_Wetlands.route:46
-        { turnin = 277, title = "Fire Taboo", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:47
-        { turnin = 306, title = "In Search of The Excavation Team", npc = "Tarrel Rockweaver", x = 11.5, y = 52.2 }, -- Alliance_Wetlands.route:48
-        { turnin = 469, title = "Daily Delivery", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands.route:49
-        { turnin = 98282, title = "Alchemical Hazards", npc = "Caitlin Grassman", x = 11.9, y = 58.8 }, -- Alliance_Wetlands.route:50
-        { level = 23, text = "Kill Young Wetlands Crocolisk and Wetlands Crocolisk here until level 23 (the next quests need it).", x = 14.6, y = 53.2 }, -- Alliance_Wetlands.route:51
-        { accept = 470, title = "Digging Through the Ooze", npc = "Sida", x = 11.8, y = 58, qlevel = 24 }, -- Alliance_Wetlands.route:52
-        { accept = 464, title = "War Banners", npc = "Captain Stoutfist", x = 9.9, y = 57.5, qlevel = 28 }, -- Alliance_Wetlands.route:53
-        { accept = 98223, title = "Old Habits", npc = "Tattered Spellbook", x = 53.5, y = 54.6, tip = "On the way you pass objectives of \"War Banners\" (Dragonmaw War Banner) - do them as you go.", qlevel = 31 }, -- Alliance_Wetlands.route:54
-        { complete = { 464, 470 }, titles = { "War Banners", "Digging Through the Ooze" }, text = "Collect Dragonmaw War Banner (Dragonmaw Raider, Dragonmaw Swamprunner). Collect Sida's Bag (Crimson Ooze, Black Ooze).", x = 65.8, y = 48, targets = { "Dragonmaw Reclaimer", "Dragonmaw Infiltrator", "Dragonmaw Soulbinder" }, area = { 66, 47.8, 66.3, 47.5, 64.9, 48, 64.5, 47.4, 67.6, 48.3, 66, 50.1, 67.8, 47.4, 64.7, 50, 65.6, 45, 67.9, 50.3 } }, -- Alliance_Wetlands.route:55
-        { turnin = 470, title = "Digging Through the Ooze", npc = "Sida", x = 11.8, y = 58 }, -- Alliance_Wetlands.route:56
-        { turnin = 464, title = "War Banners", npc = "Captain Stoutfist", x = 9.9, y = 57.5 }, -- Alliance_Wetlands.route:57
-        { turnin = 98223, title = "Old Habits", npc = "Captain Stoutfist", x = 9.9, y = 57.5 }, -- Alliance_Wetlands.route:58
-        { fly = "Sentinel Hill", npc = "Shellei Brondir", x = 9.5, y = 59.7 }, -- Alliance_Wetlands.route:61
-        { note = "Run to Duskwood." }, -- Alliance_Wetlands.route:62
+        { turnin = 305, title = "In Search of The Excavation Team", npc = "Merrin Rockweaver", x = 38.9, y = 52.3, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands.route:35
+        { accept = 306, title = "In Search of The Excavation Team", npc = "Merrin Rockweaver", x = 38.9, y = 52.3, qlevel = 24, pre = { 305 }, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands.route:36
+        { accept = 469, title = "Daily Delivery", npc = "Einar Stonegrip", x = 49.9, y = 39.4, qlevel = 21 }, -- Alliance_Wetlands.route:37
+        { accept = 276, title = "Tramping Paws", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 21 }, -- Alliance_Wetlands.route:38
+        { turnin = 463, title = "The Greenwarden", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:39
+        { complete = { 276, 98282 }, titles = { "Tramping Paws", "Alchemical Hazards" }, text = "Kill Mosshide Gnoll. Kill Mosshide Mongrel. Collect Unruptured Stalker Gland (Leech Stalker, Cave Stalker).", x = 59.2, y = 66.8, targets = { "Mosshide Gnoll", "Mosshide Mongrel", "Leech Stalker" }, area = { 57.3, 66.5, 61.3, 67.9, 61.6, 66.8, 60.7, 64.3, 56.1, 67.9, 62.8, 68.4, 54.8, 66.6, 57, 62.8, 60.3, 71.4, 54.7, 64.7 } }, -- Alliance_Wetlands.route:40
+        { turnin = 276, title = "Tramping Paws", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:41
+        { accept = 277, title = "Fire Taboo", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 23, pre = { 276 } }, -- Alliance_Wetlands.route:42
+        { complete = 277, title = "Fire Taboo", text = "Collect Crude Flint (Mosshide Mistweaver, Mosshide Fenrunner).", x = 62.4, y = 57.8, targets = { "Mosshide Fenrunner", "Mosshide Trapper", "Mosshide Brute" }, area = { 62.7, 57, 63.5, 58.4, 61.2, 58.3, 59.6, 58.2, 59.6, 55.6, 65.1, 55.1, 60.7, 54.3, 62.7, 69.3 } }, -- Alliance_Wetlands.route:43
+        { turnin = 277, title = "Fire Taboo", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands.route:44
+        { turnin = 306, title = "In Search of The Excavation Team", npc = "Tarrel Rockweaver", x = 11.5, y = 52.2 }, -- Alliance_Wetlands.route:45
+        { turnin = 469, title = "Daily Delivery", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands.route:46
+        { turnin = 98282, title = "Alchemical Hazards", npc = "Caitlin Grassman", x = 11.9, y = 58.8 }, -- Alliance_Wetlands.route:47
+        { level = 23, text = "Kill Young Wetlands Crocolisk and Wetlands Crocolisk here until level 23 (the next quests need it).", x = 14.6, y = 53.2 }, -- Alliance_Wetlands.route:48
+        { accept = 470, title = "Digging Through the Ooze", npc = "Sida", x = 11.8, y = 58, qlevel = 24 }, -- Alliance_Wetlands.route:49
+        { accept = 464, title = "War Banners", npc = "Captain Stoutfist", x = 9.9, y = 57.5, qlevel = 28 }, -- Alliance_Wetlands.route:50
+        { accept = 98223, title = "Old Habits", npc = "Tattered Spellbook", x = 53.5, y = 54.6, tip = "On the way you pass objectives of \"War Banners\" (Dragonmaw War Banner) - do them as you go.", qlevel = 31 }, -- Alliance_Wetlands.route:51
+        { complete = { 464, 470 }, titles = { "War Banners", "Digging Through the Ooze" }, text = "Collect Dragonmaw War Banner (Dragonmaw Raider, Dragonmaw Swamprunner). Collect Sida's Bag (Crimson Ooze, Black Ooze).", x = 65.8, y = 48, targets = { "Dragonmaw Reclaimer", "Dragonmaw Infiltrator", "Dragonmaw Soulbinder" }, area = { 66, 47.8, 66.3, 47.5, 64.9, 48, 64.5, 47.4, 67.6, 48.3, 66, 50.1, 67.8, 47.4, 64.7, 50, 65.6, 45, 67.9, 50.3 } }, -- Alliance_Wetlands.route:52
+        { turnin = 470, title = "Digging Through the Ooze", npc = "Sida", x = 11.8, y = 58 }, -- Alliance_Wetlands.route:53
+        { turnin = 464, title = "War Banners", npc = "Captain Stoutfist", x = 9.9, y = 57.5 }, -- Alliance_Wetlands.route:54
+        { turnin = 98223, title = "Old Habits", npc = "Captain Stoutfist", x = 9.9, y = 57.5 }, -- Alliance_Wetlands.route:55
+        { fly = "Sentinel Hill", npc = "Shellei Brondir", x = 9.5, y = 59.7 }, -- Alliance_Wetlands.route:58
+        { note = "Run to Duskwood." }, -- Alliance_Wetlands.route:59
     },
 })

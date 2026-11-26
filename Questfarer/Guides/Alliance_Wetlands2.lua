@@ -19,21 +19,23 @@ QF:RegisterGuide({
         { complete = 471, title = "Apprentice's Duties", text = "Collect Giant Crocolisk Skin (Giant Wetlands Crocolisk).", x = 17.6, y = 59.9, targets = { "Giant Wetlands Crocolisk" }, area = { 17.7, 60.7, 16.8, 59.7, 18.3, 59.2, 16.6, 61.6 } }, -- Alliance_Wetlands2.route:14
         { turnin = 471, title = "Apprentice's Duties", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands2.route:15
         { accept = 98072, title = "Crocs of the Sky", npc = "James Halloran", x = 8.6, y = 55.7, qlevel = 27, pre = { 471 } }, -- Alliance_Wetlands2.route:16
-        { accept = 294, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 24 }, -- Alliance_Wetlands2.route:17
+        { accept = 294, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 24, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:17
         { complete = 294, title = "Ormer's Revenge", text = "Kill Mottled Raptor. Kill Mottled Screecher.", x = 24.8, y = 48.5, targets = { "Mottled Raptor", "Mottled Screecher" }, area = { 24.2, 48.3, 25.8, 48.9, 26, 47.5, 23.9, 47.1, 24.1, 50.4, 24.2, 52.5, 20.7, 48.8, 21.4, 51.9, 29.5, 46.5, 27.2, 43.5 } }, -- Alliance_Wetlands2.route:18
-        { turnin = 294, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9 }, -- Alliance_Wetlands2.route:19
-        { accept = 295, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 27, pre = { 294 } }, -- Alliance_Wetlands2.route:20
-        { complete = 295, title = "Ormer's Revenge", text = "Kill Mottled Scytheclaw. Kill Mottled Razormaw.", x = 33.9, y = 48.5, targets = { "Mottled Scytheclaw", "Mottled Razormaw" }, area = { 33.9, 48.3, 34.7, 47.1, 32.2, 48.7, 35.3, 49.5, 34.4, 50.9, 35.2, 46.3, 31.8, 46.9, 35.1, 50.8, 33.6, 44.6, 35.7, 44.1 } }, -- Alliance_Wetlands2.route:21
-        { turnin = 295, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9 }, -- Alliance_Wetlands2.route:22
-        { accept = 275, title = "Blisters on The Land", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 26, pre = { 277 } }, -- Alliance_Wetlands2.route:23
-        { complete = 98072, title = "Crocs of the Sky", text = "Collect Pristine Crimson Scale (Red Whelp, Lost Whelp).", x = 62, y = 33.1, targets = { "Crimson Whelp", "Lost Whelp", "Red Whelp" }, area = { 62, 33.1, 62.8, 34.1, 59.5, 32.7, 64.2, 31.8, 63.7, 35.3, 61, 36.8, 61.3, 38.3, 64.2, 37.9, 59.5, 39.2, 61.8, 40.1 } }, -- Alliance_Wetlands2.route:24
-        { turnin = 472, title = "Fall of Dun Modr", npc = "Longbraid the Grim", x = 49.8, y = 18.3 }, -- Alliance_Wetlands2.route:25
-        { complete = 275, title = "Blisters on The Land", text = "Kill Fen Creeper.", x = 26.6, y = 37.3, targets = { "Fen Creeper" }, area = { 27.4, 37.1, 27.1, 39.1, 25.9, 31.9, 23.6, 32, 22.5, 30, 35.6, 33.5, 20.8, 28.4, 18.5, 27.7, 33, 25.7 } }, -- Alliance_Wetlands2.route:26
-        { turnin = 98072, title = "Crocs of the Sky", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands2.route:27
-        { accept = 98240, title = "Crimson Crate Delivery", npc = "James Halloran", x = 8.6, y = 55.7, qlevel = 29, pre = { 98072 } }, -- Alliance_Wetlands2.route:28
-        { turnin = 98240, title = "Crimson Crate Delivery", npc = "Howin Kindfeather", x = 49.4, y = 42.1 }, -- Alliance_Wetlands2.route:29
-        { turnin = 275, title = "Blisters on The Land", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands2.route:30
-        { hearth = "Lakeshire" }, -- Alliance_Wetlands2.route:33
-        { fly = "Darkshire", npc = "Ariena Stormfeather", map = 1433, x = 25.5, y = 59.4 }, -- Alliance_Wetlands2.route:34
+        { turnin = 294, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:19
+        { accept = 295, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 27, pre = { 294 }, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:20
+        { accept = 299, title = "Uncovering the Past", npc = "Prospector Whelgar", x = 38.8, y = 52.4, qlevel = 27, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:22
+        { complete = { 295, 299 }, titles = { "Ormer's Revenge", "Uncovering the Past" }, text = "Kill Mottled Scytheclaw. Kill Mottled Razormaw. Collect Ados Fragment (Ancient Relic). Collect Modr Fragment (Ancient Relic). Collect Golm Fragment (Ancient Relic). Collect Neru Fragment (Loose Soil).", x = 34, y = 48.5, targets = { "Mottled Scytheclaw", "Mottled Razormaw" }, area = { 33.8, 48.6, 35, 47.9, 33.4, 47.4, 32.3, 48.6, 34.8, 50.3, 35.2, 46.3, 36.1, 50, 31.8, 46.9, 32.2, 50.8, 33.6, 44.6 } }, -- Alliance_Wetlands2.route:23
+        { turnin = 295, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:24
+        { turnin = 299, title = "Uncovering the Past", npc = "Prospector Whelgar", x = 38.8, y = 52.4, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:25
+        { accept = 275, title = "Blisters on The Land", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4, qlevel = 26, pre = { 277 } }, -- Alliance_Wetlands2.route:26
+        { complete = 98072, title = "Crocs of the Sky", text = "Collect Pristine Crimson Scale (Red Whelp, Lost Whelp).", x = 62, y = 33.1, targets = { "Crimson Whelp", "Lost Whelp", "Red Whelp" }, area = { 62, 33.1, 62.8, 34.1, 59.5, 32.7, 64.2, 31.8, 63.7, 35.3, 61, 36.8, 61.3, 38.3, 64.2, 37.9, 59.5, 39.2, 61.8, 40.1 } }, -- Alliance_Wetlands2.route:27
+        { turnin = 472, title = "Fall of Dun Modr", npc = "Longbraid the Grim", x = 49.8, y = 18.3 }, -- Alliance_Wetlands2.route:28
+        { complete = 275, title = "Blisters on The Land", text = "Kill Fen Creeper.", x = 26.6, y = 37.3, targets = { "Fen Creeper" }, area = { 27.4, 37.1, 27.1, 39.1, 25.9, 31.9, 23.6, 32, 22.5, 30, 35.6, 33.5, 20.8, 28.4, 18.5, 27.7, 33, 25.7 } }, -- Alliance_Wetlands2.route:29
+        { turnin = 98072, title = "Crocs of the Sky", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands2.route:30
+        { accept = 98240, title = "Crimson Crate Delivery", npc = "James Halloran", x = 8.6, y = 55.7, qlevel = 29, pre = { 98072 } }, -- Alliance_Wetlands2.route:31
+        { turnin = 98240, title = "Crimson Crate Delivery", npc = "Howin Kindfeather", x = 49.4, y = 42.1 }, -- Alliance_Wetlands2.route:32
+        { turnin = 275, title = "Blisters on The Land", npc = "Rethiel the Greenwarden", x = 56.4, y = 40.4 }, -- Alliance_Wetlands2.route:33
+        { hearth = "Lakeshire" }, -- Alliance_Wetlands2.route:36
+        { fly = "Darkshire", npc = "Ariena Stormfeather", map = 1433, x = 25.5, y = 59.4 }, -- Alliance_Wetlands2.route:37
     },
 })

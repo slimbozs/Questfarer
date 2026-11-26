@@ -32,11 +32,8 @@ accept   286
 turnin   286
 accept   98189
 turnin   98189
-accept   299 {race=Human,Dwarf,Gnome,Skyborne}
-turnin   305
-accept   306
-complete 299 @34.1,48.6 {race=Human,Dwarf,Gnome,Skyborne}
-turnin   299 {race=Human,Dwarf,Gnome,Skyborne}
+turnin   305 {cp=34.4,41.4/37.2,43.0}
+accept   306 {cp=34.4,41.4/37.2,43.0}
 accept   469
 accept   276
 turnin   463

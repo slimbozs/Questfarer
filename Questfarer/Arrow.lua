@@ -8,8 +8,16 @@ local C = W.colors
 local Arrow = {}
 QF.Arrow = Arrow
 
-local SIZE = 52
+local SIZE = 58
 local ARRIVED = 12 -- yards
+local TAG = 18     -- the distance pill
+
+-- needle colours: gold far away, green when close, blue for a checkpoint
+local GOLD = { 0.95, 0.77, 0.35 }
+local GREEN = { 0.45, 0.86, 0.36 }
+local BLUE = { 0.45, 0.78, 1 }
+local BRONZE = { 0.62, 0.47, 0.27 }
+local DARK = { 0.08, 0.065, 0.05 }
 
 -- map size in yards { width, height }, cached per map
 local mapSize = {}
@@ -65,7 +73,7 @@ function Arrow:Create()
     if self.frame then return end
     local f = CreateFrame("Frame", "QuestfarerArrow", UIParent)
     self.frame = f
-    f:SetSize(140, SIZE + 34)
+    f:SetSize(140, SIZE + TAG + 22)
     f:SetFrameStrata("MEDIUM")
     f:SetClampedToScreen(true)
     f:SetMovable(true)
@@ -90,21 +98,38 @@ function Arrow:Create()
     end)
     f:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-    local tex = f:CreateTexture(nil, "ARTWORK")
-    tex:SetSize(SIZE, SIZE)
-    tex:SetPoint("TOP")
-    tex:SetTexture("Interface\\Minimap\\MinimapArrow")
-    self.tex = tex
+    -- a compass: dark disc, bronze ring, and the needle that turns
+    local dial = CreateFrame("Frame", nil, f)
+    dial:SetSize(SIZE, SIZE)
+    dial:SetPoint("TOP")
+    self.dial = dial
+    local disc = dial:CreateTexture(nil, "BACKGROUND")
+    disc:SetAllPoints()
+    disc:SetTexture(W.MEDIA .. "compass_disc.tga")
+    disc:SetVertexColor(DARK[1], DARK[2], DARK[3], 0.78)
+    local ring = dial:CreateTexture(nil, "BORDER")
+    ring:SetAllPoints()
+    ring:SetTexture(W.MEDIA .. "compass_ring.tga")
+    ring:SetVertexColor(BRONZE[1], BRONZE[2], BRONZE[3])
+    local needle = dial:CreateTexture(nil, "ARTWORK")
+    needle:SetAllPoints()
+    needle:SetTexture(W.MEDIA .. "compass_needle.tga")
+    self.tex = needle
 
-    -- over the game world, so light text with a shadow, not the panel ink
-    self.dist = W.Text(f, "GameFontHighlight", { 0.96, 0.93, 0.85 }, 14)
-    self.dist:SetShadowOffset(1, -1)
-    self.dist:SetPoint("TOP", tex, "BOTTOM", 0, -2)
+    -- over the game world, so light text on a dark pill, not the panel ink
+    local tag = CreateFrame("Frame", nil, f)
+    tag:SetSize(60, TAG)
+    tag:SetPoint("TOP", dial, "BOTTOM", 0, -3)
+    W.Color(W.Pill(tag, "circle"), DARK, 0.78)
+    W.Color(W.Pill(tag, "ring", "BORDER"), BRONZE, 0.8)
+    self.tag = tag
+    self.dist = W.Text(tag, "GameFontHighlight", { 0.96, 0.93, 0.85 }, 12)
+    self.dist:SetPoint("CENTER", 0, 0)
     self.dist:SetJustifyH("CENTER")
     self.dist:SetWordWrap(false)
     self.label = W.Text(f, "GameFontHighlightSmall", { 0.85, 0.80, 0.70 })
     self.label:SetShadowOffset(1, -1)
-    self.label:SetPoint("TOP", self.dist, "BOTTOM", 0, -2)
+    self.label:SetPoint("TOP", tag, "BOTTOM", 0, -3)
     self.label:SetWidth(200)
     self.label:SetJustifyH("CENTER")
     self.label:SetWordWrap(false)
@@ -139,6 +164,19 @@ function Arrow:ApplySettings()
     f:SetShown(QF.db.arrow and true or false)
 end
 
+-- the pill grows with the text and hides when there is none
+function Arrow:SetDistance(text)
+    if text == self.distText then return end
+    self.distText = text
+    self.dist:SetText(text)
+    self.tag:SetShown(text ~= "")
+    self.tag:SetWidth(self.dist:GetStringWidth() + 20)
+end
+
+local function tint(tex, c)
+    tex:SetVertexColor(c[1], c[2], c[3])
+end
+
 local function shortLabel(step)
     if step.npc then return step.npc end
     local t = QF:StepText(step):gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
@@ -157,8 +195,8 @@ function Arrow:Update()
     local step = QF:CurrentStep()
     local tex = self.tex
     if not (step and step.x and step.y and step.map) or QF.noGuideForLevel then
-        tex:SetAlpha(0)
-        self.dist:SetText("")
+        self.dial:SetAlpha(0)
+        self:SetDistance("")
         self.label:SetText("")
         self:SetClickable(false)
         return
@@ -180,28 +218,28 @@ function Arrow:Update()
     end
     if cc then
         self.label:SetText(cpLabel)
-        tex:SetAlpha(1)
+        self.dial:SetAlpha(1)
         local facing = GetPlayerFacing and GetPlayerFacing()
         if facing then tex:SetRotation(bearing - facing) end
-        tex:SetVertexColor(0.45, 0.8, 1) -- blue = checkpoint
-        self.dist:SetText(("%d yd"):format(dist))
+        tint(tex, BLUE)
+        self:SetDistance(("%d yd"):format(dist))
         return
     end
     dist, bearing = vectorTo(step.map, step.x, step.y)
     self.label:SetText(shortLabel(step))
     if not dist then
         -- not on this continent (or no map data): no direction
-        tex:SetAlpha(0.25)
+        self.dial:SetAlpha(0.35)
         tex:SetRotation(0)
         local info = C_Map.GetMapInfo(step.map)
-        self.dist:SetText("Go to " .. (info and info.name or "the next zone"))
+        self:SetDistance("Go to " .. (info and info.name or "the next zone"))
         return
     end
-    tex:SetAlpha(1)
+    self.dial:SetAlpha(1)
     if dist <= ARRIVED then
         tex:SetRotation(0)
-        tex:SetVertexColor(0.3, 1, 0.3)
-        self.dist:SetText("You're there")
+        tint(tex, GREEN)
+        self:SetDistance("You're there")
         return
     end
     local facing = GetPlayerFacing and GetPlayerFacing()
@@ -210,8 +248,9 @@ function Arrow:Update()
     end
     -- gold far away, turning green as you get close
     local k = math.max(0, math.min(1, (dist - ARRIVED) / 150))
-    tex:SetVertexColor(0.3 + 0.7 * k, 1 - 0.18 * k, 0.3 - 0.3 * k)
-    self.dist:SetText(("%d yd"):format(dist))
+    tex:SetVertexColor(GREEN[1] + (GOLD[1] - GREEN[1]) * k, GREEN[2] + (GOLD[2] - GREEN[2]) * k,
+        GREEN[3] + (GOLD[3] - GREEN[3]) * k)
+    self:SetDistance(("%d yd"):format(dist))
 end
 
 QF:On("PLAYER_LOGIN", function()

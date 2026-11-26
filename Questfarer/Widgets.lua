@@ -33,6 +33,9 @@ THEMES.dark = {
     leatherHover = { 0.17, 0.13, 0.10 },
     leatherText = { 0.95, 0.88, 0.72 },
     leatherMuted = { 0.68, 0.59, 0.45 },
+    -- the header runs from wine red to a dark teal
+    headerFrom = { 0.24, 0.12, 0.08 },
+    headerTo = { 0.07, 0.09, 0.09 },
     highlight = { 1, 0.94, 0.80 },
     rim = { 0.36, 0.27, 0.16 },
     inner = { 0.50, 0.38, 0.22 },
@@ -64,6 +67,8 @@ THEMES.light = {
     leatherHover = { 0.38, 0.26, 0.15 },
     leatherText = { 0.96, 0.91, 0.79 },
     leatherMuted = { 0.80, 0.70, 0.53 },
+    headerFrom = { 0.40, 0.17, 0.10 },
+    headerTo = { 0.24, 0.18, 0.11 },
     highlight = { 1, 0.98, 0.90 },
     rim = { 0.27, 0.18, 0.10 },
     inner = { 1, 0.98, 0.90 },
@@ -124,12 +129,28 @@ function W.BorderColor(f, c, a)
     for _, t in ipairs(f.borderEdges or {}) do W.Color(t, c, a or 1) end
 end
 
+local MEDIA = "Interface\\AddOns\\" .. addonName .. "\\Media\\"
+W.MEDIA = MEDIA
+
 -- Rounded boxes. The textures come from Tools/make_corners.py: a 32 unit tile where
 -- a 12 unit corner piece holds a 3 unit margin, a 6 unit radius and a 2 unit border.
-local ROUND = "Interface\\AddOns\\" .. addonName .. "\\Media\\round_"
+-- Shapes, icons and the compass come from Tools/make_shapes.py.
+local ROUND = MEDIA .. "round_"
 local PIECE, MARGIN, CUT = 12, 3, 12 / 32
 
--- nine textures that W.Color, SetAlpha and SetShown treat as one
+-- from and to are colours, a1 and a2 their alpha. Plain colour where the client lacks SetGradient.
+local function gradient(tex, orientation, from, to, a1, a2)
+    a1 = a1 or 1
+    if CreateColor and tex.SetGradient then
+        local ok = pcall(tex.SetGradient, tex, orientation, CreateColor(from[1], from[2], from[3], a1),
+            CreateColor(to[1], to[2], to[3], a2 or a1))
+        if ok then return end
+    end
+    tex:SetVertexColor(from[1], from[2], from[3], a1)
+end
+W.Gradient = gradient
+
+-- textures that W.Color, SetAlpha and SetShown treat as one
 local Box = {}
 Box.__index = Box
 function Box:SetColorTexture(r, g, b, a)
@@ -140,6 +161,37 @@ function Box:SetAlpha(a)
 end
 function Box:SetShown(on)
     for _, t in ipairs(self) do t:SetShown(on) end
+end
+-- vertical only, the pieces of a box don't share one horizontal span
+function Box:SetGradient(bottom, top, a1, a2)
+    for _, t in ipairs(self) do gradient(t, "VERTICAL", bottom, top, a1, a2) end
+end
+
+-- a pill: two half circles and a stretched middle. Caps are half the frame's height,
+-- so give the frame its size first. kind: circle or ring
+function W.Pill(f, kind, layer, sub)
+    local file = MEDIA .. (kind == "ring" and "shape_ring" or "shape_circle") .. ".tga"
+    local p = setmetatable({}, Box)
+    for i = 1, 3 do
+        local t = f:CreateTexture(nil, layer or "BACKGROUND", nil, sub or 0)
+        t:SetTexture(file)
+        p[i] = t
+    end
+    local cap = f:GetHeight() / 2
+    p[1]:SetTexCoord(0, 0.5, 0, 1)
+    p[2]:SetTexCoord(0.5, 0.5, 0, 1)
+    p[3]:SetTexCoord(0.5, 1, 0, 1)
+    p[1]:SetPoint("TOPLEFT"); p[1]:SetPoint("BOTTOMLEFT"); p[1]:SetWidth(cap)
+    p[3]:SetPoint("TOPRIGHT"); p[3]:SetPoint("BOTTOMRIGHT"); p[3]:SetWidth(cap)
+    p[2]:SetPoint("TOPLEFT", p[1], "TOPRIGHT"); p[2]:SetPoint("BOTTOMRIGHT", p[3], "BOTTOMLEFT")
+    return p
+end
+
+-- colour running left to right over a pill
+function W.PillAcross(p, from, to, a)
+    p[1]:SetVertexColor(from[1], from[2], from[3], a or 1)
+    gradient(p[2], "HORIZONTAL", from, to, a)
+    p[3]:SetVertexColor(to[1], to[2], to[3], a or 1)
 end
 
 -- kind: solid, fill, ring, inner, shadow or shade. corner scales it all, 12 is the window.
@@ -268,6 +320,9 @@ function W.TextHeight(s)
     return math.max(s:GetStringHeight() or 0, 12)
 end
 
+-- the header is dark leather in both themes, so its trim is always this gold
+local HEADER_GOLD = { 0.93, 0.76, 0.42 }
+
 -- dragging the header moves f. Children check h.dark to pick light colours.
 function W.Header(f, height, icon)
     local h = CreateFrame("Frame", nil, f)
@@ -275,28 +330,67 @@ function W.Header(f, height, icon)
     h:SetPoint("TOPRIGHT", -2, -2)
     h:SetHeight(height)
     h.dark = true
-    local bg = h:CreateTexture(nil, "BACKGROUND")
-    bg:SetAllPoints()
-    W.Color(bg, C.leather, 1)
-    h.bg = bg
+
+    -- the window's own rounded top, cut off where the header ends
+    local p = W.Round(f, "fill", nil, "BACKGROUND", 2)
+    for i = 7, 9 do p[i]:Hide() end
+    local inset = PIECE - MARGIN - 2
+    p[4]:ClearAllPoints()
+    p[4]:SetPoint("TOPLEFT", p[1], "BOTTOMLEFT")
+    p[4]:SetPoint("BOTTOMRIGHT", h, "BOTTOMLEFT", inset, 0)
+    p[6]:ClearAllPoints()
+    p[6]:SetPoint("TOPRIGHT", p[3], "BOTTOMRIGHT")
+    p[6]:SetPoint("BOTTOMLEFT", h, "BOTTOMRIGHT", -inset, 0)
+    p[5]:ClearAllPoints()
+    p[5]:SetPoint("TOPLEFT", p[1], "BOTTOMRIGHT")
+    p[5]:SetPoint("BOTTOMRIGHT", p[6], "BOTTOMLEFT")
+    for _, i in ipairs({ 1, 4 }) do p[i]:SetVertexColor(unpack(C.headerFrom)) end
+    for _, i in ipairs({ 3, 6 }) do p[i]:SetVertexColor(unpack(C.headerTo)) end
+    for _, i in ipairs({ 2, 5 }) do gradient(p[i], "HORIZONTAL", C.headerFrom, C.headerTo) end
+    h.bg = setmetatable({ p[1], p[2], p[3], p[4], p[5], p[6] }, Box)
+
     local band = h:CreateTexture(nil, "BORDER")
     band:SetPoint("BOTTOMLEFT"); band:SetPoint("BOTTOMRIGHT"); band:SetHeight(2)
-    W.Color(band, C.accent)
+    band:SetColorTexture(1, 1, 1)
+    gradient(band, "HORIZONTAL", C.accent, HEADER_GOLD, 1, 0.35)
     local shade = f:CreateTexture(nil, "BORDER")
     shade:SetPoint("TOPLEFT", h, "BOTTOMLEFT", 0, 0)
     shade:SetPoint("TOPRIGHT", h, "BOTTOMRIGHT", 0, 0)
-    shade:SetHeight(3)
-    W.Color(shade, C.shade, 0.25)
+    shade:SetHeight(4)
+    shade:SetColorTexture(1, 1, 1)
+    gradient(shade, "VERTICAL", C.shade, C.shade, 0, 0.3)
+
+    local left
     if icon then
         local ic = h:CreateTexture(nil, "ARTWORK")
         ic:SetSize(height - 10, height - 10)
-        ic:SetPoint("LEFT", 6, 1)
+        ic:SetPoint("LEFT", 8, 0)
         ic:SetTexture(icon)
         ic:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+        if ic.SetMask then pcall(ic.SetMask, ic, DOT) end
+        local ring = h:CreateTexture(nil, "OVERLAY")
+        ring:SetPoint("TOPLEFT", ic, -2, 2)
+        ring:SetPoint("BOTTOMRIGHT", ic, 2, -2)
+        ring:SetTexture(MEDIA .. "shape_ring.tga")
+        ring:SetVertexColor(unpack(HEADER_GOLD))
         h.icon = ic
+        left = height + 2
+    else
+        -- a small gem where the icon would be
+        local gem = h:CreateTexture(nil, "ARTWORK")
+        gem:SetSize(14, 14)
+        gem:SetPoint("LEFT", 9, 0)
+        gem:SetTexture(MEDIA .. "shape_diamond.tga")
+        gem:SetVertexColor(C.accent[1], C.accent[2], C.accent[3])
+        local dot = h:CreateTexture(nil, "OVERLAY")
+        dot:SetSize(5, 5)
+        dot:SetPoint("CENTER", gem)
+        dot:SetTexture(MEDIA .. "shape_circle.tga")
+        dot:SetVertexColor(unpack(HEADER_GOLD))
+        left = 30
     end
     h.title = W.Text(h, "GameFontNormal", C.leatherText, 13)
-    h.title:SetPoint("LEFT", icon and (height + 2) or 9, 1)
+    h.title:SetPoint("LEFT", left, 1)
     h.title:SetWordWrap(false)
     h:EnableMouse(true)
     h:RegisterForDrag("LeftButton")
@@ -329,9 +423,13 @@ end
 function W.Button(parent, text, width, height, onClick, kind)
     local b = CreateFrame("Button", nil, parent)
     b:SetSize(width, height or 22)
-    local bg = W.Box(b, 6, true)
+    local bg = W.Pill(b, "circle")
     W.Color(bg, C.button)
+    b.borderEdges = { W.Pill(b, "ring", "BORDER") }
     W.BorderColor(b, C.border)
+    -- light from above
+    local gloss = W.Pill(b, "circle", "BACKGROUND", 1)
+    gloss:SetGradient({ 1, 1, 1 }, { 1, 1, 1 }, 0, kind == "primary" and 0.22 or 0.08)
     b.bg = bg
     b.label = W.Text(b, "GameFontHighlightSmall", C.text)
     b.label:SetPoint("CENTER")
@@ -355,7 +453,7 @@ function W.Button(parent, text, width, height, onClick, kind)
     b:SetScript("OnClick", onClick)
     if kind == "primary" then
         b:SetColor(C.accent, 1, C.accentHover)
-        W.BorderColor(b, C.leather)
+        W.BorderColor(b, C.accentHover)
         b.label:SetTextColor(C.leatherText[1], C.leatherText[2], C.leatherText[3])
     elseif kind == "train" then
         local c = W.StepStyle("train").color
@@ -397,29 +495,27 @@ function W.ConfirmButton(parent, text, width, height, onConfirm, confirmText)
     return b
 end
 
+local GLYPH = { x = "icon_close", ["-"] = "icon_minus", ["+"] = "icon_plus", gear = "icon_gear" }
+
+-- glyph is x, -, + or gear, drawn from Media. SetGlyph swaps it later.
 function W.IconButton(parent, size, texture, glyph, tooltip, onClick)
     local b = CreateFrame("Button", nil, parent)
     b:SetSize(size, size)
     local dark = parent.dark
     local idle, hot, hover = C.muted, C.accent, C.buttonHover
     if dark then idle, hot, hover = C.leatherMuted, C.highlight, C.leatherHover end
-    local bg = W.Box(b, 8)
+    local bg = W.Pill(b, "circle")
     W.Color(bg, hover, 0)
-    if texture then
-        local t = b:CreateTexture(nil, "ARTWORK")
-        t:SetPoint("TOPLEFT", 3, -3)
-        t:SetPoint("BOTTOMRIGHT", -3, 3)
-        t:SetTexture(texture)
-        b.icon = t
-    else
-        b.label = W.Text(b, "GameFontHighlight", idle)
-        b.label:SetPoint("CENTER", 0, 0)
-        b.label:SetJustifyH("CENTER")
-        b.label:SetText(glyph)
+    local t = b:CreateTexture(nil, "ARTWORK")
+    t:SetPoint("TOPLEFT", 3, -3)
+    t:SetPoint("BOTTOMRIGHT", -3, 3)
+    b.icon = t
+    function b:SetGlyph(g)
+        t:SetTexture(MEDIA .. (GLYPH[g] or GLYPH.x) .. ".tga")
     end
+    if texture then t:SetTexture(texture) else b:SetGlyph(glyph) end
     local function tint(c)
-        if b.icon then b.icon:SetVertexColor(c[1], c[2], c[3]) end
-        if b.label then b.label:SetTextColor(c[1], c[2], c[3]) end
+        t:SetVertexColor(c[1], c[2], c[3])
     end
     tint(idle)
     b.tooltip = tooltip
@@ -906,19 +1002,19 @@ function W.CheckBox(parent, size)
     return f
 end
 
--- short: used in the Up Next list
+-- short: used in the Up Next list. shape: the mark in front of "then ..." lines
 local STEP_STYLES = {
-    accept = { color = { 0.55, 0.36, 0.08 }, label = "Accept quest", short = "Accept" },
-    complete = { color = { 0.60, 0.27, 0.10 }, label = "Complete objectives", short = "Do" },
-    turnin = { color = { 0.25, 0.42, 0.18 }, label = "Turn in", short = "Turn in" },
-    train = { color = { 0.36, 0.22, 0.48 }, label = "Train", short = "Train" },
-    getfp = { color = { 0.18, 0.36, 0.48 }, label = "Flight path", short = "Flight path" },
-    fly = { color = { 0.18, 0.36, 0.48 }, label = "Fly", short = "Fly" },
-    sethearth = { color = { 0.16, 0.40, 0.36 }, label = "Set hearthstone", short = "Hearth" },
-    hearth = { color = { 0.16, 0.40, 0.36 }, label = "Use hearthstone", short = "Hearth" },
-    level = { color = { 0.55, 0.16, 0.20 }, label = "Level up", short = "Level" },
-    go = { color = { 0.24, 0.30, 0.45 }, label = "Travel", short = "Go" },
-    note = { color = { 0.40, 0.34, 0.26 }, label = "Note", short = "Note" },
+    accept = { color = { 0.55, 0.36, 0.08 }, label = "Accept quest", short = "Accept", shape = "ring" },
+    complete = { color = { 0.60, 0.27, 0.10 }, label = "Complete objectives", short = "Do", shape = "diamond" },
+    turnin = { color = { 0.25, 0.42, 0.18 }, label = "Turn in", short = "Turn in", shape = "circle" },
+    train = { color = { 0.36, 0.22, 0.48 }, label = "Train", short = "Train", shape = "diamond" },
+    getfp = { color = { 0.18, 0.36, 0.48 }, label = "Flight path", short = "Flight path", shape = "square" },
+    fly = { color = { 0.18, 0.36, 0.48 }, label = "Fly", short = "Fly", shape = "square" },
+    sethearth = { color = { 0.16, 0.40, 0.36 }, label = "Set hearthstone", short = "Hearth", shape = "square" },
+    hearth = { color = { 0.16, 0.40, 0.36 }, label = "Use hearthstone", short = "Hearth", shape = "square" },
+    level = { color = { 0.55, 0.16, 0.20 }, label = "Level up", short = "Level", shape = "diamond" },
+    go = { color = { 0.24, 0.30, 0.45 }, label = "Travel", short = "Go", shape = "square" },
+    note = { color = { 0.40, 0.34, 0.26 }, label = "Note", short = "Note", shape = "ring" },
 }
 for _, style in pairs(STEP_STYLES) do style.base = { unpack(style.color) } end
 
@@ -957,18 +1053,48 @@ local TYPE_ICON = {
     note = { nil, "Interface\\Icons\\INV_Misc_Note_01" },
 }
 
+-- the step type's coloured mark: ring, circle, diamond or square
+function W.SetShape(tex, stepType)
+    local style = W.StepStyle(stepType)
+    tex:SetTexture(MEDIA .. "shape_" .. style.shape .. ".tga")
+    tex:SetVertexColor(style.color[1], style.color[2], style.color[3])
+end
+
+-- a thin rounded bar, SetValue takes 0-1
+function W.Progress(parent, height)
+    local f = CreateFrame("Frame", nil, parent)
+    f:SetHeight(height)
+    W.Color(W.Pill(f, "circle"), C.off, 0.6)
+    local fill = CreateFrame("Frame", nil, f)
+    fill:SetPoint("TOPLEFT")
+    fill:SetPoint("BOTTOMLEFT")
+    fill:SetSize(height, height)
+    W.PillAcross(W.Pill(fill, "circle", "ARTWORK"), C.accent, C.gold)
+    local value = 0
+    function f:SetValue(v)
+        value = v
+        local w = f:GetWidth() or 0
+        fill:SetShown(v > 0 and w > 0)
+        fill:SetWidth(math.max(height, w * math.min(1, v)))
+    end
+    -- the width is 0 until the window is laid out
+    f:SetScript("OnSizeChanged", function() f:SetValue(value) end)
+    return f
+end
+
+-- the game refuses tex coords on a masked texture, the mask hides the icon edge anyway
+local function crop(tex, inset)
+    if not tex.masked then tex:SetTexCoord(inset, 1 - inset, inset, 1 - inset) end
+end
+
 function W.SetStepIcon(tex, stepType)
     local e = TYPE_ICON[stepType] or TYPE_ICON.note
     local atlas = e[1]
     if atlas and C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(atlas) then
         tex:SetAtlas(atlas)
-        tex:SetTexCoord(0, 1, 0, 1)
+        crop(tex, 0)
         return
     end
     tex:SetTexture(e[2])
-    if e[2]:find("Icons") then
-        tex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
-    else
-        tex:SetTexCoord(0, 1, 0, 1)
-    end
+    crop(tex, e[2]:find("Icons") and 0.08 or 0)
 end

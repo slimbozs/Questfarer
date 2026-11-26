@@ -293,10 +293,17 @@ function Paths:Next(step)
     end
     for i = #cps, self.cpIndex, -1 do
         local c = cps[i]
-        local nx, ny = tx, ty
-        if cps[i + 1] then nx, ny = cps[i + 1].x, cps[i + 1].y end
-        if c.c == pc and (dist(px, py, c.x, c.y) <= PASS
-                or dist(px, py, nx, ny) < dist(c.x, c.y, nx, ny) * PROGRESS) then
+        local passed
+        if cps[i + 1] then
+            passed = dist(px, py, c.x, c.y) <= PASS
+                or dist(px, py, cps[i + 1].x, cps[i + 1].y) < dist(c.x, c.y, cps[i + 1].x, cps[i + 1].y) * PROGRESS
+        elseif step.via then
+            -- the guide's last point is the way in, being close to the step as the crow flies says nothing
+            passed = dist(px, py, c.x, c.y) <= PASS * 2
+        else
+            passed = dist(px, py, c.x, c.y) <= PASS or dist(px, py, tx, ty) < dist(c.x, c.y, tx, ty) * PROGRESS
+        end
+        if c.c == pc and passed then
             self.cpIndex = i + 1
             break
         end
