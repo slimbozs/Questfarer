@@ -22,6 +22,10 @@ local SIMPLIFY = 40        -- yards: path simplification tolerance
 local START_NEAR = 250     -- yards: use a learned path when starting this close to its start
 local MERGE = 150          -- yards: crossings this close are the same one
 local CONFIRMED = 2        -- crossings there before a learned one beats the estimate
+local MAX_VIA = 15         -- a longer winding path is someone lost, not a way in
+local MAX_PER_STEP = 3     -- learned paths per step, from different starts
+local MAX_LEARNED = 1000   -- learned paths in all, the oldest go first
+local MAX_CROSSINGS = 6    -- per zone pair, the least used go first
 local PROGRESS = 0.8       -- passed when this much closer to the next point than the checkpoint is
 local NEAR_TARGET = 80     -- yards: ignore checkpoints this close to the step
 
@@ -407,7 +411,7 @@ function Paths:FinishTrack(step)
         local p = simple[i]
         table.insert(via, { p[1], math.floor(p[2] + 0.5), math.floor(p[3] + 0.5) })
     end
-    if #via == 0 then return end
+    if #via == 0 or #via > MAX_VIA then return end
     local key = targetKey(step)
     local list = d.learned[key] or {}
     -- replace a path that started near the same place
@@ -415,9 +419,28 @@ function Paths:FinishTrack(step)
         local s = list[i].start
         if s[1] == first[1] and dist(s[2], s[3], first[2], first[3]) <= START_NEAR then table.remove(list, i) end
     end
-    table.insert(list, { start = { first[1], math.floor(first[2] + 0.5), math.floor(first[3] + 0.5) }, via = via })
+    if #list >= MAX_PER_STEP then table.remove(list, 1) end
+    table.insert(list, { start = { first[1], math.floor(first[2] + 0.5), math.floor(first[3] + 0.5) }, via = via,
+        t = time() })
     d.learned[key] = list
+    self:TrimLearned(d)
     QF:Debug("Learned a path with", #via, "checkpoints to", key)
+end
+
+function Paths:TrimLearned(d)
+    local all = {}
+    for key, list in pairs(d.learned) do
+        for _, path in ipairs(list) do table.insert(all, { key = key, path = path }) end
+    end
+    if #all <= MAX_LEARNED then return end
+    table.sort(all, function(a, b) return (a.path.t or 0) < (b.path.t or 0) end)
+    for i = 1, #all - MAX_LEARNED do
+        local list = d.learned[all[i].key]
+        for j = #list, 1, -1 do
+            if list[j] == all[i].path then table.remove(list, j) end
+        end
+        if #list == 0 then d.learned[all[i].key] = nil end
+    end
 end
 
 function Paths:LearnCrossing(a, b, c, x, y)
@@ -434,6 +457,13 @@ function Paths:LearnCrossing(a, b, c, x, y)
             self.crossings = nil
             return
         end
+    end
+    if #list >= MAX_CROSSINGS then
+        local least = 1
+        for i, p in ipairs(list) do
+            if (p[4] or 1) < (list[least][4] or 1) then least = i end
+        end
+        table.remove(list, least)
     end
     table.insert(list, { c, math.floor(x + 0.5), math.floor(y + 0.5), 1 })
     d.crossings[key] = list
@@ -510,6 +540,72 @@ end
 
 function Paths:PrintStats()
     QF:PrintLines(self:StatsLines())
+end
+
+-- world yards back to percent on a map, from where its corners lie
+local frames = {}
+local function frame(mapID)
+    local f = frames[mapID]
+    if f == nil then
+        f = false
+        local c0, x0, y0 = Paths:World(mapID, 0, 0)
+        local c1, x1, y1 = Paths:World(mapID, 100, 0)
+        local c2, x2, y2 = Paths:World(mapID, 0, 100)
+        if c0 and c0 == c1 and c0 == c2 then
+            local ax, ay, bx, by = x1 - x0, y1 - y0, x2 - x0, y2 - y0
+            local det = ax * by - bx * ay
+            if det ~= 0 then f = { c = c0, x = x0, y = y0, ax = ax, ay = ay, bx = bx, by = by, det = det } end
+        end
+        frames[mapID] = f
+    end
+    return f or nil
+end
+
+local function round1(v) return math.floor(v * 10 + 0.5) / 10 end
+
+function Paths:MapPos(mapID, c, x, y)
+    local f = frame(mapID)
+    if not f or f.c ~= c then return nil end
+    local dx, dy = x - f.x, y - f.y
+    return round1((dx * f.by - f.bx * dy) / f.det * 100), round1((f.ax * dy - f.ay * dx) / f.det * 100)
+end
+
+-- learned paths and crossings in map percent, for the export
+function Paths:ExportData()
+    local d = db()
+    local out = { learned = {}, crossings = {}, maps = {} }
+    if not d then return out end
+    local function point(mapID, c, x, y)
+        local px, py = self:MapPos(mapID, c, x, y)
+        if not px then return nil end
+        local f = frame(mapID)
+        out.maps[mapID] = { round1(math.sqrt(f.ax * f.ax + f.ay * f.ay)), round1(math.sqrt(f.bx * f.bx + f.by * f.by)) }
+        return { px, py }
+    end
+    for key, list in pairs(d.learned) do
+        local mapID = tonumber(key:match("^(%d+):"))
+        local paths = {}
+        for _, path in ipairs(mapID and list or {}) do
+            local via = {}
+            for _, p in ipairs(path.via) do
+                local q = point(mapID, p[1], p[2], p[3])
+                if q then table.insert(via, q) end
+            end
+            local s = point(mapID, path.start[1], path.start[2], path.start[3])
+            if s and #via == #path.via then table.insert(paths, { start = s, via = via }) end
+        end
+        if #paths > 0 then out.learned[key] = paths end
+    end
+    for key, list in pairs(d.crossings) do
+        local mapID = tonumber(key:match("^(%d+)%-"))
+        local pts = {}
+        for _, p in ipairs(mapID and list or {}) do
+            local q = point(mapID, p[1], p[2], p[3])
+            if q then table.insert(pts, { q[1], q[2], p[4] or 1 }) end
+        end
+        if #pts > 0 then out.crossings[key] = pts end
+    end
+    return out
 end
 
 function Paths:Reset()

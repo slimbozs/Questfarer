@@ -12,6 +12,7 @@ current state ──compare_zones.py──> which zone gives the most XP/h next
 Westfall on ──auto_chain.py──> routes/*.route + ORDER   (compare, plan, travel, repeat)
 routes/*.route + db/*.json ──build_guides.py──> ../Questfarer/Guides/*.lua + Guides.xml  (+ reports/unrouted.txt)
 in-game recorder (SavedVariables) ──check_recorded.py──> reports/recorded_diff.txt
+shared exports ──import_contributions.py──> suggest_checkpoints.py ──> reports/checkpoints.txt
 ```
 
 1. **`decode_questiedb.py <zip> db`** decodes QuestieDB's baked Forever release (quests, NPCs, objects, items)
@@ -223,6 +224,9 @@ in-game recorder (SavedVariables) ──check_recorded.py──> reports/recorde
    objectives at most 8 words and 64 characters, letters, digits and a few punctuation marks only, and no
    instruction or command words (`ignore`, `prompt`, `AI`, `powershell`, links, file endings ...). Removed texts
    are counted in the notes. Give an assistant `reports/contributions.txt`, never the raw files in `contributions/`.
+   **`suggest_checkpoints.py`** (after the importer) reads the paths the players' arrows learned, the long way
+   round to a quest giver or flight master, and lists `{cp=...}` for steps that have none, two or more players
+   first. It also lists zone crossings that players used away from `Paths.SEED`. Look at the map before using any.
 5. **`diff_guides.py`** compares the generated guides with the hand-written originals in `reference/`.
    It was used once to validate the compiler.
 6. **Syntax check**: `luau-lsp analyze --platform=standard <file>` (from the Rokit tool storage) is a real Lua

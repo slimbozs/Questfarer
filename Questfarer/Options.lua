@@ -274,7 +274,10 @@ local function buildNavigationPage(page)
     page:Toggle("checkpoints", "Arrow checkpoints",
         "The arrow goes via zone crossings (roads, passes, tunnels) and checkpoints instead of straight through " ..
         "mountains. Learns the way from your own runs (/qf checkpoints).")
-    page:Toggle("waypoint", "Map pin", "Puts Blizzard's map pin on the current step, on the world map and minimap (/qf waypoint).")
+    page:Toggle("mapSteps", "Step numbers on the map",
+        "Numbered circles on the world map for the current step and the next five, joined by a line. " ..
+        "Point at one to see its steps (/qf mapsteps).")
+    page:Toggle("waypoint", "Blizzard map pin", "Puts Blizzard's map pin on the current step, on the world map and minimap (/qf waypoint).")
     page:Toggle("mapAreas", "Objective areas on the map",
         "Orange dots on the world map and minimap where the current step's mobs, items and objects are.")
     local skip = page:Row("Skip current checkpoint", "The arrow moves on to the next point for this step (/qf cp).")

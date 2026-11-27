@@ -208,7 +208,8 @@ function C:SummaryLines()
         table.insert(lines, ("Collected so far: %d fights and %d kills on %d character(s), levels %d-%d.")
             :format(fights, kills, chars, lo or 0, hi or 0))
     end
-    table.insert(lines, "The export also holds your level and guide times and the recorder's quest and NPC data. " ..
+    table.insert(lines, "The export also holds your level and guide times, the recorder's quest and NPC data " ..
+        "and the paths the arrow learned. " ..
         "It never holds character, realm or player names.")
     return lines
 end
@@ -267,6 +268,7 @@ function C:BuildData()
         chars = plainCopy(self:Store().chars, 0),
         times = times,
         recorder = recorder,
+        paths = QF.Paths and plainCopy(QF.Paths:ExportData(), 0) or nil,
     }
 end
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.9.3-beta
+
+- Numbered circles on the world map for the current step and the next five, joined by a line. Steps at the same
+  spot share a circle; point at one to see its steps. Turn them off on the Navigation page or with `/qf mapsteps`.
+- Blizzard's map pin is now off by default for new installs (Navigation page, or `/qf waypoint`).
+- The orange dots where a step's mobs and items are now show on the world map too. They were drawn under it.
+- The export now holds the paths the arrow learned, so shared data can add checkpoints to the guides. Learned
+  paths are capped (three per step, a thousand in all) so the saved data stays small.
+- A few kill spots in Duskwood, Redridge and Wetlands moved to where the mobs are.
+
 ## 0.9.2-beta
 
 - New look for the guide window: a rounded header with a gem, pill buttons, drawn close, collapse and settings

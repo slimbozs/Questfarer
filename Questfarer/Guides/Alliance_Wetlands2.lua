@@ -16,7 +16,7 @@ QF:RegisterGuide({
     steps = {
         { accept = 472, title = "Fall of Dun Modr", npc = "Harlo Barnaby", x = 10.8, y = 55.9, qlevel = 25 }, -- Alliance_Wetlands2.route:12
         { accept = 471, title = "Apprentice's Duties", npc = "James Halloran", x = 8.6, y = 55.7, qlevel = 26, pre = { 484 } }, -- Alliance_Wetlands2.route:13
-        { complete = 471, title = "Apprentice's Duties", text = "Collect Giant Crocolisk Skin (Giant Wetlands Crocolisk).", x = 17.6, y = 59.9, targets = { "Giant Wetlands Crocolisk" }, area = { 17.7, 60.7, 16.8, 59.7, 18.3, 59.2, 16.6, 61.6 } }, -- Alliance_Wetlands2.route:14
+        { complete = 471, title = "Apprentice's Duties", text = "Collect Giant Crocolisk Skin (Giant Wetlands Crocolisk).", x = 18.6, y = 24.8, targets = { "Giant Wetlands Crocolisk" }, area = { 19, 24.8, 17.5, 23.5, 20.6, 24.2, 18.4, 27, 17, 26.9, 17.6, 29.1, 22.4, 20.9, 15.2, 29.2, 26.1, 22.6, 27, 19.4 } }, -- Alliance_Wetlands2.route:14
         { turnin = 471, title = "Apprentice's Duties", npc = "James Halloran", x = 8.6, y = 55.7 }, -- Alliance_Wetlands2.route:15
         { accept = 98072, title = "Crocs of the Sky", npc = "James Halloran", x = 8.6, y = 55.7, qlevel = 27, pre = { 471 } }, -- Alliance_Wetlands2.route:16
         { accept = 294, title = "Ormer's Revenge", npc = "Ormer Ironbraid", x = 38.2, y = 50.9, qlevel = 24, via = { { 34.4, 41.4 }, { 37.2, 43 } } }, -- Alliance_Wetlands2.route:17

@@ -2,6 +2,7 @@
 
 local _, ns = ...
 local QF = ns.QF
+local W = QF.W
 
 local M = {}
 QF.MapAreas = M
@@ -41,9 +42,9 @@ function M:RefreshWorldMap()
     if not self.world then
         self.world = CreateFrame("Frame", nil, canvas)
         self.world:SetAllPoints(canvas)
-        self.world:SetFrameLevel(canvas:GetFrameLevel() + 500)
         self.worldDots = {}
     end
+    W.AboveMap(self.world, canvas, 1)
     local area, mapID = currentArea()
     local n = (area and map:GetMapID() == mapID) and #area / 2 or 0
     dotPool(self.world, self.worldDots, n, WORLD_ALPHA)

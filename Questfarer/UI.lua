@@ -356,7 +356,7 @@ function UI:PointToTrainer()
         QF:SetWaypointForStep(t)
         QF:Print("Waypoint set to " .. t.npc .. " (" .. (t.area or "") .. ")")
     elseif t then
-        QF:Print("Nearest trainer: " .. t.npc .. " (" .. (t.area or "") .. "). Turn on Map pin in the settings to get a marker.")
+        QF:Print("Nearest trainer: " .. t.npc .. " (" .. (t.area or "") .. "). Turn on Blizzard map pin in the settings to get a marker.")
     else
         QF:Print("No known trainer location for your class nearby.")
     end

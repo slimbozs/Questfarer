@@ -310,6 +310,16 @@ function W.Text(parent, template, c, size)
     return s
 end
 
+-- the map canvas gives its layers frame levels as it goes, so ours go above the highest one
+function W.AboveMap(frame, canvas, extra)
+    frame.questfarer = true
+    local top = canvas:GetFrameLevel()
+    for _, child in ipairs({ canvas:GetChildren() }) do
+        if not child.questfarer then top = math.max(top, child:GetFrameLevel()) end
+    end
+    frame:SetFrameLevel(math.min(top + extra, 9000))
+end
+
 function W.FontSize(s, size)
     local font, _, flags = s:GetFont()
     if font then s:SetFont(font, size, flags) end

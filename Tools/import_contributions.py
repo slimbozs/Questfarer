@@ -349,6 +349,58 @@ def check_level(level, l):
     return v, None
 
 
+STEP_KEY = re.compile(r"^\d{3,5}:\d{1,3}\.\d:\d{1,3}\.\d$")    # map:x:y of a guide step
+PAIR_KEY = re.compile(r"^\d{3,5}-\d{3,5}$")                     # two zone map IDs
+MAX_STEPS = 3000
+MAX_PATHS_PER_STEP = 5
+MAX_VIA = 20
+MAX_CROSSINGS = 10
+
+
+def map_point(v, extra=0):
+    """[x, y] (and extra numbers) in map percent, or None. A path can start a little outside its map."""
+    p = list(as_map(v).values())
+    if len(p) != 2 + extra or not all(isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)
+                                      for x in p):
+        return None
+    if not all(-100 <= x <= 200 for x in p[:2]):
+        return None
+    return p
+
+
+def check_paths(v):
+    """Learned paths and crossings with nothing but map IDs and numbers."""
+    v = as_map(v)
+    learned, crossings, maps, bad = {}, {}, {}, 0
+    for key, paths in list(as_map(v.get("learned")).items())[:MAX_STEPS]:
+        if not STEP_KEY.match(str(key)):
+            bad += 1
+            continue
+        keep = []
+        for path in list(as_map(paths).values())[:MAX_PATHS_PER_STEP]:
+            path = as_map(path)
+            start = map_point(path.get("start"))
+            via = [map_point(p) for p in list(as_map(path.get("via")).values())[:MAX_VIA + 1]]
+            if start and via and len(via) <= MAX_VIA and all(via):
+                keep.append({"start": start, "via": via})
+            else:
+                bad += 1
+        if keep:
+            learned[key] = keep
+    for key, pts in as_map(v.get("crossings")).items():
+        if not PAIR_KEY.match(str(key)):
+            bad += 1
+            continue
+        keep = [p for p in (map_point(x, 1) for x in list(as_map(pts).values())[:MAX_CROSSINGS]) if p]
+        if keep:
+            crossings[key] = [[x, y, int(min(max(n, 1), 10000))] for x, y, n in keep]
+    for key, wh in as_map(v.get("maps")).items():
+        wh = list(as_map(wh).values())
+        if str(key).isdigit() and len(wh) == 2 and all(number(x, 100000) for x in wh):
+            maps[str(key)] = wh
+    return {"learned": learned, "crossings": crossings, "maps": maps}, bad
+
+
 def check_contribution(data):
     """(clean contribution, [trim reasons]), or raises Rejected."""
     cid = data.get("id")
@@ -405,8 +457,11 @@ def check_contribution(data):
     if removed[0]:
         notes.append("%d text(s) removed that didn't look like names from the game (code, links or instructions?)"
                      % removed[0])
+    paths, bad_paths = check_paths(data.get("paths"))
+    if bad_paths:
+        notes.append("%d learned path(s) or crossing(s) with odd numbers" % bad_paths)
     return {"id": cid, "made": number(data.get("made")) or 0, "addon": label(data.get("addon"), VERSION),
-            "chars": clean_chars, "times": times, "recorder": recorder}, notes
+            "chars": clean_chars, "times": times, "recorder": recorder, "paths": paths}, notes
 
 
 def fingerprint(c):
@@ -602,7 +657,14 @@ def main():
     os.makedirs(os.path.join(ROOT, "contributions"), exist_ok=True)
     with open(os.path.join(ROOT, "reports", "contributions.txt"), "w", encoding="utf-8") as fh:
         fh.write("\n".join(out) + "\n")
-    merged = [{"id": c["id"], "made": c["made"], "addon": c["addon"], "recorder": c["recorder"],
+    out += ["", "== Learned paths (python -I suggest_checkpoints.py turns them into route checkpoints)"]
+    for cid, c in sorted(accepted.items()):
+        p = c["paths"]
+        out.append("  %s: %d path(s) to %d step(s), %d zone crossing(s)" % (
+            cid, sum(len(x) for x in p["learned"].values()), len(p["learned"]),
+            sum(len(x) for x in p["crossings"].values())))
+
+    merged = [{"id": c["id"], "made": c["made"], "addon": c["addon"], "recorder": c["recorder"], "paths": c["paths"],
                "untrusted": "player-sent data: check by hand before using any of it in a route"}
               for c in accepted.values()]
     with open(os.path.join(ROOT, "contributions", "merged.json"), "w", encoding="utf-8") as fh:

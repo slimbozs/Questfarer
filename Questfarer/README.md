@@ -14,7 +14,8 @@ It is **off** until you turn on "Collect data to share" (settings window, Data p
 - **What is counted**, per level: fights and their length, downtime between fights (up to 3 minutes), kills,
   kill XP, quest XP, quests turned in, deaths, and fight length by the level difference to your target.
 - **What the export also holds**: your level and guide times, and the recorder's quest, NPC, trainer and flight
-  path data (where things really were). The recorder's route log is left out.
+  path data (where things really were), and the paths the arrow learned (map coordinates only). The recorder's
+  route log is left out.
 - **What it never holds**: character, realm or player names. Characters are told apart by a random ID.
 - **Nothing is sent by itself.** An addon can't send data anywhere. Click "Make export text" (or `/qf export`),
   copy the text and post it in the [Questfarer Discord](https://discord.gg/nqBc8HEcpW) (`#data-contributions`) or the "Data contribution" form on
@@ -85,7 +86,8 @@ settings don't carry over, but the guide finds your place again from your quests
   line in the journal, and a small note above the guide window that you can click to read the page. The Travels page
   counts miles, flights, quests and more, and shows the 16 seals. `/qf journal` opens it.
 - **Guide arrow**: an on-screen compass points to the current step and shows the distance, and the needle turns green when you are close (drag it to move it,
-  right-click it for the settings). Blizzard's map pin is set for every step too.
+  right-click it for the settings). The world map shows numbered circles for the current
+  step and the next five, and Blizzard's map pin can be turned on too.
 - **Checkpoints**: when the step is in another zone, the arrow (blue) first points to where you cross into
   the next zone - a road, a pass, a tunnel, a bridge - instead of straight through the mountains. Steps can
   have their own checkpoints too. It learns from your runs: where you really cross between zones, and the
@@ -114,7 +116,7 @@ its position and the last page. Actions that can't be undone ask you to click a 
 |---|---|
 | **Guide** | Current guide, step and progress; previous/next step, Find my step, Fix skipped step, Restart guide; a searchable list of the guides you can use |
 | **Automation** | Accept quests, turn in quests, dialogue options, flights, train all, sell gray items, repair |
-| **Navigation** | Guide arrow, checkpoints, map pin, objective areas; skip the current checkpoint; learned paths and resetting them |
+| **Navigation** | Guide arrow, checkpoints, step numbers on the map, Blizzard map pin, objective areas; skip the current checkpoint; learned paths and resetting them |
 | **Helpers** | Quest item and target buttons with their key bindings; full bags warning, trainer reminder, best reward, talent suggestions, gear upgrades; clear ignored gear |
 | **Appearance** | Show, lock and collapse the window; size, width, opacity, upcoming steps; reset the position of the guide window, the arrow and the item buttons |
 | **Character** | Level times, talent plan, trainable spells; your class quests (start, stop, hide, show again) |
