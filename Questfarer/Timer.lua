@@ -15,10 +15,17 @@ local function clock(seconds)
     return ("%dm"):format(m)
 end
 
+local function secret(v)
+    return issecretvalue and issecretvalue(v)
+end
+
 local function tick()
-    if UnitIsAFK("player") then return end
+    -- the client can hide these, mostly in combat, and then nobody is AFK
+    local afk = UnitIsAFK("player")
+    if not secret(afk) and afk then return end
     local char = QF.char
     local level = UnitLevel("player")
+    if secret(level) then return end
     char.levelTime[level] = (char.levelTime[level] or 0) + TICK
     local guide = QF.guide and QF.guide.name
     if guide then char.guideTime[guide] = (char.guideTime[guide] or 0) + TICK end

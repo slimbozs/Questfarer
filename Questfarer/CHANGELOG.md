@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.4-beta
+
+- Fixed a Lua error from the time tracker (Timer.lua:19) when the game hides whether you are AFK,
+  mostly in combat. That time now counts.
+
 ## 0.9.3-beta
 
 - Numbered circles on the world map for the current step and the next five, joined by a line. Steps at the same
