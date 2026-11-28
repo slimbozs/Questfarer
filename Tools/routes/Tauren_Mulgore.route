@@ -39,7 +39,7 @@ complete 761 @42.1,55.7
 complete 748, 766 @38.9,56.8
 complete 746 @33.1,54.8
 complete 743 @34.4,48.3
-accept   770 @34.7,34.2
+accept   770 @34.7,34.2 {rare=1}
 accept   98430
 complete 745 @33.9,64.3
 complete 98430 @37.2,64.6

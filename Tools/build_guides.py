@@ -165,6 +165,12 @@ def mob_level(data, q):
 # escorts have no kill targets in the DB but get ambushed at about quest level: take them at quest level
 ESCORT_TEXT = re.compile(r"\b(escort|protect|go with)\b", re.I)
 USE_ITEM = re.compile(r"\buse\b", re.I)
+TALK = re.compile(r"^\s*(find and )?(speak|talk|wait|report|return|listen)\b", re.I)
+RARE_LONG_CHAIN = 2  # more follow-ups than this and a rare is worth waiting for
+RARE_TOO_HIGH = 5    # a rare this many levels above the route level is one to skip
+DANGER_ABOVE = 3     # quest mobs this many levels above the route level get a warning
+ELITE_NEAR = 3.0     # map %, elites this close to a step get a warning
+ELITE_NAMED = 6      # at most this many spawns: a named elite or a rare elite, not a dungeon
 
 
 def solo_level(data, q):
@@ -227,6 +233,26 @@ def camp_level(data, q):
         if best and best <= ql + CAMP_ABOVE_QUEST:
             lv = max(lv, best)
     return lv
+
+
+def hostile_spawns(data):
+    """map -> npc id -> {name, level, elite, pts} for hostile creatures (danger warnings)."""
+    if not hasattr(data, "_hostile"):
+        idx = {}
+        for nid, n in data.npcs.items():
+            if n.get("friendlyToFaction"):
+                continue
+            top = n.get("maxLevel") or n.get("minLevel") or 0
+            if not 1 <= top <= 63:
+                continue
+            for p in data.points("npc", nid):
+                if int(nid) >= CAMP_MAX_ID and p[0] not in FOREVER_MAPS:
+                    continue
+                e = idx.setdefault(p[0], {}).setdefault(nid, {"name": n.get("name") or "?", "level": top,
+                                                               "elite": n.get("rank") in (1, 2), "pts": []})
+                e["pts"].append((p[1], p[2]))
+        data._hostile = idx
+    return data._hostile
 
 
 def elite_gap(level):
@@ -397,6 +423,7 @@ class Compiler:
         self.class_level = {}
         self.xp_total = 0
         self.routed = set()
+        self.completed = set()  # quests with a complete step
 
     def err(self, where, msg):
         self.errors.append("%s: %s" % (where, msg))
@@ -597,6 +624,10 @@ class Compiler:
             _, _, starters = self.d.givers((self.d.quest(r["accept"]) or {}).get("startedBy"))
             if starters:
                 r["items"] = list(starters)[:2]
+            if r.get("rare"):
+                names = [m["name"] for m in self.droppers(self.d.quest(r["accept"]))[1] if m.get("name")]
+                if names:
+                    r["targets"] = names[:AREA_TARGETS]
         if "complete" not in r:
             return
         qids = r["complete"] if isinstance(r["complete"], list) else [r["complete"]]
@@ -804,6 +835,12 @@ class Compiler:
                 out["elite"] = True
             elif (single and all(p in self.optional for p in single)) or any(p in self.optional for p in group):
                 self.optional.add(qid)
+            if st["opts"].get("rare"):  # started by a rare's drop: a hunt step you can skip
+                self.optional.add(qid)
+                out["rare"] = True
+                out.pop("item", None)
+                out["text"] = self.rare_text(q)
+                st = dict(st, tip=" ".join(t for t in (self.rare_tip(qid), st["tip"]) if t))
             if out.get("item"):
                 out["text"] = self.item_start_text(q, out.pop("item"))
         else:
@@ -811,6 +848,9 @@ class Compiler:
                 self.err(w, "turn-in of %d %s before it is accepted" % (qid, q.get("name")))
             if qid not in self.solo_checked:
                 self.check_solo(q, qid, classes, w)
+            if qid not in self.completed and self.nothing_between(q):
+                self.warn(w, "%d %s goes back to its giver with nothing routed in between, but its text asks for "
+                          "more: add a complete step?" % (qid, q.get("name")))
             if self.has(self.turned, qid, classes):
                 self.err(w, "quest %d turned in twice" % qid)
             self.turned.append((qid, classes))
@@ -830,6 +870,67 @@ class Compiler:
         srcs += [self.d.name("object", o) for o in as_list(it.get("objectDrops"))[:2]]
         srcs = [s for s in srcs if s and s != iname]
         return "Loot the %s%s and use it to start the quest" % (iname, " (%s)" % ", ".join(srcs) if srcs else "")
+
+    def droppers(self, q):
+        _, _, items = self.d.givers(q.get("startedBy"))
+        it = (self.d.items.get(str(items[0])) or {}) if items else {}
+        return it, [self.d.npcs.get(str(n)) or {} for n in as_list(it.get("npcDrops"))]
+
+    def rare_text(self, q):
+        it, mobs = self.droppers(q)
+        mob = mobs[0] if mobs else {}
+        level = mob.get("maxLevel") or mob.get("minLevel")
+        kind = "rare elite" if mob.get("rank") == 2 else "rare"
+        return "Find %s (%s%s) and loot the %s, then use it to start the quest" % (
+            mob.get("name") or "the rare", kind, ", level %d" % level if level else "", it.get("name") or "quest item")
+
+    def follow_ups(self, qid):
+        """Quests that need this one, directly or further down the chain."""
+        if not hasattr(self, "_next"):
+            self._next = {}
+            for k, v in self.d.quests.items():
+                for p in as_list(v.get("preQuestSingle")) + as_list(v.get("preQuestGroup")):
+                    self._next.setdefault(p, []).append(int(k))
+        out, todo = [], [qid]
+        while todo:
+            for n in self._next.get(todo.pop(), []):
+                if n not in out:
+                    out.append(n)
+                    todo.append(n)
+        return out
+
+    def rare_tip(self, qid):
+        chain = len(self.follow_ups(qid))
+        mobs = self.droppers(self.d.quest(qid))[1]
+        level = max([m.get("maxLevel") or m.get("minLevel") or 0 for m in mobs] or [0])
+        elite = any(m.get("rank") == 2 for m in mobs)
+        if level >= max(self.level, self.xp_level()) + (DANGER_ABOVE if elite else RARE_TOO_HIGH):
+            return ("It's level %d, well above you at this point: click Next to skip it unless you have help, "
+                    "the rest of the quest is left out." % level)
+        if chain > RARE_LONG_CHAIN:
+            return "It's a rare spawn, but %d more quests follow from it, so it is worth the wait." % chain
+        return ("It's a rare spawn. If it isn't up or you've waited a while, click Next to skip it, "
+                "the rest of the quest is left out.")
+
+    def nothing_between(self, q):
+        # no objectives in the DB and the giver takes it back, yet the text asks for something
+        npcs, _, _ = self.d.givers(q.get("startedBy"))
+        text = " ".join(str(t) for t in as_list(q.get("objectivesText")))
+        ob = slots(q.get("objectives"))
+        return bool(npcs and text and q.get("startedBy") == q.get("finishedBy") and not TALK.search(text)
+                    and not any(as_list(ob.get(k)) for k in (1, 2, 3, 5)) and not q.get("triggerEnd"))
+
+    def elite_tip(self, mp, x, y):
+        level = max(self.level, self.xp_level())
+        near = {}
+        for n in hostile_spawns(self.d).get(mp, {}).values():
+            close = any(math.hypot(px - x, py - y) <= ELITE_NEAR for px, py in n["pts"])
+            if close and n["elite"] and n["level"] >= level + DANGER_ABOVE and len(n["pts"]) <= ELITE_NAMED:
+                near[n["name"]] = n["level"]
+        if not near:
+            return None
+        return "Elite nearby, well above you: %s. Keep an eye out." % ", ".join(
+            "%s (%d)" % kv for kv in sorted(near.items(), key=lambda kv: -kv[1])[:2])
 
     @staticmethod
     def use_item_tip(q):
@@ -899,6 +1000,7 @@ class Compiler:
             parts += t
             titles.append(q.get("name"))
             self.routed.add(qid)
+            self.completed.add(qid)
             if not c:
                 self.add_kill_xp(q)
         out = {"complete": qids if len(qids) > 1 else qids[0]}
@@ -918,6 +1020,15 @@ class Compiler:
         res = self.common(st, out, classes, races)
         tips = [t for t in (self.use_item_tip(self.d.quest(q)) for q in qids) if t and t != res.get("text")
                 and not st["text"]]  # hand-written step text already says what to do
+        if not classes and "x" in res:
+            mob = max(mob_level(self.d, self.d.quest(q)) for q in qids)
+            if mob >= max(self.level, self.xp_level()) + DANGER_ABOVE:
+                tips.append("These mobs are level %d, a few above you at this point. Pull one at a time and rest "
+                            "between fights." % mob)
+            if not out.get("elite"):
+                tip = self.elite_tip(res.get("map") or guide["map"], res["x"], res["y"])
+                if tip:
+                    tips.append(tip)
         if tips:
             res["tip"] = " ".join(([res["tip"]] if res.get("tip") else []) + tips)
         return res
@@ -963,7 +1074,7 @@ def lua_val(v):
 
 KEY_ORDER = ["accept", "turnin", "complete", "train", "getfp", "fly", "sethearth", "hearth", "level", "go", "note",
              "title", "titles", "npc", "text", "map", "x", "y", "radius", "class", "race", "notclass", "tip",
-             "qlevel", "pre", "preall", "optional", "elite", "via", "items", "targets", "area"]
+             "qlevel", "pre", "preall", "optional", "elite", "rare", "via", "items", "targets", "area"]
 
 
 def write_guide(guide, fname, route_name):

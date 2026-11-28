@@ -50,7 +50,7 @@ QF:RegisterGuide({
         { accept = 855, title = "Centaur Bracers", npc = "Regthar Deathgate", x = 45.3, y = 28.4, qlevel = 14 }, -- Undead_Barrens.route:46
         { accept = 850, title = "Kolkar Leaders", npc = "Regthar Deathgate", x = 45.3, y = 28.4, qlevel = 16 }, -- Undead_Barrens.route:47
         { complete = { 855, 848, 870 }, titles = { "Centaur Bracers", "Fungal Spores", "The Forgotten Pools" }, text = "Collect Centaur Bracers (Kolkar Wrangler, Kolkar Stormer). Collect Fungal Spores (Laden Mushroom). Explore the waters of the Forgotten Pools.", x = 44.3, y = 23.7, targets = { "Kolkar Wrangler", "Kolkar Stormer", "Kolkar Bloodcharger" }, area = { 44.4, 23.7, 45.2, 23.3, 44.5, 22.1, 45.6, 22.5, 42.5, 24.1, 44.6, 25.6, 45.5, 25.4, 42.2, 25.2, 47.5, 24.6, 45, 20 } }, -- Undead_Barrens.route:48
-        { complete = 903, title = "Prowlers of the Barrens", text = "Collect Prowler Claws (Savannah Prowler).", x = 43.2, y = 33.5, targets = { "Savannah Prowler" }, area = { 43.2, 33.3, 42.4, 32.8, 42.2, 32.4, 42.8, 35, 44.2, 31.6, 43.8, 37.6, 42.6, 28.9, 41.6, 28.7, 41, 27.2, 41.3, 24.3 } }, -- Undead_Barrens.route:49
+        { complete = 903, title = "Prowlers of the Barrens", text = "Collect Prowler Claws (Savannah Prowler).", x = 43.2, y = 33.5, tip = "Elite nearby, well above you: Mad Magglish (18). Keep an eye out.", targets = { "Savannah Prowler" }, area = { 43.2, 33.3, 42.4, 32.8, 42.2, 32.4, 42.8, 35, 44.2, 31.6, 43.8, 37.6, 42.6, 28.9, 41.6, 28.7, 41, 27.2, 41.3, 24.3 } }, -- Undead_Barrens.route:49
         { turnin = 848, title = "Fungal Spores", npc = "Apothecary Helbrim", x = 51.4, y = 30.1 }, -- Undead_Barrens.route:50
         { turnin = 903, title = "Prowlers of the Barrens", npc = "Sergra Darkthorn", x = 52.2, y = 31 }, -- Undead_Barrens.route:51
         { turnin = 870, title = "The Forgotten Pools", npc = "Tonga Runetotem", x = 52.3, y = 31.9 }, -- Undead_Barrens.route:52
@@ -62,7 +62,7 @@ QF:RegisterGuide({
         { accept = 95507, title = "Vrang's Game", npc = "Vrang Wildgore", x = 43.8, y = 12.2, qlevel = 18 }, -- Undead_Barrens.route:58
         { complete = 95507, title = "Vrang's Game", text = "Collect Trapped Game (Sprung Trap).", x = 45.1, y = 14, area = { 45.3, 14, 43.9, 14.4, 45.4, 15.3, 42.9, 15, 47, 12.4, 47.6, 12.6, 47.9, 11.1, 50.2, 12.7, 42.7, 21.2 } }, -- Undead_Barrens.route:59
         { turnin = 95507, title = "Vrang's Game", npc = "Vrang Wildgore", x = 43.8, y = 12.2 }, -- Undead_Barrens.route:60
-        { complete = 867, title = "Harpy Raiders", text = "Collect Witchwing Talon (Witchwing Harpy, Witchwing Roguefeather).", x = 39.3, y = 14.9, targets = { "Witchwing Slayer", "Witchwing Harpy", "Witchwing Windcaller" }, area = { 39.2, 14.7, 39.5, 15.2, 40.1, 15.3, 40.6, 14.8, 37.2, 15.7, 38.9, 12.4, 38.5, 17.5, 40.5, 17.7 } }, -- Undead_Barrens.route:61
+        { complete = 867, title = "Harpy Raiders", text = "Collect Witchwing Talon (Witchwing Harpy, Witchwing Roguefeather).", x = 39.3, y = 14.9, tip = "Elite nearby, well above you: Sister Rathtalon (19). Keep an eye out.", targets = { "Witchwing Slayer", "Witchwing Harpy", "Witchwing Windcaller" }, area = { 39.2, 14.7, 39.5, 15.2, 40.1, 15.3, 40.6, 14.8, 37.2, 15.7, 38.9, 12.4, 38.5, 17.5, 40.5, 17.7 } }, -- Undead_Barrens.route:61
         { complete = 869, title = "Raptor Thieves", text = "Collect Raptor Head (Sunscale Lashtail, Sunscale Screecher).", x = 58.5, y = 34.7, targets = { "Sunscale Screecher", "Sunscale Scytheclaw", "Sunscale Lashtail" }, area = { 58.5, 34.4, 57.2, 35.7, 60, 35.6, 60.8, 33.4, 56, 33.6, 60.2, 32.2, 57.6, 38.4, 54.6, 35.9, 59.8, 30.6, 56, 38.8 } }, -- Undead_Barrens.route:62
         { accept = 865, title = "Raptor Horns", npc = "Mebok Mizzyrix", x = 62.4, y = 37.6, qlevel = 18 }, -- Undead_Barrens.route:63
         { accept = 895, title = "WANTED: Baron Longshore", npc = "WANTED", x = 62.6, y = 37.5, qlevel = 16 }, -- Undead_Barrens.route:64
@@ -76,17 +76,17 @@ QF:RegisterGuide({
         { accept = 3281, title = "Stolen Silver", npc = "Gazrog", x = 51.9, y = 30.3, qlevel = 18, pre = { 869 } }, -- Undead_Barrens.route:72
         { turnin = 867, title = "Harpy Raiders", npc = "Darsok Swiftdagger", x = 51.6, y = 30.9 }, -- Undead_Barrens.route:73
         { accept = 875, title = "Harpy Lieutenants", npc = "Darsok Swiftdagger", x = 51.6, y = 30.9, qlevel = 16, pre = { 867 } }, -- Undead_Barrens.route:74
-        { complete = 880, title = "Altered Beings", text = "Collect Altered Snapjaw Shell (Oasis Snapjaw, Oasis Snapjaw Hatchling).", x = 46.8, y = 39.7, targets = { "Oasis Snapjaw" }, area = { 47, 39.6, 46.4, 40, 47.6, 39.5, 47.7, 40.2, 55, 42.2, 55.1, 43 } }, -- Undead_Barrens.route:75
+        { complete = 880, title = "Altered Beings", text = "Collect Altered Snapjaw Shell (Oasis Snapjaw, Oasis Snapjaw Hatchling).", x = 46.8, y = 39.7, tip = "Elite nearby, well above you: Gesharahan (20). Keep an eye out.", targets = { "Oasis Snapjaw" }, area = { 47, 39.6, 46.4, 40, 47.6, 39.5, 47.7, 40.2, 55, 42.2, 55.1, 43 } }, -- Undead_Barrens.route:75
         { accept = 883, title = "Lakota'mani", text = "Loot the Hoof of Lakota'mani (Lakota'mani) and use it to start the quest", x = 46.2, y = 51.1, qlevel = 22, items = { 5099 } }, -- Undead_Barrens.route:76
         { complete = 4921, title = "Lost in Battle", text = "Kill Beaten Corpse.", x = 49.3, y = 50.3, targets = { "Beaten Corpse" } }, -- Undead_Barrens.route:77
         { accept = 884, title = "Owatanka", text = "Loot the Owatanka's Tailspike (Owatanka) and use it to start the quest", x = 44.8, y = 62.4, qlevel = 24, items = { 5102 } }, -- Undead_Barrens.route:78
         { turnin = 884, title = "Owatanka", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Undead_Barrens.route:79
         { turnin = 883, title = "Lakota'mani", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Undead_Barrens.route:80
-        { accept = 3513, title = "The Runed Scroll", text = "Loot the Runed Scroll (Aean Swiftriver) and use it to start the quest", x = 46, y = 70, qlevel = 25, items = { 10621 } }, -- Undead_Barrens.route:81
-        { accept = 897, title = "The Harvester", text = "Loot the Harvester's Head (Silithid Harvester) and use it to start the quest", x = 42, y = 70, qlevel = 24, items = { 5138 } }, -- Undead_Barrens.route:82
+        { accept = 3513, title = "The Runed Scroll", text = "Find Aean Swiftriver (rare elite, level 26) and loot the Runed Scroll, then use it to start the quest", x = 46, y = 70, tip = "It's level 26, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out.", qlevel = 25, optional = { 3513 }, rare = true, items = { 10621 }, targets = { "Aean Swiftriver" } }, -- Undead_Barrens.route:81
+        { accept = 897, title = "The Harvester", text = "Find Silithid Harvester (rare, level 24) and loot the Harvester's Head, then use it to start the quest", x = 42, y = 70, tip = "It's level 24, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out.", qlevel = 24, optional = { 897 }, rare = true, items = { 5138 }, targets = { "Silithid Harvester" } }, -- Undead_Barrens.route:82
         { accept = 885, title = "Washte Pawne", text = "Loot the Washte Pawne's Feather (Washte Pawne) and use it to start the quest", x = 45.1, y = 79.9, qlevel = 25, items = { 5103 } }, -- Undead_Barrens.route:83
         { turnin = 885, title = "Washte Pawne", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Undead_Barrens.route:84
-        { turnin = 897, title = "The Harvester", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Undead_Barrens.route:85
+        { turnin = 897, title = "The Harvester", npc = "Jorn Skyseer", x = 44.9, y = 59.1, optional = { 897 } }, -- Undead_Barrens.route:85
         { complete = 3281, title = "Stolen Silver", text = "Collect Stolen Silver.", x = 58, y = 53.9, tip = "On the way you pass objectives of \"Raptor Horns\" (Intact Raptor Horn) - do them as you go." }, -- Undead_Barrens.route:86
         { turnin = 888, title = "Stolen Booty", npc = "Gazlowe", x = 62.7, y = 36.2, tip = "On the way you pass objectives of \"Raptor Horns\" (Intact Raptor Horn) - do them as you go." }, -- Undead_Barrens.route:87
         { turnin = 895, title = "WANTED: Baron Longshore", npc = "Gazlowe", x = 62.7, y = 36.2 }, -- Undead_Barrens.route:88
@@ -113,7 +113,7 @@ QF:RegisterGuide({
         { complete = 95508, title = "Unwelcome Guests", text = "Kill Terry Longdrink.", x = 41.9, y = 11.4, targets = { "Terry Longdrink" } }, -- Undead_Barrens.route:109
         { turnin = 95508, title = "Unwelcome Guests", npc = "Walton", x = 42, y = 11.4 }, -- Undead_Barrens.route:110
         { complete = 875, title = "Harpy Lieutenants", text = "Collect Harpy Lieutenant Ring (Witchwing Slayer).", x = 38.8, y = 14.8, targets = { "Witchwing Slayer" }, area = { 38.8, 15.1, 39.2, 14.7, 40.1, 15.3, 37.2, 15.7, 39, 12.3, 38.5, 17.5 } }, -- Undead_Barrens.route:111
-        { turnin = 3513, title = "The Runed Scroll", npc = "Kadrak", x = 48.1, y = 5.4 }, -- Undead_Barrens.route:112
+        { turnin = 3513, title = "The Runed Scroll", npc = "Kadrak", x = 48.1, y = 5.4, optional = { 3513 } }, -- Undead_Barrens.route:112
         { turnin = 6541, title = "Report to Kadrak", npc = "Kadrak", x = 48.1, y = 5.4 }, -- Undead_Barrens.route:113
         { turnin = 894, title = "Samophlange", npc = "Control Console", x = 52.4, y = 11.7 }, -- Undead_Barrens.route:114
         { accept = 900, title = "Samophlange", npc = "Control Console", x = 52.4, y = 11.7, qlevel = 14, pre = { 894 } }, -- Undead_Barrens.route:115

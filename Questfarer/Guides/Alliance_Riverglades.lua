@@ -33,7 +33,7 @@ QF:RegisterGuide({
         { turnin = 95983, title = "A Feast for Buzzards", npc = "Watcher Cornelius", x = 59.5, y = 64 }, -- Alliance_Riverglades.route:29
         { accept = 95064, title = "Preventative Measures", npc = "Watcher Cornelius", x = 59.5, y = 64, qlevel = 39, pre = { 94924 } }, -- Alliance_Riverglades.route:30
         { accept = 95603, title = "Bats in the Belfry", npc = "Sister Rowland", x = 61.8, y = 83.1, qlevel = 38 }, -- Alliance_Riverglades.route:31
-        { complete = 95603, title = "Bats in the Belfry", text = "Kill Roosting Duskbat.", x = 61.2, y = 84.8, targets = { "Roosting Duskbat" }, area = { 61.6, 84.8, 60.5, 85.3 } }, -- Alliance_Riverglades.route:32
+        { complete = 95603, title = "Bats in the Belfry", text = "Kill Roosting Duskbat.", x = 61.2, y = 84.8, tip = "Elite nearby, well above you: Donald Armstrong (53), Abbot Schuncke (53). Keep an eye out.", targets = { "Roosting Duskbat" }, area = { 61.6, 84.8, 60.5, 85.3 } }, -- Alliance_Riverglades.route:32
         { turnin = 95603, title = "Bats in the Belfry", npc = "Sister Rowland", x = 61.8, y = 83.1 }, -- Alliance_Riverglades.route:33
         { accept = 95330, title = "Love Thy Neighbor", npc = "Cassandra Wheeler", x = 64.7, y = 82.9, qlevel = 37 }, -- Alliance_Riverglades.route:34
         { accept = 94613, title = "My Kingdom for a Horse", npc = "Demar Brant", x = 66.7, y = 81, qlevel = 38 }, -- Alliance_Riverglades.route:35

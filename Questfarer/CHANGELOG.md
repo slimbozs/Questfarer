@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.5-beta
+
+- Quests that start from a rare's drop (Assassin's Contract, The Moss-twined Heart, The Demon Scarred Cloak,
+  The Harvester, The Runed Scroll) now get a step to hunt the rare. Click Next to skip it if the rare isn't up:
+  the rest of the quest is left out, and if the item drops later you can still hand it in.
+- Steps now warn about named elites well above your level close by, like Mor'Ladim in Duskwood.
+- Brewer's Trade now sends you to Dun Garok for the Sack of Homebrew Hops before you hand it in.
+- Arch Absolution (Hyjal) and Oasis (Tanaris) now have the step that was missing between taking and handing in
+  the quest.
+- The Missing Diplomat: the arrow now points at Thomas in Stormwind.
+- A few more values the game can hide (the flight check, the arrow's facing) no longer risk a Lua error.
+
 ## 0.9.4-beta
 
 - Fixed a Lua error from the time tracker (Timer.lua:19) when the game hides whether you are AFK,

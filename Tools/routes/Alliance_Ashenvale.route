@@ -81,7 +81,7 @@ note Take the boat from Auberdine to Stormwind Harbor.
 train Stormwind
 accept   7791 {via=crosszone}
 accept   7793 {via=crosszone}
-accept   1274
+accept   1274 @51.3,47.6,1453
 turnin   1274
 accept   1241
 turnin   1241

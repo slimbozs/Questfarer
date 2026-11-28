@@ -16,7 +16,7 @@ turnin   884
 accept   854
 accept   883 @46.2,51.1
 turnin   883
-accept   897 @42.0,70.0
+accept   897 @42.0,70.0 {rare=1}
 turnin   897
 getfp Crossroads @51.5,30.3 {npc=Devrak}
 sethearth Crossroads @52.0,29.9 {npc=Innkeeper Boorand Plainswind} || Talk to the innkeeper and choose "Make this inn your home".

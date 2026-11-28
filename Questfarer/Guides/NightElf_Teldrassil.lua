@@ -62,7 +62,7 @@ QF:RegisterGuide({
         { accept = 99047, title = "Not Dead Yet", npc = "Sentinel Eralya Leafshadow", x = 37.5, y = 36.8, qlevel = 9 }, -- NightElf_Teldrassil.route:57
         { turnin = 99046, title = "The Lost Runner", npc = "Sentinel Eralya Leafshadow", x = 37.5, y = 36.8 }, -- NightElf_Teldrassil.route:58
         { accept = 931, title = "The Shimmering Frond", npc = "Strange Fronded Plant", x = 34.6, y = 28.8, qlevel = 10, pre = { 918 } }, -- NightElf_Teldrassil.route:59
-        { accept = 927, title = "The Moss-twined Heart", text = "Loot the Moss-twined Heart (Blackmoss the Fetid) and use it to start the quest", x = 43.3, y = 28.3, qlevel = 12, items = { 5179 } }, -- NightElf_Teldrassil.route:60
+        { accept = 927, title = "The Moss-twined Heart", text = "Find Blackmoss the Fetid (rare, level 13) and loot the Moss-twined Heart, then use it to start the quest", x = 43.3, y = 28.3, tip = "It's level 13, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out.", qlevel = 12, optional = { 927 }, rare = true, items = { 5179 }, targets = { "Blackmoss the Fetid" } }, -- NightElf_Teldrassil.route:60
         { turnin = 487, title = "The Road to Darnassus", npc = "Moon Priestess Amara", x = 52.9, y = 57.2 }, -- NightElf_Teldrassil.route:61
         { turnin = 99047, title = "Not Dead Yet", npc = "Byancie", x = 55.3, y = 56.8 }, -- NightElf_Teldrassil.route:62
         { accept = 99050, title = "The Great Tree Provides", npc = "Byancie", x = 55.3, y = 56.8, qlevel = 10, pre = { 99047 } }, -- NightElf_Teldrassil.route:63
@@ -70,7 +70,7 @@ QF:RegisterGuide({
         { turnin = 476, title = "Gnarlpine Corruption", npc = "Athridas Bearmantle", x = 56, y = 57.3 }, -- NightElf_Teldrassil.route:65
         { turnin = 99053, title = "Escaping Ban'ethil", npc = "Sentinel Kyra Starsong", x = 56, y = 59.5 }, -- NightElf_Teldrassil.route:66
         { complete = 99050, title = "The Great Tree Provides", text = "Collect Dewy Lasher Frond (Lasher Sproutling, Blooming Lasher). Collect Empty Vial. Collect Refreshing Spring Water.", x = 55.4, y = 68.6, tip = "Empty Vial is sold by vendors such as Narret Shadowgrove. Refreshing Spring Water is sold by vendors such as Lyrai, Aldia.", area = { 55.5, 68.6, 54.8, 68.7, 54.9, 67.5, 55.7, 67.4, 55.3, 70.1, 53.9, 70.1, 57.5, 67.7, 58.1, 67.3, 57.8, 70.6, 52, 69.5 } }, -- NightElf_Teldrassil.route:67
-        { turnin = 927, title = "The Moss-twined Heart", npc = "Denalan", x = 60.9, y = 68.5 }, -- NightElf_Teldrassil.route:68
+        { turnin = 927, title = "The Moss-twined Heart", npc = "Denalan", x = 60.9, y = 68.5, optional = { 927 } }, -- NightElf_Teldrassil.route:68
         { turnin = 931, title = "The Shimmering Frond", npc = "Denalan", x = 60.9, y = 68.5 }, -- NightElf_Teldrassil.route:69
         { accept = 2399, title = "The Sprouted Fronds", npc = "Sprouted Frond", x = 60.8, y = 68.6, qlevel = 10, pre = { 931 } }, -- NightElf_Teldrassil.route:70
         { turnin = 2399, title = "The Sprouted Fronds", npc = "Sprouted Frond", x = 60.8, y = 68.6 }, -- NightElf_Teldrassil.route:71

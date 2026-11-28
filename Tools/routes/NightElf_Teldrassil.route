@@ -57,7 +57,7 @@ turnin   490
 accept   99047
 turnin   99046
 accept   931
-accept   927 @43.3,28.3
+accept   927 @43.3,28.3 {rare=1}
 turnin   487
 turnin   99047
 accept   99050

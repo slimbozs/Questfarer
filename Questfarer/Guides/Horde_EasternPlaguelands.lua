@@ -26,7 +26,7 @@ QF:RegisterGuide({
         { complete = { 5543, 6021 }, titles = { "Blood Tinged Skies", "Zaeldarr the Outcast" }, text = "Kill Plaguebat. Collect Zaeldarr's Head (Zaeldarr the Outcast).", x = 28.9, y = 71.6, targets = { "Plaguebat", "Zaeldarr the Outcast" }, area = { 28.5, 72.3, 30.1, 72.1, 27.8, 73, 27.1, 72.2, 23.1, 72.6, 28.2, 64.8, 36.1, 72.3, 30, 64.2, 22.4, 76.4, 37, 73.5 } }, -- Horde_EasternPlaguelands.route:22
         { turnin = 5601, title = "Sister Pamela", npc = "Pamela Redpath", x = 31.1, y = 78 }, -- Horde_EasternPlaguelands.route:23
         { accept = 5149, title = "Pamela's Doll", npc = "Pamela Redpath", x = 31.1, y = 78, qlevel = 55 }, -- Horde_EasternPlaguelands.route:24
-        { complete = 5149, title = "Pamela's Doll", text = "Find the doll's head, left side and right side in the houses of Darrowshire, then combine them into Pamela's Doll.", x = 33.2, y = 78.6, items = { 12886, 12887, 12888 } }, -- Horde_EasternPlaguelands.route:25
+        { complete = 5149, title = "Pamela's Doll", text = "Find the doll's head, left side and right side in the houses of Darrowshire, then combine them into Pamela's Doll.", x = 33.2, y = 78.6, tip = "Elite nearby, well above you: Horgus the Ravager (60). Keep an eye out.", items = { 12886, 12887, 12888 } }, -- Horde_EasternPlaguelands.route:25
         { turnin = 5149, title = "Pamela's Doll", npc = "Pamela Redpath", x = 31.1, y = 78 }, -- Horde_EasternPlaguelands.route:26
         { accept = 5241, title = "Uncle Carlin", npc = "Pamela Redpath", x = 31.1, y = 78, qlevel = 56, pre = { 5149 } }, -- Horde_EasternPlaguelands.route:27
         { turnin = 6133, title = "The Ranger Lord's Behest", npc = "Nathanos Blightcaller", x = 22.2, y = 63.5 }, -- Horde_EasternPlaguelands.route:28

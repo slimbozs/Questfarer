@@ -13,10 +13,8 @@ next Alliance 30-31 Stranglethorn Vale
 getfp Southshore @49.3,52.3 {npc=Darla Harris}
 
 accept   98071
-turnin   98071
 accept   536
-accept   522 @50.1,57.9
-turnin   522
+accept   522 @50.1,57.9 {rare=1} || If it drops later, use it: you hand it in at the end of this guide.
 accept   92432 {via=crosszone}
 turnin   92432 {via=crosszone}
 complete 536 @43.5,68.3
@@ -30,10 +28,13 @@ accept   561
 turnin   561
 accept   562
 complete 562 @57.3,68.3
+complete 98071 @71.0,79.0 | Bring the Case of Fallrook Varietal to Dun Garok and pick up a Sack of Homebrew Hops.
 turnin   562
+turnin   98071
 accept   510
 accept   511
 turnin   511
+turnin   522
 turnin   510
 
 # On to Stranglethorn Vale (the best zone from here)

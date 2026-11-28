@@ -83,7 +83,7 @@ QF:RegisterGuide({
         { train = "Stormwind" }, -- Alliance_Ashenvale.route:81
         { accept = 7791, title = "A Donation of Wool", npc = "Clavicus Knavingham", map = 1453, x = 53.9, y = 81.7, qlevel = 60 }, -- Alliance_Ashenvale.route:82
         { accept = 7793, title = "A Donation of Silk", npc = "Clavicus Knavingham", map = 1453, x = 53.9, y = 81.7, qlevel = 60 }, -- Alliance_Ashenvale.route:83
-        { accept = 1274, title = "The Missing Diplomat", npc = "Thomas", map = 1453, x = 49.6, y = 44.5, qlevel = 28 }, -- Alliance_Ashenvale.route:84
+        { accept = 1274, title = "The Missing Diplomat", npc = "Thomas", map = 1453, x = 51.3, y = 47.6, qlevel = 28 }, -- Alliance_Ashenvale.route:84
         { turnin = 1274, title = "The Missing Diplomat", npc = "Bishop DeLavey", map = 1453, x = 80.2, y = 44.1 }, -- Alliance_Ashenvale.route:85
         { accept = 1241, title = "The Missing Diplomat", npc = "Bishop DeLavey", map = 1453, x = 80.2, y = 44.1, qlevel = 28, pre = { 1274 } }, -- Alliance_Ashenvale.route:86
         { turnin = 1241, title = "The Missing Diplomat", npc = "Jorgen", map = 1453, x = 76.3, y = 85.1 }, -- Alliance_Ashenvale.route:87

@@ -45,7 +45,7 @@ QF:RegisterGuide({
         { turnin = 187, title = "Tiger Mastery", npc = "Ajeck Rouack", x = 35.6, y = 10.6 }, -- Alliance_STV2.route:41
         { accept = 195, title = "Raptor Mastery", npc = "Hemet Nesingwary", x = 35.7, y = 10.8, qlevel = 36, pre = { 194 } }, -- Alliance_STV2.route:42
         { turnin = 207, title = "Kurzen's Mystery", npc = "Brother Nimetz", x = 37.8, y = 3.6 }, -- Alliance_STV2.route:43
-        { complete = 195, title = "Raptor Mastery", text = "Kill Lashtail Raptor.", x = 31.8, y = 23.5, targets = { "Lashtail Raptor" }, area = { 32.1, 23.8, 33, 23.9, 30.6, 22.5, 32.5, 21.4, 34, 25.5, 35.6, 26.3, 37.7, 21.5, 38.4, 25.2, 37.8, 19.8, 38.9, 24.6 } }, -- Alliance_STV2.route:44
+        { complete = 195, title = "Raptor Mastery", text = "Kill Lashtail Raptor.", x = 31.8, y = 23.5, tip = "Elite nearby, well above you: Elder Saltwater Crocolisk (38). Keep an eye out.", targets = { "Lashtail Raptor" }, area = { 32.1, 23.8, 33, 23.9, 30.6, 22.5, 32.5, 21.4, 34, 25.5, 35.6, 26.3, 37.7, 21.5, 38.4, 25.2, 37.8, 19.8, 38.9, 24.6 } }, -- Alliance_STV2.route:44
         { turnin = 195, title = "Raptor Mastery", npc = "Hemet Nesingwary", x = 35.7, y = 10.8 }, -- Alliance_STV2.route:45
         { accept = 213, title = "Hostile Takeover", npc = "Kebok", x = 27, y = 77.1, qlevel = 36 }, -- Alliance_STV2.route:46
         { turnin = 189, title = "Bloodscalp Ears", npc = "Kebok", x = 27, y = 77.1 }, -- Alliance_STV2.route:47

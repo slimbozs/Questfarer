@@ -53,10 +53,11 @@ QF:RegisterGuide({
         { turnin = 1691, title = "More Wastewander Justice", npc = "Chief Engineer Bilgewhizzle", x = 52.5, y = 28.5 }, -- Horde_Tanaris.route:49
         { complete = 97530, title = "Dunemaul Dues", text = "Collect Brilliantly Polished Bangle (Dunemaul Ogre, Dunemaul Enforcer).", x = 40.4, y = 54.3, targets = { "Dunemaul Brute", "Dunemaul Enforcer", "Dunemaul Warlock" }, area = { 40.5, 54.3, 39.6, 53.8, 41.2, 55.2, 39.1, 55.3, 40.5, 52.4, 42.5, 54.4, 39.2, 51.9, 42.5, 55.9, 40.2, 58, 39.9, 58 } }, -- Horde_Tanaris.route:50
         { accept = 97540, title = "Oasis", npc = "Tooga", x = 29.5, y = 60.5, qlevel = 50 }, -- Horde_Tanaris.route:51
-        { turnin = 97540, title = "Oasis", npc = "Tooga", x = 29.5, y = 60.5 }, -- Horde_Tanaris.route:52
-        { turnin = 351, title = "Find OOX-17/TN!", npc = "Homing Robot OOX-17/TN", x = 60.2, y = 64.7 }, -- Horde_Tanaris.route:53
-        { turnin = 97530, title = "Dunemaul Dues", npc = "Security Chief Bilgewhizzle", x = 67.1, y = 23.9 }, -- Horde_Tanaris.route:54
-        { hearth = "Gadgetzan" }, -- Horde_Tanaris.route:57
-        { fly = "Shadowprey Village", npc = "Bulkrek Ragefist", x = 51.6, y = 25.4 }, -- Horde_Tanaris.route:58
+        { complete = 97540, title = "Oasis", text = "Lead Tooga back to Torta.", x = 66.6, y = 25.7 }, -- Horde_Tanaris.route:52
+        { turnin = 97540, title = "Oasis", npc = "Tooga", x = 66.6, y = 25.7 }, -- Horde_Tanaris.route:53
+        { turnin = 351, title = "Find OOX-17/TN!", npc = "Homing Robot OOX-17/TN", x = 60.2, y = 64.7 }, -- Horde_Tanaris.route:54
+        { turnin = 97530, title = "Dunemaul Dues", npc = "Security Chief Bilgewhizzle", x = 67.1, y = 23.9 }, -- Horde_Tanaris.route:55
+        { hearth = "Gadgetzan" }, -- Horde_Tanaris.route:58
+        { fly = "Shadowprey Village", npc = "Bulkrek Ragefist", x = 51.6, y = 25.4 }, -- Horde_Tanaris.route:59
     },
 })

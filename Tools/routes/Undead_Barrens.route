@@ -78,8 +78,8 @@ complete 4921 @49.3,50.3
 accept   884 @44.8,62.4
 turnin   884
 turnin   883
-accept   3513 @46.0,70.0
-accept   897 @42.0,70.0
+accept   3513 @46.0,70.0 {rare=1}
+accept   897 @42.0,70.0 {rare=1}
 accept   885 @45.1,79.9
 turnin   885
 turnin   897

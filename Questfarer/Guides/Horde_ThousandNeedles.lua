@@ -32,7 +32,7 @@ QF:RegisterGuide({
         { complete = 5064, title = "Grimtotem Spying", text = "Collect Secret Note #1 (Document Chest). Collect Secret Note #2 (Document Chest). Collect Secret Note #3 (Document Chest).", x = 33.8, y = 40, area = { 33.8, 40, 39.3, 41.5, 31.8, 32.6 } }, -- Horde_ThousandNeedles.route:27
         { complete = 1149, title = "Test of Faith", text = "If you have faith, leap from the planks overlooking Thousand Needles..", x = 26.4, y = 32.9 }, -- Horde_ThousandNeedles.route:28
         { turnin = 4865, title = "Serpent Wild", npc = "Motega Firemane", x = 21.5, y = 32.4 }, -- Horde_ThousandNeedles.route:29
-        { complete = 4767, title = "Wind Rider", text = "Collect Highperch Wyvern Egg.", x = 17.6, y = 41.6, area = { 18, 41.7, 17.2, 40.8, 12.6, 37.4, 11.6, 37.1, 11.1, 34.5 } }, -- Horde_ThousandNeedles.route:30
+        { complete = 4767, title = "Wind Rider", text = "Collect Highperch Wyvern Egg.", x = 17.6, y = 41.6, tip = "Elite nearby, well above you: Heartrazor (32). Keep an eye out.", area = { 18, 41.7, 17.2, 40.8, 12.6, 37.4, 11.6, 37.1, 11.1, 34.5 } }, -- Horde_ThousandNeedles.route:30
         { turnin = 4767, title = "Wind Rider", npc = "Elu", x = 44.9, y = 48.9 }, -- Horde_ThousandNeedles.route:31
         { turnin = 5064, title = "Grimtotem Spying", npc = "Cliffwatcher Longhorn", x = 45.7, y = 50.7 }, -- Horde_ThousandNeedles.route:32
         { turnin = 1149, title = "Test of Faith", npc = "Dorn Plainstalker", x = 54, y = 41.5 }, -- Horde_ThousandNeedles.route:33

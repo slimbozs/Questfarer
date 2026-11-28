@@ -276,7 +276,7 @@ end
 -- returns continent, X, Y, label, or nil to point at the step itself
 function Paths:Next(step)
     if not (QF.db and QF.db.checkpoints) or not (step and step.x and step.y and step.map) then return nil end
-    if UnitOnTaxi and UnitOnTaxi("player") then return nil end
+    if UnitOnTaxi and plain(UnitOnTaxi("player")) then return nil end
     local pc, px, py, zone = self:PlayerWorld()
     if not pc then return nil end
     local tc, tx, ty = self:World(step.map, step.x, step.y)

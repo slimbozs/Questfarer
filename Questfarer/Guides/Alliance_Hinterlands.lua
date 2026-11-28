@@ -20,7 +20,7 @@ QF:RegisterGuide({
         { complete = 2988, title = "Witherbark Cages", text = "Use Check First Cage. Use Check Second Cage. Use Check Third Cage.", x = 23.2, y = 58.8, area = { 23.1, 58.8, 32, 57.3 } }, -- Alliance_Hinterlands.route:16
         { turnin = 2988, title = "Witherbark Cages", npc = "Gryphon Master Talonaxe", x = 9.8, y = 44.5 }, -- Alliance_Hinterlands.route:17
         { accept = 2989, title = "The Altar of Zul", npc = "Gryphon Master Talonaxe", x = 9.8, y = 44.5, qlevel = 48, pre = { 2988 } }, -- Alliance_Hinterlands.route:18
-        { complete = 2989, title = "The Altar of Zul", text = "Search the Altar of Zul.", x = 49, y = 68.7 }, -- Alliance_Hinterlands.route:19
+        { complete = 2989, title = "The Altar of Zul", text = "Search the Altar of Zul.", x = 49, y = 68.7, tip = "Elite nearby, well above you: Qiaga the Keeper (50), Morta'gya the Keeper (50). Keep an eye out." }, -- Alliance_Hinterlands.route:19
         { turnin = 2989, title = "The Altar of Zul", npc = "Gryphon Master Talonaxe", x = 9.8, y = 44.5 }, -- Alliance_Hinterlands.route:20
         { level = 43, text = "Kill Mangy Silvermane here until level 43 (the next quests need it).", x = 17.2, y = 49.5 }, -- Alliance_Hinterlands.route:21
         { accept = 2880, title = "Troll Necklace Bounty", npc = "Fraggar Thundermantle", x = 14.8, y = 44.6, qlevel = 45 }, -- Alliance_Hinterlands.route:22

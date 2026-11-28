@@ -17,7 +17,7 @@ QF:RegisterGuide({
         { level = 52, text = "Kill Jaedenar Hunter and Jaedenar Guardian here until level 52 (nothing beats grinding now).", x = 36.5, y = 56.4 }, -- Horde_Felwood3.route:13
         { accept = 4521, title = "Wild Guardians", npc = "Trull Failbane", x = 34.7, y = 52.8, qlevel = 56 }, -- Horde_Felwood3.route:14
         { accept = 5156, title = "Verifying the Corruption", npc = "Taronn Redfeather", x = 50.9, y = 81.6, qlevel = 54 }, -- Horde_Felwood3.route:16
-        { complete = 5156, title = "Verifying the Corruption", text = "Kill Entropic Beast. Kill Entropic Horror. Explore the craters in Shatter Scar Vale.", x = 42.1, y = 40.1, targets = { "Entropic Beast", "Entropic Horror" }, area = { 41.7, 40.1, 41, 39.6, 43.5, 40.4, 43.4, 38.8, 45.1, 41, 41.2, 43.8, 45.7, 38.6 } }, -- Horde_Felwood3.route:17
+        { complete = 5156, title = "Verifying the Corruption", text = "Kill Entropic Beast. Kill Entropic Horror. Explore the craters in Shatter Scar Vale.", x = 42.1, y = 40.1, tip = "Elite nearby, well above you: Immolatus (56). Keep an eye out.", targets = { "Entropic Beast", "Entropic Horror" }, area = { 41.7, 40.1, 41, 39.6, 43.5, 40.4, 43.4, 38.8, 45.1, 41, 41.2, 43.8, 45.7, 38.6 } }, -- Horde_Felwood3.route:17
         { turnin = 5156, title = "Verifying the Corruption", npc = "Taronn Redfeather", x = 50.9, y = 81.6 }, -- Horde_Felwood3.route:18
     },
 })

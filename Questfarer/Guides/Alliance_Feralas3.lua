@@ -15,7 +15,7 @@ QF:RegisterGuide({
     next = "Alliance 45 Riverglades (part 6)",
     steps = {
         { accept = 2870, title = "Against Lord Shalzaru", npc = "Latronicus Moonspear", x = 30.4, y = 46.2, qlevel = 45, pre = { 2869 } }, -- Alliance_Feralas3.route:12
-        { complete = 2870, title = "Against Lord Shalzaru", text = "Collect Mysterious Relic (Lord Shalzaru).", x = 28.5, y = 70.5, targets = { "Lord Shalzaru" } }, -- Alliance_Feralas3.route:13
+        { complete = 2870, title = "Against Lord Shalzaru", text = "Collect Mysterious Relic (Lord Shalzaru).", x = 28.5, y = 70.5, tip = "Elite nearby, well above you: Lord Lakmaeran (62). Keep an eye out.", targets = { "Lord Shalzaru" } }, -- Alliance_Feralas3.route:13
         { turnin = 2870, title = "Against Lord Shalzaru", npc = "Latronicus Moonspear", x = 30.4, y = 46.2 }, -- Alliance_Feralas3.route:14
         { accept = 2871, title = "Delivering the Relic", npc = "Latronicus Moonspear", x = 30.4, y = 46.2, qlevel = 45, pre = { 2870 } }, -- Alliance_Feralas3.route:15
         { turnin = 2871, title = "Delivering the Relic", npc = "Vestia Moonspear", x = 30.1, y = 45.1 }, -- Alliance_Feralas3.route:16

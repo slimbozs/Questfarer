@@ -173,6 +173,12 @@ function Arrow:SetDistance(text)
     self.tag:SetWidth(self.dist:GetStringWidth() + 20)
 end
 
+-- nil in instances, and the client can hide it
+local function playerFacing()
+    local f = GetPlayerFacing and GetPlayerFacing()
+    if f and not (issecretvalue and issecretvalue(f)) then return f end
+end
+
 local function tint(tex, c)
     tex:SetVertexColor(c[1], c[2], c[3])
 end
@@ -219,7 +225,7 @@ function Arrow:Update()
     if cc then
         self.label:SetText(cpLabel)
         self.dial:SetAlpha(1)
-        local facing = GetPlayerFacing and GetPlayerFacing()
+        local facing = playerFacing()
         if facing then tex:SetRotation(bearing - facing) end
         tint(tex, BLUE)
         self:SetDistance(("%d yd"):format(dist))
@@ -242,7 +248,7 @@ function Arrow:Update()
         self:SetDistance("You're there")
         return
     end
-    local facing = GetPlayerFacing and GetPlayerFacing()
+    local facing = playerFacing()
     if facing then
         tex:SetRotation(bearing - facing)
     end

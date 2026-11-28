@@ -16,7 +16,7 @@ QF:RegisterGuide({
     steps = {
         { accept = 3882, title = "Roll the Bones", npc = "Spark Nilminer", x = 43.5, y = 7.4, qlevel = 51 }, -- Alliance_UnGoro2.route:12
         { accept = 4503, title = "Shizzle's Flyer", npc = "Shizzle", x = 44.2, y = 11.6, qlevel = 51 }, -- Alliance_UnGoro2.route:13
-        { complete = { 3882, 4503 }, titles = { "Roll the Bones", "Shizzle's Flyer" }, text = "Collect Dinosaur Bone (Stegodon, Plated Stegodon). Collect Webbed Diemetradon Scale (Young Diemetradon, Diemetradon). Collect Webbed Pterrordax Scale (Fledgling Pterrordax, Pterrordax).", x = 35.8, y = 72.8, targets = { "Elder Diemetradon", "Diemetradon", "Stegodon" }, area = { 36.5, 72.3, 34.7, 72.4, 37.2, 72.7, 38, 71.3, 35.6, 75.8, 32.7, 73.5, 35.6, 69.3, 34.9, 69.1, 32.3, 74.7, 34.8, 76.8 } }, -- Alliance_UnGoro2.route:14
+        { complete = { 3882, 4503 }, titles = { "Roll the Bones", "Shizzle's Flyer" }, text = "Collect Dinosaur Bone (Stegodon, Plated Stegodon). Collect Webbed Diemetradon Scale (Young Diemetradon, Diemetradon). Collect Webbed Pterrordax Scale (Fledgling Pterrordax, Pterrordax).", x = 35.8, y = 72.8, tip = "Elite nearby, well above you: Thunderstomp Stegodon (55). Keep an eye out.", targets = { "Elder Diemetradon", "Diemetradon", "Stegodon" }, area = { 36.5, 72.3, 34.7, 72.4, 37.2, 72.7, 38, 71.3, 35.6, 75.8, 32.7, 73.5, 35.6, 69.3, 34.9, 69.1, 32.3, 74.7, 34.8, 76.8 } }, -- Alliance_UnGoro2.route:14
         { turnin = 4503, title = "Shizzle's Flyer", npc = "Shizzle", x = 44.2, y = 11.6 }, -- Alliance_UnGoro2.route:15
         { turnin = 3882, title = "Roll the Bones", npc = "Spark Nilminer", x = 43.5, y = 7.4 }, -- Alliance_UnGoro2.route:16
         { note = "Run to Silithus." }, -- Alliance_UnGoro2.route:19

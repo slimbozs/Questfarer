@@ -24,7 +24,7 @@ QF:RegisterGuide({
         { turnin = 8462, title = "Speak to Nafien", npc = "Nafien", x = 64.8, y = 8.1 }, -- Horde_Felwood4.route:21
         { complete = 8461, title = "Deadwood of the North", text = "Kill Deadwood Den Watcher. Kill Deadwood Avenger. Kill Deadwood Shaman.", x = 62.3, y = 9, targets = { "Deadwood Den Watcher", "Deadwood Avenger", "Deadwood Shaman" }, area = { 62.3, 9.2, 62.7, 8.4, 62.7, 10.1, 61.4, 10, 63, 7.3, 62.1, 7.1, 62.4, 12.7, 59.8, 6.2, 63.3, 12.9 } }, -- Horde_Felwood4.route:22
         { turnin = 8461, title = "Deadwood of the North", npc = "Nafien", x = 64.8, y = 8.1 }, -- Horde_Felwood4.route:23
-        { complete = 4102, title = "Cleansing Felwood", text = "Collect Blood Amber (Warpwood Moss Flayer, Warpwood Shredder).", x = 57.7, y = 19.8, targets = { "Warpwood Moss Flayer", "Warpwood Shredder", "Dessecus" }, area = { 57.3, 19.7, 58.1, 20.4, 57.9, 19.1, 57.2, 21, 57.1, 17.1, 54.4, 16.9 } }, -- Horde_Felwood4.route:24
+        { complete = 4102, title = "Cleansing Felwood", text = "Collect Blood Amber (Warpwood Moss Flayer, Warpwood Shredder).", x = 57.7, y = 19.8, tip = "Elite nearby, well above you: Dessecus (56). Keep an eye out.", targets = { "Warpwood Moss Flayer", "Warpwood Shredder", "Dessecus" }, area = { 57.3, 19.7, 58.1, 20.4, 57.9, 19.1, 57.2, 21, 57.1, 17.1, 54.4, 16.9 } }, -- Horde_Felwood4.route:24
         { turnin = 4102, title = "Cleansing Felwood", npc = "Maybess Riverbreeze", x = 46.8, y = 83.1 }, -- Horde_Felwood4.route:25
         { fly = "Marshal's Refuge", npc = "Brakkar", x = 34.4, y = 54 }, -- Horde_Felwood4.route:28
     },

@@ -107,7 +107,8 @@ function QF:IsStepDone(step)
     elseif t == "train" then
         return not self:NeedsTraining()
     elseif t == "fly" then
-        return UnitOnTaxi("player") and true or false
+        local taxi = UnitOnTaxi("player")
+        return not (issecretvalue and issecretvalue(taxi)) and taxi and true or false
     elseif t == "sethearth" then
         local bind = GetBindLocation()
         return bind and bind:lower() == tostring(step.sethearth):lower() or false

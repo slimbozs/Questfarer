@@ -21,7 +21,7 @@ QF:RegisterGuide({
         { accept = 575, title = "Supply and Demand", npc = "Drizzlik", x = 28.3, y = 77.6, qlevel = 31 }, -- Horde_STV.route:17
         { accept = 629, title = "The Vile Reef", npc = "Kin'weelay", x = 32.3, y = 27.7, qlevel = 37 }, -- Horde_STV.route:18
         { turnin = 1240, title = "The Troll Witchdoctor", npc = "Kin'weelay", x = 32.3, y = 27.7 }, -- Horde_STV.route:19
-        { complete = 629, title = "The Vile Reef", text = "Collect Tablet Shard (Gri'lek the Wanderer, Gri'lek the Wanderer).", x = 24.8, y = 23 }, -- Horde_STV.route:20
+        { complete = 629, title = "The Vile Reef", text = "Collect Tablet Shard (Gri'lek the Wanderer, Gri'lek the Wanderer).", x = 24.8, y = 23, tip = "Elite nearby, well above you: Saltscale Oracle (37), Saltscale Tide Lord (37). Keep an eye out." }, -- Horde_STV.route:20
         { turnin = 629, title = "The Vile Reef", npc = "Kin'weelay", x = 32.3, y = 27.7 }, -- Horde_STV.route:21
         { accept = 1261, title = "Marg Speaks", npc = "Bubbling Cauldron", x = 32.2, y = 27.6, qlevel = 40, pre = { 1240 } }, -- Horde_STV.route:22
         { accept = 95748, title = "The Gurubashi Legends of Old", npc = "Kin'weelay", x = 32.3, y = 27.7, qlevel = 40, pre = { 629 } }, -- Horde_STV.route:23

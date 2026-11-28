@@ -16,41 +16,42 @@ QF:RegisterGuide({
     steps = {
         { getfp = "Southshore", npc = "Darla Harris", x = 49.3, y = 52.3 }, -- Alliance_Hillsbrad.route:13
         { accept = 98071, title = "Brewer's Trade", npc = "Brewmeister Bilger", x = 52.1, y = 58.7, qlevel = 27 }, -- Alliance_Hillsbrad.route:15
-        { turnin = 98071, title = "Brewer's Trade", npc = "Brewmeister Bilger", x = 52.1, y = 58.7 }, -- Alliance_Hillsbrad.route:16
-        { accept = 536, title = "Down the Coast", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 30 }, -- Alliance_Hillsbrad.route:17
-        { accept = 522, title = "Assassin's Contract", text = "Loot the Assassin's Contract (Shadowy Assassin) and use it to start the quest", x = 50.1, y = 57.9, qlevel = 38, items = { 3668 } }, -- Alliance_Hillsbrad.route:18
-        { turnin = 522, title = "Assassin's Contract", npc = "Magistrate Henry Maleb", x = 48.1, y = 59.1 }, -- Alliance_Hillsbrad.route:19
-        { accept = 92432, title = "An Alarming Request", npc = "Emissary Jacques", x = 48.3, y = 60, qlevel = 33 }, -- Alliance_Hillsbrad.route:20
-        { turnin = 92432, title = "An Alarming Request", npc = "Image of Archmage Modera", x = 48.3, y = 60.1 }, -- Alliance_Hillsbrad.route:21
-        { complete = 536, title = "Down the Coast", text = "Kill Torn Fin Tidehunter. Kill Torn Fin Oracle.", x = 43.5, y = 68.3, targets = { "Torn Fin Tidehunter", "Torn Fin Oracle" }, area = { 43.4, 68.2, 43.9, 67.2, 45, 68.6, 45, 67.4, 41.1, 68, 42.7, 70.7, 40.4, 71.2, 42.5, 72.6, 46, 64, 48.3, 66.4 } }, -- Alliance_Hillsbrad.route:22
-        { turnin = 536, title = "Down the Coast", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:23
-        { accept = 559, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 536 } }, -- Alliance_Hillsbrad.route:24
-        { complete = 559, title = "Farren's Proof", text = "Collect Murloc Head (Torn Fin Muckdweller, Torn Fin Coastrunner).", x = 42.8, y = 68.7, targets = { "Torn Fin Coastrunner", "Torn Fin Muckdweller", "Torn Fin Oracle" }, area = { 42.7, 69.2, 41.1, 68, 43.9, 67.2, 42.7, 70.7, 45, 68.6, 45, 67.4, 40.4, 71.2, 42.5, 72.6, 38.6, 71.1, 40, 72.8 } }, -- Alliance_Hillsbrad.route:25
-        { turnin = 559, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:26
-        { accept = 560, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 559 } }, -- Alliance_Hillsbrad.route:27
-        { turnin = 560, title = "Farren's Proof", npc = "Marshal Redpath", x = 49.5, y = 58.7 }, -- Alliance_Hillsbrad.route:28
-        { accept = 561, title = "Farren's Proof", npc = "Marshal Redpath", x = 49.5, y = 58.7, qlevel = 32, pre = { 560 } }, -- Alliance_Hillsbrad.route:29
-        { turnin = 561, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:30
-        { accept = 562, title = "Stormwind Ho!", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 561 } }, -- Alliance_Hillsbrad.route:31
-        { complete = 562, title = "Stormwind Ho!", text = "Kill Daggerspine Shorehunter. Kill Daggerspine Siren.", x = 57.3, y = 68.3, targets = { "Daggerspine Shorehunter", "Daggerspine Siren" }, area = { 57.2, 68.3, 57.8, 69.1, 58.2, 70, 57.7, 66.3, 55.9, 66.6, 54.7, 68.4, 56.9, 71.1, 53.7, 66.8, 58.3, 72.6, 54.5, 64.4 } }, -- Alliance_Hillsbrad.route:32
-        { turnin = 562, title = "Stormwind Ho!", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:33
+        { accept = 536, title = "Down the Coast", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 30 }, -- Alliance_Hillsbrad.route:16
+        { accept = 522, title = "Assassin's Contract", text = "Find Shadowy Assassin (rare, level 38) and loot the Assassin's Contract, then use it to start the quest", x = 50.1, y = 57.9, tip = "It's level 38, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out. If it drops later, use it: you hand it in at the end of this guide.", qlevel = 38, optional = { 522 }, rare = true, items = { 3668 }, targets = { "Shadowy Assassin" } }, -- Alliance_Hillsbrad.route:17
+        { accept = 92432, title = "An Alarming Request", npc = "Emissary Jacques", x = 48.3, y = 60, qlevel = 33 }, -- Alliance_Hillsbrad.route:18
+        { turnin = 92432, title = "An Alarming Request", npc = "Image of Archmage Modera", x = 48.3, y = 60.1 }, -- Alliance_Hillsbrad.route:19
+        { complete = 536, title = "Down the Coast", text = "Kill Torn Fin Tidehunter. Kill Torn Fin Oracle.", x = 43.5, y = 68.3, targets = { "Torn Fin Tidehunter", "Torn Fin Oracle" }, area = { 43.4, 68.2, 43.9, 67.2, 45, 68.6, 45, 67.4, 41.1, 68, 42.7, 70.7, 40.4, 71.2, 42.5, 72.6, 46, 64, 48.3, 66.4 } }, -- Alliance_Hillsbrad.route:20
+        { turnin = 536, title = "Down the Coast", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:21
+        { accept = 559, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 536 } }, -- Alliance_Hillsbrad.route:22
+        { complete = 559, title = "Farren's Proof", text = "Collect Murloc Head (Torn Fin Muckdweller, Torn Fin Coastrunner).", x = 42.8, y = 68.7, targets = { "Torn Fin Coastrunner", "Torn Fin Muckdweller", "Torn Fin Oracle" }, area = { 42.7, 69.2, 41.1, 68, 43.9, 67.2, 42.7, 70.7, 45, 68.6, 45, 67.4, 40.4, 71.2, 42.5, 72.6, 38.6, 71.1, 40, 72.8 } }, -- Alliance_Hillsbrad.route:23
+        { turnin = 559, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:24
+        { accept = 560, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 559 } }, -- Alliance_Hillsbrad.route:25
+        { turnin = 560, title = "Farren's Proof", npc = "Marshal Redpath", x = 49.5, y = 58.7 }, -- Alliance_Hillsbrad.route:26
+        { accept = 561, title = "Farren's Proof", npc = "Marshal Redpath", x = 49.5, y = 58.7, qlevel = 32, pre = { 560 } }, -- Alliance_Hillsbrad.route:27
+        { turnin = 561, title = "Farren's Proof", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:28
+        { accept = 562, title = "Stormwind Ho!", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4, qlevel = 32, pre = { 561 } }, -- Alliance_Hillsbrad.route:29
+        { complete = 562, title = "Stormwind Ho!", text = "Kill Daggerspine Shorehunter. Kill Daggerspine Siren.", x = 57.3, y = 68.3, targets = { "Daggerspine Shorehunter", "Daggerspine Siren" }, area = { 57.2, 68.3, 57.8, 69.1, 58.2, 70, 57.7, 66.3, 55.9, 66.6, 54.7, 68.4, 56.9, 71.1, 53.7, 66.8, 58.3, 72.6, 54.5, 64.4 } }, -- Alliance_Hillsbrad.route:30
+        { complete = 98071, title = "Brewer's Trade", text = "Bring the Case of Fallrook Varietal to Dun Garok and pick up a Sack of Homebrew Hops.", x = 71, y = 79, items = { 279390 } }, -- Alliance_Hillsbrad.route:31
+        { turnin = 562, title = "Stormwind Ho!", npc = "Lieutenant Farren Orinelle", x = 51.5, y = 58.4 }, -- Alliance_Hillsbrad.route:32
+        { turnin = 98071, title = "Brewer's Trade", npc = "Brewmeister Bilger", x = 52.1, y = 58.7 }, -- Alliance_Hillsbrad.route:33
         { accept = 510, title = "Foreboding Plans", npc = "Syndicate Documents", map = 1416, x = 58.3, y = 67.9, qlevel = 34 }, -- Alliance_Hillsbrad.route:34
         { accept = 511, title = "Encrypted Letter", npc = "Syndicate Documents", map = 1416, x = 58.3, y = 67.9, qlevel = 34 }, -- Alliance_Hillsbrad.route:35
         { turnin = 511, title = "Encrypted Letter", npc = "Loremaster Dibbs", x = 50.6, y = 57.1 }, -- Alliance_Hillsbrad.route:36
-        { turnin = 510, title = "Foreboding Plans", npc = "Magistrate Henry Maleb", x = 48.1, y = 59.1 }, -- Alliance_Hillsbrad.route:37
-        { fly = "Darkshire", npc = "Darla Harris", x = 49.3, y = 52.3 }, -- Alliance_Hillsbrad.route:40
-        { turnin = 74, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4 }, -- Alliance_Hillsbrad.route:41
-        { accept = 75, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4, qlevel = 28, pre = { 74 } }, -- Alliance_Hillsbrad.route:42
-        { complete = 75, title = "The Legend of Stalvan", text = "Collect A Faded Journal Page (Marshal Haggard's Chest).", map = 1429, x = 85.7, y = 69.5 }, -- Alliance_Hillsbrad.route:43
-        { turnin = 75, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4 }, -- Alliance_Hillsbrad.route:44
-        { accept = 78, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4, qlevel = 28, pre = { 75 } }, -- Alliance_Hillsbrad.route:45
-        { turnin = 78, title = "The Legend of Stalvan", npc = "Tavernkeep Smitts", map = 1431, x = 73.8, y = 44.5 }, -- Alliance_Hillsbrad.route:46
-        { accept = 79, title = "The Legend of Stalvan", npc = "Tavernkeep Smitts", map = 1431, x = 73.8, y = 44.5, qlevel = 28, pre = { 78 } }, -- Alliance_Hillsbrad.route:47
-        { turnin = 79, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8 }, -- Alliance_Hillsbrad.route:48
-        { accept = 80, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8, qlevel = 28, pre = { 79 } }, -- Alliance_Hillsbrad.route:49
-        { turnin = 80, title = "The Legend of Stalvan", npc = "Clerk Daltry", map = 1431, x = 72.5, y = 46.9 }, -- Alliance_Hillsbrad.route:50
-        { accept = 97, title = "The Legend of Stalvan", npc = "Clerk Daltry", map = 1431, x = 72.5, y = 46.9, qlevel = 28, pre = { 80 } }, -- Alliance_Hillsbrad.route:51
-        { turnin = 97, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8 }, -- Alliance_Hillsbrad.route:52
-        { note = "Run to Stranglethorn Vale." }, -- Alliance_Hillsbrad.route:53
+        { turnin = 522, title = "Assassin's Contract", npc = "Magistrate Henry Maleb", x = 48.1, y = 59.1, optional = { 522 } }, -- Alliance_Hillsbrad.route:37
+        { turnin = 510, title = "Foreboding Plans", npc = "Magistrate Henry Maleb", x = 48.1, y = 59.1 }, -- Alliance_Hillsbrad.route:38
+        { fly = "Darkshire", npc = "Darla Harris", x = 49.3, y = 52.3 }, -- Alliance_Hillsbrad.route:41
+        { turnin = 74, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4 }, -- Alliance_Hillsbrad.route:42
+        { accept = 75, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4, qlevel = 28, pre = { 74 } }, -- Alliance_Hillsbrad.route:43
+        { complete = 75, title = "The Legend of Stalvan", text = "Collect A Faded Journal Page (Marshal Haggard's Chest).", map = 1429, x = 85.7, y = 69.5 }, -- Alliance_Hillsbrad.route:44
+        { turnin = 75, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4 }, -- Alliance_Hillsbrad.route:45
+        { accept = 78, title = "The Legend of Stalvan", npc = "Marshal Haggard", map = 1429, x = 84.6, y = 69.4, qlevel = 28, pre = { 75 } }, -- Alliance_Hillsbrad.route:46
+        { turnin = 78, title = "The Legend of Stalvan", npc = "Tavernkeep Smitts", map = 1431, x = 73.8, y = 44.5 }, -- Alliance_Hillsbrad.route:47
+        { accept = 79, title = "The Legend of Stalvan", npc = "Tavernkeep Smitts", map = 1431, x = 73.8, y = 44.5, qlevel = 28, pre = { 78 } }, -- Alliance_Hillsbrad.route:48
+        { turnin = 79, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8 }, -- Alliance_Hillsbrad.route:49
+        { accept = 80, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8, qlevel = 28, pre = { 79 } }, -- Alliance_Hillsbrad.route:50
+        { turnin = 80, title = "The Legend of Stalvan", npc = "Clerk Daltry", map = 1431, x = 72.5, y = 46.9 }, -- Alliance_Hillsbrad.route:51
+        { accept = 97, title = "The Legend of Stalvan", npc = "Clerk Daltry", map = 1431, x = 72.5, y = 46.9, qlevel = 28, pre = { 80 } }, -- Alliance_Hillsbrad.route:52
+        { turnin = 97, title = "The Legend of Stalvan", npc = "Commander Althea Ebonlocke", map = 1431, x = 73.5, y = 46.8 }, -- Alliance_Hillsbrad.route:53
+        { note = "Run to Stranglethorn Vale." }, -- Alliance_Hillsbrad.route:54
     },
 })

@@ -17,7 +17,7 @@ QF:RegisterGuide({
         { accept = 2418, title = "Power Stones", npc = "Rigglefuzz", x = 42.4, y = 52.9, qlevel = 36 }, -- Alliance_Badlands.route:12
         { accept = 705, title = "Pearl Diving", npc = "Rigglefuzz", x = 42.4, y = 52.9, qlevel = 37 }, -- Alliance_Badlands.route:13
         { accept = 709, title = "Solution to Doom", npc = "Theldurin the Lost", x = 51.4, y = 76.9, qlevel = 40 }, -- Alliance_Badlands.route:14
-        { complete = 709, title = "Solution to Doom", text = "Collect Tablet of Ryun'eh (Ancient Chest).", x = 39.3, y = 18.8 }, -- Alliance_Badlands.route:15
+        { complete = 709, title = "Solution to Doom", text = "Collect Tablet of Ryun'eh (Ancient Chest).", x = 39.3, y = 18.8, tip = "Elite nearby, well above you: Magregan Deepshadow (38). Keep an eye out." }, -- Alliance_Badlands.route:15
         { complete = 2418, title = "Power Stones", text = "Collect Dentrium Power Stone (Shadowforge Surveyor, Shadowforge Ruffian). Collect An'Alleum Power Stone (Shadowforge Surveyor, Shadowforge Ruffian).", x = 46.6, y = 11.2, targets = { "Shadowforge Digger", "Shadowforge Surveyor", "Shadowforge Ruffian" }, area = { 46.6, 11, 46.4, 12.6, 48, 10.8, 47.4, 9.8, 47.6, 12.6, 44.8, 11.2, 47.8, 9.6, 44.6, 9.6, 50.2, 11.8, 50, 9.8 } }, -- Alliance_Badlands.route:16
         { turnin = 2418, title = "Power Stones", npc = "Rigglefuzz", x = 42.4, y = 52.9 }, -- Alliance_Badlands.route:17
         { turnin = 709, title = "Solution to Doom", npc = "Theldurin the Lost", x = 51.4, y = 76.9 }, -- Alliance_Badlands.route:18

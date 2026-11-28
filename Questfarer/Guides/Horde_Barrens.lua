@@ -56,13 +56,13 @@ QF:RegisterGuide({
         { accept = 883, title = "Lakota'mani", text = "Loot the Hoof of Lakota'mani (Lakota'mani) and use it to start the quest", x = 46.2, y = 51.1, qlevel = 22, items = { 5099 } }, -- Horde_Barrens.route:52
         { turnin = 883, title = "Lakota'mani", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Horde_Barrens.route:53
         { accept = 884, title = "Owatanka", text = "Loot the Owatanka's Tailspike (Owatanka) and use it to start the quest", x = 44.8, y = 62.4, qlevel = 24, items = { 5102 } }, -- Horde_Barrens.route:54
-        { accept = 3513, title = "The Runed Scroll", text = "Loot the Runed Scroll (Aean Swiftriver) and use it to start the quest", x = 46, y = 70, qlevel = 25, items = { 10621 } }, -- Horde_Barrens.route:55
-        { accept = 897, title = "The Harvester", text = "Loot the Harvester's Head (Silithid Harvester) and use it to start the quest", x = 42, y = 70, qlevel = 24, items = { 5138 } }, -- Horde_Barrens.route:56
+        { accept = 3513, title = "The Runed Scroll", text = "Find Aean Swiftriver (rare elite, level 26) and loot the Runed Scroll, then use it to start the quest", x = 46, y = 70, tip = "It's level 26, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out.", qlevel = 25, optional = { 3513 }, rare = true, items = { 10621 }, targets = { "Aean Swiftriver" } }, -- Horde_Barrens.route:55
+        { accept = 897, title = "The Harvester", text = "Find Silithid Harvester (rare, level 24) and loot the Harvester's Head, then use it to start the quest", x = 42, y = 70, tip = "It's level 24, well above you at this point: click Next to skip it unless you have help, the rest of the quest is left out.", qlevel = 24, optional = { 897 }, rare = true, items = { 5138 }, targets = { "Silithid Harvester" } }, -- Horde_Barrens.route:56
         { accept = 885, title = "Washte Pawne", text = "Loot the Washte Pawne's Feather (Washte Pawne) and use it to start the quest", x = 45.1, y = 79.9, qlevel = 25, items = { 5103 } }, -- Horde_Barrens.route:57
         { turnin = 885, title = "Washte Pawne", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Horde_Barrens.route:58
         { turnin = 884, title = "Owatanka", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Horde_Barrens.route:59
-        { turnin = 897, title = "The Harvester", npc = "Jorn Skyseer", x = 44.9, y = 59.1 }, -- Horde_Barrens.route:60
-        { complete = 848, title = "Fungal Spores", text = "Collect Fungal Spores (Laden Mushroom).", x = 47.9, y = 36.4, area = { 47.4, 37.5, 46.4, 37.5, 47.6, 39.6, 48.2, 40.3, 46.9, 40.4, 55.3, 40.4, 53.4, 43.4, 55.2, 42.5, 44.6, 25.6, 43.9, 24.4 } }, -- Horde_Barrens.route:61
+        { turnin = 897, title = "The Harvester", npc = "Jorn Skyseer", x = 44.9, y = 59.1, optional = { 897 } }, -- Horde_Barrens.route:60
+        { complete = 848, title = "Fungal Spores", text = "Collect Fungal Spores (Laden Mushroom).", x = 47.9, y = 36.4, tip = "Elite nearby, well above you: Boahn (20). Keep an eye out.", area = { 47.4, 37.5, 46.4, 37.5, 47.6, 39.6, 48.2, 40.3, 46.9, 40.4, 55.3, 40.4, 53.4, 43.4, 55.2, 42.5, 44.6, 25.6, 43.9, 24.4 } }, -- Horde_Barrens.route:61
         { level = 17, text = "Kill what is around here until level 17 (the next quests need it).", x = 47.9, y = 36.4 }, -- Horde_Barrens.route:62
         { accept = 6541, title = "Report to Kadrak", npc = "Thork", x = 51.5, y = 30.9, qlevel = 19 }, -- Horde_Barrens.route:63
         { turnin = 848, title = "Fungal Spores", npc = "Apothecary Helbrim", x = 51.4, y = 30.1 }, -- Horde_Barrens.route:64
@@ -83,7 +83,7 @@ QF:RegisterGuide({
         { turnin = 865, title = "Raptor Horns", npc = "Mebok Mizzyrix", x = 62.4, y = 37.6 }, -- Horde_Barrens.route:79
         { accept = 1491, title = "Smart Drinks", npc = "Mebok Mizzyrix", x = 62.4, y = 37.6, qlevel = 18, pre = { 865 } }, -- Horde_Barrens.route:80
         { turnin = 888, title = "Stolen Booty", npc = "Gazlowe", x = 62.7, y = 36.2 }, -- Horde_Barrens.route:81
-        { complete = 1491, title = "Smart Drinks", text = "Collect Wailing Essence (Devouring Ectoplasm, Evolving Ectoplasm).", x = 47.8, y = 33.3, targets = { "Devouring Ectoplasm" }, area = { 47.6, 33, 48.2, 32.2, 46, 33.9 } }, -- Horde_Barrens.route:82
+        { complete = 1491, title = "Smart Drinks", text = "Collect Wailing Essence (Devouring Ectoplasm, Evolving Ectoplasm).", x = 47.8, y = 33.3, tip = "Elite nearby, well above you: Boahn (20). Keep an eye out.", targets = { "Devouring Ectoplasm" }, area = { 47.6, 33, 48.2, 32.2, 46, 33.9 } }, -- Horde_Barrens.route:82
         { accept = 819, title = "Chen's Empty Keg", text = "Loot the Chen's Empty Keg and use it to start the quest", x = 43.8, y = 12.2, qlevel = 15, items = { 4926 } }, -- Horde_Barrens.route:83
         { accept = 95494, title = "Bruised Pride and Lion Hides", npc = "Vrang Wildgore", x = 43.8, y = 12.2, qlevel = 18 }, -- Horde_Barrens.route:84
         { accept = 95507, title = "Vrang's Game", npc = "Vrang Wildgore", x = 43.8, y = 12.2, qlevel = 18 }, -- Horde_Barrens.route:85
@@ -98,7 +98,7 @@ QF:RegisterGuide({
         { accept = 95508, title = "Unwelcome Guests", npc = "Walton", x = 42, y = 11.4, qlevel = 18, pre = { 95621 } }, -- Horde_Barrens.route:94
         { complete = 95508, title = "Unwelcome Guests", text = "Kill Terry Longdrink.", x = 41.9, y = 11.4, targets = { "Terry Longdrink" } }, -- Horde_Barrens.route:95
         { turnin = 95508, title = "Unwelcome Guests", npc = "Walton", x = 42, y = 11.4 }, -- Horde_Barrens.route:96
-        { turnin = 3513, title = "The Runed Scroll", npc = "Kadrak", x = 48.1, y = 5.4 }, -- Horde_Barrens.route:97
+        { turnin = 3513, title = "The Runed Scroll", npc = "Kadrak", x = 48.1, y = 5.4, optional = { 3513 } }, -- Horde_Barrens.route:97
         { turnin = 6541, title = "Report to Kadrak", npc = "Kadrak", x = 48.1, y = 5.4 }, -- Horde_Barrens.route:98
         { turnin = 894, title = "Samophlange", npc = "Control Console", x = 52.4, y = 11.7 }, -- Horde_Barrens.route:99
         { accept = 900, title = "Samophlange", npc = "Control Console", x = 52.4, y = 11.7, qlevel = 14, pre = { 894 } }, -- Horde_Barrens.route:100

@@ -46,7 +46,7 @@ QF:RegisterGuide({
         { complete = 4740, title = "WANTED: Murkdeep!", text = "Kill Murkdeep.", x = 36.4, y = 76.5, targets = { "Murkdeep" } }, -- Dwarf_Darkshore2.route:43
         { turnin = 950, title = "Return to Onu", npc = "Onu", x = 43.5, y = 76.3 }, -- Dwarf_Darkshore2.route:44
         { accept = 951, title = "Mathystra Relics", npc = "Onu", x = 43.5, y = 76.3, qlevel = 20, pre = { 950 } }, -- Dwarf_Darkshore2.route:45
-        { complete = 1275, title = "Researching the Corruption", text = "Collect Corrupted Brain Stem (Fallenroot Satyr, Fallenroot Rogue).", x = 32.3, y = 92.9, targets = { "Blackfathom Oracle", "Fallenroot Satyr", "Fallenroot Rogue" }, area = { 32.1, 93.1, 31.8, 92.4, 32.8, 93.9 } }, -- Dwarf_Darkshore2.route:46
+        { complete = 1275, title = "Researching the Corruption", text = "Collect Corrupted Brain Stem (Fallenroot Satyr, Fallenroot Rogue).", x = 32.3, y = 92.9, tip = "Elite nearby, well above you: Fallenroot Rogue (22), Fallenroot Satyr (21). Keep an eye out.", targets = { "Blackfathom Oracle", "Fallenroot Satyr", "Fallenroot Rogue" }, area = { 32.1, 93.1, 31.8, 92.4, 32.8, 93.9 } }, -- Dwarf_Darkshore2.route:46
         { turnin = 4740, title = "WANTED: Murkdeep!", npc = "Sentinel Glynda Nal'Shea", x = 37.7, y = 43.4 }, -- Dwarf_Darkshore2.route:47
         { turnin = 1275, title = "Researching the Corruption", npc = "Gershala Nightwhisper", x = 38.3, y = 43 }, -- Dwarf_Darkshore2.route:48
         { turnin = 2139, title = "Tharnariun's Hope", npc = "Tharnariun Treetender", x = 38.8, y = 43.4 }, -- Dwarf_Darkshore2.route:49
